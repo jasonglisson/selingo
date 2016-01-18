@@ -23,6 +23,9 @@ function site_scripts() {
     // Register selingo stylesheet
     wp_enqueue_style( 'selingo-css', get_template_directory_uri() . '/assets/css/selingo.css', array('site-css'), '', 'all' );
 
+    // Register font-awesome stylesheet
+    wp_enqueue_style( 'font-awesome-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', array('site-css'), '', 'all' );
+
     // Comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
       wp_enqueue_script( 'comment-reply' );

@@ -1,17 +1,66 @@
 .pre-footer {
-  background: #d7d7d7;
-  padding: 25px 0; }
+  background: #d7d7d7; }
   .pre-footer h4 {
     border-bottom: 1px solid #666;
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    padding-top: 25px;
+    float: left;
+    width: 100%; }
   .pre-footer .menu {
     margin: 10px 0;
     float: left; }
     .pre-footer .menu .menu-item {
       float: left;
-      width: 100%; }
+      width: 100%;
+      border-bottom: 1px solid rgba(153, 153, 153, 0.59);
+      transition: 0.3s all; }
+      .pre-footer .menu .menu-item i {
+        float: right;
+        color: #666; }
+      .pre-footer .menu .menu-item:hover {
+        background: rgba(153, 153, 153, 0.59); }
+
+.tweet {
+  float: left;
+  border-bottom: 1px solid #c0c0c0;
+  padding: 10px 0;
+  font-size: 14px; }
+  .tweet .prof-img {
+    padding: 0; }
+  .tweet .tweet-info {
+    padding: 0; }
+    .tweet .tweet-info .tweet-top {
+      float: left;
+      width: 100%;
+      padding-bottom: 10px; }
+      .tweet .tweet-info .tweet-top .name {
+        float: left;
+        font-weight: bold; }
+      .tweet .tweet-info .tweet-top .userid {
+        float: left; }
+  .tweet .intents {
+    padding-top: 10px; }
+    .tweet .intents a {
+      color: #969696; }
+    .tweet .intents .reply a {
+      transition: 0.2s all; }
+      .tweet .intents .reply a:hover {
+        color: #009999; }
+    .tweet .intents .retweet a {
+      transition: 0.2s all; }
+      .tweet .intents .retweet a:hover {
+        color: #5C913B; }
+    .tweet .intents .favorite a {
+      transition: 0.2s all; }
+      .tweet .intents .favorite a:hover {
+        color: #E2264D; }
+
+.tweet:last-of-type {
+  border-bottom: 0px solid #c0c0c0; }
 
 .footer {
   background: #5c73b6;
   margin-top: 0;
   padding: 15px 0; }
+  .footer p {
+    margin: 0; }

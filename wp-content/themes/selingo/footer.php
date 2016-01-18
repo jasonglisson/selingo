@@ -7,23 +7,30 @@
 								<h4>Recent Tweets</h4>
 								<?php include('Twitter.php'); ?>	
 								<?php foreach($twitter_data as $tweet) { ?>
-									<div id="tweet">
-										<div class="large-2 columns profile-pic"><a href="https://twitter.com/jselingo" target="_blank"><i class="fi-social-twitter large"></i></a></div>
-										<div class="large-10 columns tweet-wrap">
-											<span class="date"><?php 
-												
+									<div class="tweet">
+										<div class="large-2 medium-1 small-2 columns prof-img">
+											<span class="profile_img"><a href="https://twitter.com/jselingo" target="_blank"><img src="https://twitter.com/jselingo/profile_image"></a></span>
+										</div>	
+										<div class="large-10 medium-11 small-10 columns tweet-info">
+											<div class="tweet-top">
+												<span class="name"><?php echo $tweet->user->name; ?></span>
+												<span class="userid">&nbsp;@<?php echo $tweet->user->screen_name; ?>&nbsp;&#183;&nbsp;</span>	
+												<span class="date">
+													<?php 
 														$date = new DateTime($tweet->created_at);
 														$date->setTimezone(new DateTimeZone('America/New_York'));
-														$formatted_date = $date->format('M d, Y');	
+														$formatted_date = $date->format('M d');	
 														echo $formatted_date;			
-									
-											?></span><br>			
-											<span class="tweet-text"><?php echo linkify_tweet($tweet->text); ?></span>
+													?>
+												</span><br>														
+											</div>														
+											<span class="tweet-text"><?php echo linkify_tweet($tweet->text); ?></span>										
 											<div class="intents">
-												<span class="reply"><a target="_blank" href="https://twitter.com/intent/tweet?in_reply_to=<?php echo $tweet->id; ?>"><i class="fi-arrow-left small"></i> Reply</a></span>
-												<span class="retweet"><a target="_blank" href="https://twitter.com/intent/retweet?tweet_id=<?php echo $tweet->id; ?>"><i class="fi-loop small"></i> Retweet</a></span>					<span class="favorite"><a target="_blank" href="https://twitter.com/intent/favorite?tweet_id=<?php echo $tweet->id; ?>"><i class="fi-star small"></i> Favorite</a></span>
+												<span class="reply"><a target="_blank" href="https://twitter.com/intent/tweet?in_reply_to=<?php echo $tweet->id; ?>" title="Reply"><i class="fa fa-reply"></i>&nbsp;&nbsp;&nbsp;</a></span>
+												<span class="retweet"><a target="_blank" href="https://twitter.com/intent/retweet?tweet_id=<?php echo $tweet->id; ?>" title="Retweet"><i class="fa fa-refresh"></i>&nbsp;&nbsp;&nbsp;</a></span>
+												<span class="favorite"><a target="_blank" href="https://twitter.com/intent/favorite?tweet_id=<?php echo $tweet->id; ?>" title="Favorite"><i class="fa fa-heart"></i>&nbsp;&nbsp;&nbsp;</a></span>
 											</div>			
-									</div>
+										</div>	
 								</div>		
 								<?php } ?>							
 							</div>
@@ -36,11 +43,6 @@
 					</div>	
 					<footer class="footer" role="contentinfo">
 						<div id="inner-footer" class="row">
-							<div class="large-12 medium-12 columns">
-								<nav role="navigation">
-		    						<?php joints_footer_links(); ?>
-		    					</nav>
-		    				</div>
 							<div class="large-12 medium-12 columns">
 								<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
 							</div>

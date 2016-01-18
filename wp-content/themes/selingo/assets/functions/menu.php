@@ -39,6 +39,7 @@ function joints_footer_links() {
     	'container' => 'false',                              // Remove nav container
     	'menu' => __( 'Footer Links', 'jointswp' ),   	// Nav name
     	'menu_class' => 'menu',      					// Adding custom nav class
+    	'link_after' => '<i class="fa fa-angle-right"></i>',
     	'theme_location' => 'footer-links',             // Where it's located in the theme
         'depth' => 0,                                   // Limit the depth of the nav
     	'fallback_cb' => ''  							// Fallback function
