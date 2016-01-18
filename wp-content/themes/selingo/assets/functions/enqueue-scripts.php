@@ -10,9 +10,18 @@ function site_scripts() {
     
     // Adding scripts file in the footer
     wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
+
+    // Adding scripts file in the footer
+    wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/assets/js/slick.min.js', array( 'jquery' ), '', true );
    
     // Register main stylesheet
     wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.css', array(), '', 'all' );
+
+    // Register slick stylesheet
+    wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/assets/css/slick.css', array('site-css'), '', 'all' );
+
+    // Register selingo stylesheet
+    wp_enqueue_style( 'selingo-css', get_template_directory_uri() . '/assets/css/selingo.css', array('site-css'), '', 'all' );
 
     // Comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {

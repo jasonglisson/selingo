@@ -226,7 +226,7 @@ function get_search_form( $echo = true ) {
 			$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
 				<label>
 					<span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
-					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />
+					<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" />
 				</label>
 				<input type="submit" class="search-submit" value="'. esc_attr_x( 'Search', 'submit button' ) .'" />
 			</form>';
@@ -471,7 +471,7 @@ function wp_login_form( $args = array() ) {
 	$login_form_bottom = apply_filters( 'login_form_bottom', '', $args );
 
 	$form = '
-		<form name="' . $args['form_id'] . '" id="' . $args['form_id'] . '" action="' . esc_url( wp_login_url() ) . '" method="post">
+		<form name="' . $args['form_id'] . '" id="' . $args['form_id'] . '" action="' . esc_url( site_url( 'wp-login.php', 'login_post' ) ) . '" method="post">
 			' . $login_form_top . '
 			<p class="login-username">
 				<label for="' . esc_attr( $args['id_username'] ) . '">' . esc_html( $args['label_username'] ) . '</label>
@@ -856,8 +856,8 @@ function wp_get_document_title() {
 		/* translators: %s: search phrase */
 		$title['title'] = sprintf( __( 'Search Results for &#8220;%s&#8221;' ), get_search_query() );
 
-	// If on the home or front page, use the site title.
-	} elseif ( is_home() && is_front_page() ) {
+	// If on the front page, use the site title.
+	} elseif ( is_front_page() ) {
 		$title['title'] = get_bloginfo( 'name', 'display' );
 
 	// If on a post type archive, use the post type archive title.
@@ -869,14 +869,10 @@ function wp_get_document_title() {
 		$title['title'] = single_term_title( '', false );
 
 	/*
-	 * If we're on the blog page and that page is not the homepage or a single
-	 * page that is designated as the homepage, use the container page's title.
+	 * If we're on the blog page that is not the homepage or
+	 * a single post of any post type, use the post title.
 	 */
-	} elseif ( ( is_home() && ! is_front_page() ) || ( ! is_home() && is_front_page() ) ) {
-		$title['title'] = single_post_title( '', false );
-
-	// If on a single post of any post type, use the post title.
-	} elseif ( is_singular() ) {
+	} elseif ( is_home() || is_singular() ) {
 		$title['title'] = single_post_title( '', false );
 
 	// If on a category or tag archive, use the term title.
@@ -904,7 +900,7 @@ function wp_get_document_title() {
 	}
 
 	// Append the description or site title to give context.
-	if ( is_home() && is_front_page() ) {
+	if ( is_front_page() ) {
 		$title['tagline'] = get_bloginfo( 'description', 'display' );
 	} else {
 		$title['site'] = get_bloginfo( 'name', 'display' );
@@ -2736,7 +2732,7 @@ function wp_default_editor() {
  * containing TinyMCE: 'edit_page_form', 'edit_form_advanced' and 'dbx_post_sidebar'.
  * See https://core.trac.wordpress.org/ticket/19173 for more information.
  *
- * @see wp-includes/class-wp-editor.php
+ * @see _WP_Editors::editor()
  * @since 3.3.0
  *
  * @param string $content   Initial content for the editor.
@@ -3078,15 +3074,20 @@ function paginate_links( $args = '' ) {
  *
  * @since 2.5.0
  *
- * @todo Properly document optional arguments as such
- *
  * @global array $_wp_admin_css_colors
  *
  * @param string $key    The unique key for this theme.
  * @param string $name   The name of the theme.
- * @param string $url    The url of the css file containing the colour scheme.
- * @param array  $colors Optional An array of CSS color definitions which are used to give the user a feel for the theme.
- * @param array  $icons  Optional An array of CSS color definitions used to color any SVG icons
+ * @param string $url    The URL of the CSS file containing the color scheme.
+ * @param array  $colors Optional. An array of CSS color definition strings which are used
+ *                       to give the user a feel for the theme.
+ * @param array  $icons {
+ *     Optional. CSS color definitions used to color any SVG icons.
+ *
+ *     @type string $base    SVG icon base color.
+ *     @type string $focus   SVG icon color on focus.
+ *     @type string $current SVG icon color of current admin menu link.
+ * }
  */
 function wp_admin_css_color( $key, $name, $url, $colors = array(), $icons = array() ) {
 	global $_wp_admin_css_colors;

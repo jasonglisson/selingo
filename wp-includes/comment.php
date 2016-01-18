@@ -231,13 +231,10 @@ function get_comments( $args = '' ) {
  */
 function get_comment_statuses() {
 	$status = array(
-		'hold'		=> __('Unapproved'),
-		/* translators: comment status  */
-		'approve'	=> _x('Approved', 'adjective'),
-		/* translators: comment status */
-		'spam'		=> _x('Spam', 'adjective'),
-		/* translators: comment status */
-		'trash'		=> _x('Trash', 'adjective'),
+		'hold'		=> __( 'Unapproved' ),
+		'approve'	=> _x( 'Approved', 'comment status' ),
+		'spam'		=> _x( 'Spam', 'comment status' ),
+		'trash'		=> _x( 'Trash', 'comment status' ),
 	);
 
 	return $status;
@@ -951,6 +948,44 @@ function get_page_of_comment( $comment_ID, $args = array() ) {
 }
 
 /**
+ * Calculate the maximum character length of a column from the comments table.
+ *
+ * @since 4.5.0
+ *
+ * @global wpdb $wpdb WordPress database abstraction object.
+ *
+ * @param string $column Name of a column in the comments table.
+ * @return int Maximum column character length.
+ */
+function wp_get_comment_column_max_length( $column ) {
+	global $wpdb;
+
+	$col_length = $wpdb->get_col_length( $wpdb->comments, $column );
+	if ( ! is_array( $col_length ) && (int) $col_length > 0 ) {
+		$max_length = (int) $col_length;
+	} elseif ( is_array( $col_length ) && isset( $col_length['length'] ) && intval( $col_length['length'] ) > 0 ) {
+		$max_length = (int) $col_length['length'];
+	} else {
+		// Assume a TEXT column, 65535 - 10.
+		$max_length = 65525;
+	}
+
+	if ( ! empty( $col_length['type'] ) && 'byte' === $col_length['type'] ) {
+		$max_length = $max_length - 10;
+	}
+
+	/**
+	 * Filters the calculated length for a given column of the comments table.
+	 *
+	 * @since 4.5.0
+	 *
+	 * @param int    $max_length Maximum column character length.
+	 * @param string $column     Column name.
+	 */
+	return apply_filters( 'wp_get_comment_column_max_length', $max_length, $column );
+}
+
+/**
  * Does comment contain blacklisted characters or words.
  *
  * @since 1.5.0
@@ -1476,7 +1511,7 @@ function wp_get_current_commenter() {
  *     @type int        $comment_karma        The karma of the comment. Default 0.
  *     @type int        $comment_parent       ID of this comment's parent, if any. Default 0.
  *     @type int        $comment_post_ID      ID of the post that relates to the comment, if any.
- *                                            Default empty.
+ *                                            Default 0.
  *     @type string     $comment_type         Comment type. Default empty.
  *     @type array      $comment_meta         Optional. Array of key/value pairs to be stored in commentmeta for the
  *                                            new comment.
@@ -1496,7 +1531,7 @@ function wp_insert_comment( $commentdata ) {
 	$comment_date     = ! isset( $data['comment_date'] )     ? current_time( 'mysql' )            : $data['comment_date'];
 	$comment_date_gmt = ! isset( $data['comment_date_gmt'] ) ? get_gmt_from_date( $comment_date ) : $data['comment_date_gmt'];
 
-	$comment_post_ID  = ! isset( $data['comment_post_ID'] )  ? '' : $data['comment_post_ID'];
+	$comment_post_ID  = ! isset( $data['comment_post_ID'] )  ? 0  : $data['comment_post_ID'];
 	$comment_content  = ! isset( $data['comment_content'] )  ? '' : $data['comment_content'];
 	$comment_karma    = ! isset( $data['comment_karma'] )    ? 0  : $data['comment_karma'];
 	$comment_approved = ! isset( $data['comment_approved'] ) ? 1  : $data['comment_approved'];
@@ -1805,7 +1840,7 @@ function wp_new_comment_notify_postauthor( $comment_ID ) {
 	}
 
 	// Only send notifications for approved comments.
-	if ( ! isset( $comment->comment_approved ) || 'spam' === $comment->comment_approved || ! $comment->comment_approved ) {
+	if ( ! isset( $comment->comment_approved ) || '1' != $comment->comment_approved ) {
 		return false;
 	}
 
@@ -1942,7 +1977,7 @@ function wp_update_comment($commentarr) {
 
 	$comment_ID = $data['comment_ID'];
 	$comment_post_ID = $data['comment_post_ID'];
-	$keys = array( 'comment_post_ID', 'comment_content', 'comment_author', 'comment_author_email', 'comment_approved', 'comment_karma', 'comment_author_url', 'comment_date', 'comment_date_gmt', 'comment_type', 'comment_parent', 'user_id' );
+	$keys = array( 'comment_post_ID', 'comment_content', 'comment_author', 'comment_author_email', 'comment_approved', 'comment_karma', 'comment_author_url', 'comment_date', 'comment_date_gmt', 'comment_type', 'comment_parent', 'user_id', 'comment_agent', 'comment_author_IP' );
 	$data = wp_array_slice_assoc( $data, $keys );
 	$rval = $wpdb->update( $wpdb->comments, $data, compact( 'comment_ID' ) );
 
@@ -2006,12 +2041,18 @@ function wp_defer_comment_counting($defer=null) {
  *
  * @staticvar array $_deferred
  *
- * @param int $post_id Post ID
- * @param bool $do_deferred Whether to process previously deferred post comment counts
- * @return bool|void True on success, false on failure
+ * @param int|null $post_id     Post ID.
+ * @param bool     $do_deferred Optional. Whether to process previously deferred
+ *                              post comment counts. Default false.
+ * @return bool|void True on success, false on failure or if post with ID does
+ *                   not exist.
  */
 function wp_update_comment_count($post_id, $do_deferred=false) {
 	static $_deferred = array();
+
+	if ( empty( $post_id ) && ! $do_deferred ) {
+		return false;
+	}
 
 	if ( $do_deferred ) {
 		$_deferred = array_unique($_deferred);
@@ -2054,7 +2095,24 @@ function wp_update_comment_count_now($post_id) {
 		return false;
 
 	$old = (int) $post->comment_count;
-	$new = (int) $wpdb->get_var( $wpdb->prepare("SELECT COUNT(*) FROM $wpdb->comments WHERE comment_post_ID = %d AND comment_approved = '1'", $post_id) );
+
+	/**
+	 * Filters a post's comment count before it is updated in the database.
+	 *
+	 * @since 4.5.0
+	 *
+	 * @param int $new     The new comment count. Default null.
+	 * @param int $old     The old comment count.
+	 * @param int $post_id Post ID.
+	 */
+	$new = apply_filters( 'pre_wp_update_comment_count_now', null, $old, $post_id );
+
+	if ( is_null( $new ) ) {
+		$new = (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $wpdb->comments WHERE comment_post_ID = %d AND comment_approved = '1'", $post_id ) );
+	} else {
+		$new = (int) $new;
+	}
+
 	$wpdb->update( $wpdb->posts, array('comment_count' => $new), array('ID' => $post_id) );
 
 	clean_post_cache( $post );
@@ -2750,7 +2808,7 @@ function wp_handle_comment_submission( $comment_data ) {
 		$comment_author       = $user->display_name;
 		$comment_author_email = $user->user_email;
 		$comment_author_url   = $user->user_url;
-		$user_id              = $user->ID;
+		$user_ID              = $user->ID;
 		if ( current_user_can( 'unfiltered_html' ) ) {
 			if ( ! isset( $comment_data['_wp_unfiltered_html_comment'] )
 				|| ! wp_verify_nonce( $comment_data['_wp_unfiltered_html_comment'], 'unfiltered-html-comment_' . $comment_post_ID )
@@ -2775,8 +2833,22 @@ function wp_handle_comment_submission( $comment_data ) {
 		}
 	}
 
+	if ( isset( $comment_author ) && wp_get_comment_column_max_length( 'comment_author' ) < mb_strlen( $comment_author, '8bit' ) ) {
+		return new WP_Error( 'comment_author_column_length', __( '<strong>ERROR</strong>: your name is too long.' ), 200 );
+	}
+
+	if ( isset( $comment_author_email ) && wp_get_comment_column_max_length( 'comment_author_email' ) < strlen( $comment_author_email ) ) {
+		return new WP_Error( 'comment_author_email_column_length', __( '<strong>ERROR</strong>: your email address is too long.' ), 200 );
+	}
+
+	if ( isset( $comment_author_url ) && wp_get_comment_column_max_length( 'comment_author_url' ) < strlen( $comment_author_url ) ) {
+		return new WP_Error( 'comment_author_url_column_length', __( '<strong>ERROR</strong>: your url is too long.' ), 200 );
+	}
+
 	if ( '' == $comment_content ) {
 		return new WP_Error( 'require_valid_comment', __( '<strong>ERROR</strong>: please type a comment.' ), 200 );
+	} elseif ( wp_get_comment_column_max_length( 'comment_content' ) < mb_strlen( $comment_content, '8bit' ) ) {
+		return new WP_Error( 'comment_content_column_length', __( '<strong>ERROR</strong>: your comment is too long.' ), 200 );
 	}
 
 	$commentdata = compact(
@@ -2787,7 +2859,7 @@ function wp_handle_comment_submission( $comment_data ) {
 		'comment_content',
 		'comment_type',
 		'comment_parent',
-		'user_id'
+		'user_ID'
 	);
 
 	$comment_id = wp_new_comment( wp_slash( $commentdata ) );

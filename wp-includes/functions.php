@@ -675,8 +675,8 @@ function is_new_day() {
  * @since 2.3.0
  *
  * @see _http_build_query() Used to build the query
- * @see http://us2.php.net/manual/en/function.http-build-query.php for more on what
- *		http_build_query() does.
+ * @link http://us2.php.net/manual/en/function.http-build-query.php for more on what
+ *		 http_build_query() does.
  *
  * @param array $data URL-encode key/value pairs.
  * @return string URL-encoded string.
@@ -994,6 +994,7 @@ function get_status_header_desc( $code ) {
 			305 => 'Use Proxy',
 			306 => 'Reserved',
 			307 => 'Temporary Redirect',
+			308 => 'Permanent Redirect',
 
 			400 => 'Bad Request',
 			401 => 'Unauthorized',
@@ -1014,6 +1015,7 @@ function get_status_header_desc( $code ) {
 			416 => 'Requested Range Not Satisfiable',
 			417 => 'Expectation Failed',
 			418 => 'I\'m a teapot',
+			421 => 'Misdirected Request',
 			422 => 'Unprocessable Entity',
 			423 => 'Locked',
 			424 => 'Failed Dependency',
@@ -1021,6 +1023,7 @@ function get_status_header_desc( $code ) {
 			428 => 'Precondition Required',
 			429 => 'Too Many Requests',
 			431 => 'Request Header Fields Too Large',
+			451 => 'Unavailable For Legal Reasons',
 
 			500 => 'Internal Server Error',
 			501 => 'Not Implemented',
@@ -1517,16 +1520,35 @@ function wp_original_referer_field( $echo = true, $jump_back_to = 'current' ) {
  * @return false|string False on failure. Referer URL on success.
  */
 function wp_get_referer() {
-	if ( ! function_exists( 'wp_validate_redirect' ) )
+	if ( ! function_exists( 'wp_validate_redirect' ) ) {
 		return false;
-	$ref = false;
-	if ( ! empty( $_REQUEST['_wp_http_referer'] ) )
-		$ref = wp_unslash( $_REQUEST['_wp_http_referer'] );
-	elseif ( ! empty( $_SERVER['HTTP_REFERER'] ) )
-		$ref = wp_unslash( $_SERVER['HTTP_REFERER'] );
+	}
 
-	if ( $ref && $ref !== wp_unslash( $_SERVER['REQUEST_URI'] ) )
+	$ref = wp_get_raw_referer();
+
+	if ( $ref && $ref !== wp_unslash( $_SERVER['REQUEST_URI'] ) && $ref !== home_url() . wp_unslash( $_SERVER['REQUEST_URI'] ) ) {
 		return wp_validate_redirect( $ref, false );
+	}
+
+	return false;
+}
+
+/**
+ * Retrieve unvalidated referer from '_wp_http_referer' or HTTP referer.
+ *
+ * Do not use for redirects, use wp_get_referer() instead.
+ *
+ * @since 4.5.0
+ *
+ * @return string|bool Referer URL on success, false on failure.
+ */
+function wp_get_raw_referer() {
+	if ( ! empty( $_REQUEST['_wp_http_referer'] ) ) {
+		return wp_unslash( $_REQUEST['_wp_http_referer'] );
+	} else if ( ! empty( $_SERVER['HTTP_REFERER'] ) ) {
+		return wp_unslash( $_SERVER['HTTP_REFERER'] );
+	}
+
 	return false;
 }
 
@@ -1981,7 +2003,18 @@ function wp_unique_filename( $dir, $filename, $unique_filename_callback = null )
 				$filename2 = str_replace( array( "-$number$ext2", "$number$ext2" ), "-$new_number$ext2", $filename2 );
 				$number = $new_number;
 			}
-			return $filename2;
+
+			/**
+			 * Filter the result when generating a unique file name.
+			 *
+			 * @since 4.5.0
+			 *
+			 * @param string        $filename                 Unique file name.
+			 * @param string        $ext                      File extension, eg. ".png".
+			 * @param string        $dir                      Directory path.
+			 * @param callable|null $unique_filename_callback Callback function that generates the unique file name.
+			 */
+			return apply_filters( 'wp_unique_filename', $filename2, $ext, $dir, $unique_filename_callback );
 		}
 
 		while ( file_exists( $dir . "/$filename" ) ) {
@@ -1993,7 +2026,8 @@ function wp_unique_filename( $dir, $filename, $unique_filename_callback = null )
 		}
 	}
 
-	return $filename;
+	/** This filter is documented in wp-includes/functions.php */
+	return apply_filters( 'wp_unique_filename', $filename, $ext, $dir, $unique_filename_callback );
 }
 
 /**
@@ -3287,7 +3321,8 @@ function wp_is_numeric_array( $data ) {
  *                              against each object. Default empty array.
  * @param string      $operator Optional. The logical operation to perform. 'or' means
  *                              only one element from the array needs to match; 'and'
- *                              means all elements must match. Default 'and'.
+ *                              means all elements must match; 'not' means no elements may
+ *                              match. Default 'and'.
  * @param bool|string $field    A field from the object to place instead of the entire object.
  *                              Default false.
  * @return array A list of objects or object fields.
@@ -4934,12 +4969,12 @@ function wp_auth_check_html() {
 	<div id="wp-auth-check-wrap" class="<?php echo $wrap_class; ?>">
 	<div id="wp-auth-check-bg"></div>
 	<div id="wp-auth-check">
-	<div class="wp-auth-check-close" tabindex="0" title="<?php esc_attr_e('Close'); ?>"></div>
+	<button type="button" class="wp-auth-check-close button-link"><span class="screen-reader-text"><?php _e( 'Close dialog' ); ?></span></button>
 	<?php
 
 	if ( $same_domain ) {
 		?>
-		<div id="wp-auth-check-form" data-src="<?php echo esc_url( add_query_arg( array( 'interim-login' => 1 ), $login_url ) ); ?>"></div>
+		<div id="wp-auth-check-form" class="loading" data-src="<?php echo esc_url( add_query_arg( array( 'interim-login' => 1 ), $login_url ) ); ?>"></div>
 		<?php
 	}
 

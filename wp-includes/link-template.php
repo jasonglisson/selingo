@@ -926,9 +926,8 @@ function get_edit_term_link( $term_id, $taxonomy, $object_type = '' ) {
 	}
 
 	$args = array(
-		'action' => 'edit',
 		'taxonomy' => $taxonomy,
-		'tag_ID' => $term->term_id,
+		'term_id'  => $term->term_id,
 	);
 
 	if ( $object_type ) {
@@ -938,7 +937,7 @@ function get_edit_term_link( $term_id, $taxonomy, $object_type = '' ) {
 	}
 
 	if ( $tax->show_ui ) {
-		$location = add_query_arg( $args, admin_url( 'edit-tags.php' ) );
+		$location = add_query_arg( $args, admin_url( 'term.php' ) );
 	} else {
 		$location = '';
 	}
@@ -1110,19 +1109,33 @@ function get_search_comments_feed_link($search_query = '', $feed = '') {
 }
 
 /**
- * Retrieve the permalink for a post type archive.
+ * Retrieves the permalink for a post type archive.
  *
  * @since 3.1.0
+ * @since 4.5.0 Support for posts was added.
  *
  * @global WP_Rewrite $wp_rewrite
  *
- * @param string $post_type Post type
+ * @param string $post_type Post type.
  * @return string|false The post type archive permalink.
  */
 function get_post_type_archive_link( $post_type ) {
 	global $wp_rewrite;
 	if ( ! $post_type_obj = get_post_type_object( $post_type ) )
 		return false;
+
+	if ( 'post' === $post_type ) {
+		$show_on_front = get_option( 'show_on_front' );
+		$page_for_posts  = get_option( 'page_for_posts' );
+
+		if ( 'page' == $show_on_front && $page_for_posts ) {
+			$link = get_permalink( $page_for_posts );
+		} else {
+			$link = get_home_url();
+		}
+		/** This filter is documented in wp-includes/link-template.php */
+		return apply_filters( 'post_type_archive_link', $link, $post_type );
+	}
 
 	if ( ! $post_type_obj->has_archive )
 		return false;
@@ -1568,6 +1581,7 @@ function get_adjacent_post( $in_same_term = false, $excluded_terms = '', $previo
 
 	$join = '';
 	$where = '';
+	$adjacent = $previous ? 'previous' : 'next';
 
 	if ( $in_same_term || ! empty( $excluded_terms ) ) {
 		if ( ! empty( $excluded_terms ) && ! is_array( $excluded_terms ) ) {
@@ -1600,8 +1614,20 @@ function get_adjacent_post( $in_same_term = false, $excluded_terms = '', $previo
 			$where .= " AND tt.term_id IN (" . implode( ',', $term_array ) . ")";
 		}
 
+		/**
+		 * Filter the IDs of terms excluded from adjacent post queries.
+		 *
+		 * The dynamic portion of the hook name, `$adjacent`, refers to the type
+		 * of adjacency, 'next' or 'previous'.
+		 *
+		 * @since 4.4.0
+		 *
+		 * @param string $excluded_terms Array of excluded term IDs.
+		 */
+		$excluded_terms = apply_filters( "get_{$adjacent}_post_excluded_terms", $excluded_terms );
+
 		if ( ! empty( $excluded_terms ) ) {
-			$where .= " AND p.ID NOT IN ( SELECT tr.object_id FROM $wpdb->term_relationships tr LEFT JOIN $wpdb->term_taxonomy tt ON (tr.term_taxonomy_id = tt.term_taxonomy_id) WHERE tt.term_id IN (" . implode( $excluded_terms, ',' ) . ') )';
+			$where .= " AND p.ID NOT IN ( SELECT tr.object_id FROM $wpdb->term_relationships tr LEFT JOIN $wpdb->term_taxonomy tt ON (tr.term_taxonomy_id = tt.term_taxonomy_id) WHERE tt.term_id IN (" . implode( ',', array_map( 'intval', $excluded_terms ) ) . ') )';
 		}
 	}
 
@@ -1635,21 +1661,8 @@ function get_adjacent_post( $in_same_term = false, $excluded_terms = '', $previo
 		$where .= " AND p.post_status = 'publish'";
 	}
 
-	$adjacent = $previous ? 'previous' : 'next';
 	$op = $previous ? '<' : '>';
 	$order = $previous ? 'DESC' : 'ASC';
-
-	/**
-	 * Filter the excluded term ids
-	 *
-	 * The dynamic portion of the hook name, `$adjacent`, refers to the type
-	 * of adjacency, 'next' or 'previous'.
-	 *
-	 * @since 4.4.0
-	 *
-	 * @param string $excluded_terms Array of excluded term IDs.
-	 */
-	$excluded_terms = apply_filters( "get_{$adjacent}_post_excluded_terms", $excluded_terms );
 
 	/**
 	 * Filter the JOIN clause in the SQL for an adjacent post query.
@@ -1887,7 +1900,7 @@ function get_boundary_post( $in_same_term = false, $excluded_terms = '', $start 
 	return get_posts( $query_args );
 }
 
-/*
+/**
  * Get previous post link that is adjacent to the current post.
  *
  * @since 3.7.0
@@ -2941,10 +2954,10 @@ function home_url( $path = '', $scheme = null ) {
  *
  * @global string $pagenow
  *
- * @param  int         $blog_id     Optional. Blog ID. Default null (current blog).
- * @param  string      $path        Optional. Path relative to the home URL. Default empty.
- * @param  string|null $orig_scheme Optional. Scheme to give the home URL context. Accepts
- *                                  'http', 'https', 'relative', 'rest', or null. Default null.
+ * @param  int         $blog_id Optional. Blog ID. Default null (current blog).
+ * @param  string      $path    Optional. Path relative to the home URL. Default empty.
+ * @param  string|null $scheme  Optional. Scheme to give the home URL context. Accepts
+ *                              'http', 'https', 'relative', 'rest', or null. Default null.
  * @return string Home URL link with optional path appended.
  */
 function get_home_url( $blog_id = null, $path = '', $scheme = null ) {
@@ -3502,8 +3515,12 @@ function rel_canonical() {
 	$url = get_permalink( $id );
 
 	$page = get_query_var( 'page' );
-	if ( $page ) {
-		$url = trailingslashit( $url ) . user_trailingslashit( $page, 'single_paged' );
+	if ( $page >= 2 ) {
+		if ( '' == get_option( 'permalink_structure' ) ) {
+			$url = add_query_arg( 'page', $page, $url );
+		} else {
+			$url = trailingslashit( $url ) . user_trailingslashit( $page, 'single_paged' );
+		}
 	}
 
 	$cpage = get_query_var( 'cpage' );
