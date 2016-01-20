@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
 	  centerMode: true,
 	  centerPadding: '60px',
 	  slidesToShow: 3,
-	  infinite: true,
+	  infinite: true,  
 	  responsive: [
 	    {
 	      breakpoint: 768,
@@ -41,6 +41,16 @@ jQuery(document).ready(function($) {
 	    }
 	  ]
 	});
+	
+	$('.book-item').find('.book-toggle').click(function(event){
+		$(this).find('.book-info').fadeIn(150);
+	});
+	
+/*
+	$('.book-item').bind('.close-info').click(function(event){
+		$('.book-info').fadeOut(150);
+	});
+*/
 	
 
 });

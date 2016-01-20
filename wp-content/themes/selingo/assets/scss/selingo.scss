@@ -1,12 +1,25 @@
+.signup-form-section {
+	background: #73b1c0;
+	padding: 25px 0;
+}
+
 .book-carousel {
+	padding: 45px 0;
 	.book-item {
 		position: relative;		
 		.book-img {
 			margin: 0 auto;
 			display: table;
+			position:relative;
 			img {
 				height: 250px;
 				width: auto;
+			}
+			.book-toggle {
+		    right: -35px;
+		    position: absolute;
+		    font-size: 2rem;		
+		    cursor: pointer;		
 			}
 		}
 		.button {
@@ -23,6 +36,61 @@
 	    height: 70px;
 	    background-size: 100%;
 	    text-indent: -9999px;
+	    z-index: 1;
+		}
+		.book-info {
+	    position: absolute;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+			background: rgba(33, 29, 29, 0.75);
+	    color: #fff;
+	    z-index: 2;			
+	    padding: 10%;
+	    display: none;
+	    i {
+		    position: absolute;
+		    top:13px;
+		    right:25px;
+	    }
+		}
+	}
+}
+
+.about-jeff-section {
+	padding: 20px 0;
+	.about-jeff-text {
+		h4 {
+	    padding-bottom: 10px;
+	    width: 100%;				
+		}
+		.about-jeff-photo {
+			width: 180px;
+	    float: left;
+	    border-radius: 50%;
+	    overflow: hidden;
+	    border: 5px solid #fff;
+	    box-shadow: 0px 0px 1px #000;
+	    margin-top: 10px;	
+    }
+		.about-text {
+	    padding-left: 20px;
+	    display: table;
+	    border-top: 1px solid #666;
+	    padding-top: 20px;
+		}
+	}
+	.about-video {
+		.flex-video {
+			height: 300px;	
+			padding: 0;			
+			iframe {
+				height: 225px;
+				width: 80%;
+				margin: 0 auto;
+				display: table;
+				position: relative;				
+			}
 		}
 	}
 }
@@ -51,6 +119,15 @@
 			&:hover {
 				background: rgba(153, 153, 153, 0.59);	
 			}		
+		}
+	}
+	.footer-contact {
+		.contact-text {
+			padding-bottom: 20px;
+		}
+		.your-message {
+			resize: none;
+			height: 180px;
 		}
 	}
 }

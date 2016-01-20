@@ -1,7 +1,8 @@
 					<div class="pre-footer">
 						<div class="row">
-							<div class="large-4 columns">
+							<div class="large-4 columns footer-contact">
 								<h4>Contact Jeff</h4>
+								<?php footer_contact_jeff(); ?>
 							</div>
 							<div class="large-4 columns">
 								<h4>Recent Tweets</h4>

@@ -1,24 +1,79 @@
-.book-carousel .book-item {
-  position: relative; }
-  .book-carousel .book-item .book-img {
-    margin: 0 auto;
-    display: table; }
-    .book-carousel .book-item .book-img img {
-      height: 250px;
-      width: auto; }
-  .book-carousel .book-item .button {
-    width: auto;
-    margin: 20px auto 25px auto;
-    display: block; }
-  .book-carousel .book-item .new-book {
-    position: absolute;
-    top: 1px;
-    left: 14%;
-    background: url(../images/new-icon.png);
-    width: 70px;
-    height: 70px;
-    background-size: 100%;
-    text-indent: -9999px; }
+.signup-form-section {
+  background: #73b1c0;
+  padding: 25px 0; }
+
+.book-carousel {
+  padding: 45px 0; }
+  .book-carousel .book-item {
+    position: relative; }
+    .book-carousel .book-item .book-img {
+      margin: 0 auto;
+      display: table;
+      position: relative; }
+      .book-carousel .book-item .book-img img {
+        height: 250px;
+        width: auto; }
+      .book-carousel .book-item .book-img .book-toggle {
+        right: -35px;
+        position: absolute;
+        font-size: 2rem;
+        cursor: pointer; }
+    .book-carousel .book-item .button {
+      width: auto;
+      margin: 20px auto 25px auto;
+      display: block; }
+    .book-carousel .book-item .new-book {
+      position: absolute;
+      top: 1px;
+      left: 14%;
+      background: url(../images/new-icon.png);
+      width: 70px;
+      height: 70px;
+      background-size: 100%;
+      text-indent: -9999px;
+      z-index: 1; }
+    .book-carousel .book-item .book-info {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(33, 29, 29, 0.75);
+      color: #fff;
+      z-index: 2;
+      padding: 10%;
+      display: none; }
+      .book-carousel .book-item .book-info i {
+        position: absolute;
+        top: 13px;
+        right: 25px; }
+
+.about-jeff-section {
+  padding: 20px 0; }
+  .about-jeff-section .about-jeff-text h4 {
+    padding-bottom: 10px;
+    width: 100%; }
+  .about-jeff-section .about-jeff-text .about-jeff-photo {
+    width: 180px;
+    float: left;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+    box-shadow: 0px 0px 1px #000;
+    margin-top: 10px; }
+  .about-jeff-section .about-jeff-text .about-text {
+    padding-left: 20px;
+    display: table;
+    border-top: 1px solid #666;
+    padding-top: 20px; }
+  .about-jeff-section .about-video .flex-video {
+    height: 300px;
+    padding: 0; }
+    .about-jeff-section .about-video .flex-video iframe {
+      height: 225px;
+      width: 80%;
+      margin: 0 auto;
+      display: table;
+      position: relative; }
 
 .pre-footer {
   background: #d7d7d7; }
@@ -41,6 +96,11 @@
         color: #666; }
       .pre-footer .menu .menu-item:hover {
         background: rgba(153, 153, 153, 0.59); }
+  .pre-footer .footer-contact .contact-text {
+    padding-bottom: 20px; }
+  .pre-footer .footer-contact .your-message {
+    resize: none;
+    height: 180px; }
 
 .tweet {
   float: left;
