@@ -1,3 +1,25 @@
+.book-carousel .book-item {
+  position: relative; }
+  .book-carousel .book-item .book-img {
+    margin: 0 auto;
+    display: table; }
+    .book-carousel .book-item .book-img img {
+      height: 250px;
+      width: auto; }
+  .book-carousel .book-item .button {
+    width: auto;
+    margin: 20px auto 25px auto;
+    display: block; }
+  .book-carousel .book-item .new-book {
+    position: absolute;
+    top: 1px;
+    left: 14%;
+    background: url(../images/new-icon.png);
+    width: 70px;
+    height: 70px;
+    background-size: 100%;
+    text-indent: -9999px; }
+
 .pre-footer {
   background: #d7d7d7; }
   .pre-footer h4 {

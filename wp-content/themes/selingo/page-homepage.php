@@ -30,9 +30,7 @@ Template Name: Homepage
 		</div>    
 		
 		<div class="book-carousel-section">
-			<div class="row">
-				<?php book_carousel(); ?>
-			</div>	
+			<?php book_carousel(); ?>
 		</div>	
 
 		<div class="about-jeff-section">

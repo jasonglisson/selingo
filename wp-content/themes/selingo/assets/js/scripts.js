@@ -18,7 +18,8 @@ jQuery(document).ready(function($) {
 	$('.book-carousel').slick({
 	  centerMode: true,
 	  centerPadding: '60px',
-	  slidesToShow: 2,
+	  slidesToShow: 3,
+	  infinite: true,
 	  responsive: [
 	    {
 	      breakpoint: 768,
