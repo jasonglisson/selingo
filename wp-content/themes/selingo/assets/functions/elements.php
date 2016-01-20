@@ -20,7 +20,7 @@ function book_carousel() { ?>
     echo '<div class="book-item large-4 medium-4 small-12 columns">';
     	$bookImg = get_field('book_image'); 
 			$newBook = get_field('new_book');
-			if( in_array('new', $newBook) ) {
+			if( is_array($newBook) && in_array('new', $newBook ) ) {
 				echo '<div class="new-book">NEW</div>';	
 			}	else {
 				echo '';
