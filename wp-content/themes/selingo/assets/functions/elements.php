@@ -22,7 +22,9 @@ function book_carousel() { ?>
 			$newBook = get_field('new_book');
 			if( in_array('new', $newBook) ) {
 				echo '<div class="new-book">NEW</div>';	
-			}	   
+			}	else {
+				echo '';
+			}
     	echo '<div class="book-img"><i class="fa fa-info-circle book-toggle"></i><a href="' . get_permalink() .'"><img src="' . $bookImg['url'] .'"></a><a href="' . get_permalink() . '" class="button">Learn More</a></div>';
     	//echo '<div class="book-title"><a href="' . get_permalink() .'">' . get_field('full_book_title') . '</a></div>';    
     	//echo '<a href="' . get_permalink() . '" class="button">Learn More</a>';
