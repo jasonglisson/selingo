@@ -32,9 +32,10 @@ function book_carousel() { ?>
 ?></div>	
 <? }
 
-function about_jeff() { ?>
-	<div class="large-6 small-12 columns">about Jeff</div>
-	<div class="large-6 small-12 columns"><?php echo get_field('about_jeff_video'); ?></div>
+function about_jeff() { 
+	$aboutVid = get_field('about_jeff_video', 44); ?>
+	<div class="large-6 small-12 columns about-jeff-text">about Jeff</div>
+	<div class="large-6 small-12 columns about-video"><?php print_r($aboutVid); ?></div>
  <?php } 
 	 
  ?>
