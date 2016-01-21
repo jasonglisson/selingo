@@ -1,8 +1,102 @@
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Slabo+27px);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800,900,200,500);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300);
+
+
 // Base Styles
 
 .button {
 	background: #689cd5;
 }
+
+// Homepage Features
+.homepage-features {
+	position:relative;
+	.overlay {
+		position: absolute;
+		width:100%;
+		height:100%;
+		top: 0;
+		left: 0;
+		opacity: .75;
+		z-index: 1;
+	}
+	// Event 
+	.event-info {
+		z-index: 1;
+		position: relative;
+		padding: 50px 0;
+		h2 {
+			font-family: 'Roboto Slab', serif;
+			line-height: 35px;
+			text-transform: uppercase;
+			text-align: center;
+			color: #fff;
+		}
+		h4 {
+			span {
+			 display: inline-block;
+			 position: relative;
+			}
+			margin-bottom: 20px;
+			font-family: 'Raleway', sans-serif;
+			text-align: center;
+			text-transform: uppercase;
+		}		
+		h4 span:before, h4 span:after {
+			content: "";
+			position: absolute;
+			height: 5px;
+			border-bottom: 2px solid #fff;
+			top: 13px;
+			width: 100px;
+		}
+		h4 span:before {
+			right: 100%;
+			margin-right: 15px;
+		}
+		h4 span:after {
+			left: 100%;
+			margin-left: 15px;
+		}		
+		.event-location {
+			display: table;
+			font-size: 0.85rem;
+			margin: 0 auto;
+			padding-top: 10px;
+			line-height: 13px;
+			.event-location-info {
+				float: left;
+				font-family: 'Raleway', sans-serif;
+				text-transform: uppercase;
+				padding: 0 20px;
+				color: #fff;
+				margin-bottom: 35px;
+			}
+			.event-date {
+				border-right: 1px solid #fff;
+			}
+			.event-place {
+				border-right: 1px solid #fff;
+			}
+		}
+		.button {
+	    display: table;
+	    margin: 0 auto;
+	    font-weight: bold;
+	    text-transform: uppercase;
+		}
+	}
+	.event-bg-image {
+		position:absolute;
+		width: 100%;
+		height:100%;
+		background-size: cover;
+		z-index: 0;
+	}
+}
+
 
 .signup-form-section {
 	background: #73b1c0;
@@ -22,6 +116,10 @@
 	}
 	input[type=submit] {
 		width: 100%;
+		background: #689cd5;
+		height: 2.4375rem;		
+		border: 1px solid rgba(255, 255, 255, 0.32);
+		color: #fff;
 	}
 }
 
@@ -60,7 +158,7 @@
 	    top: 0;
 	    width: 100%;
 	    height: 78%;
-			background: rgba(63, 75, 88, 0.95);
+			background: rgba(68, 83, 98, 0.95);
 			color: #fff;
 	    z-index: 2;			
 	    padding: 8% 10%;
@@ -77,6 +175,7 @@
 .about-jeff-section {
 	padding: 35px 0;
 	.about-jeff-text {
+		padding-bottom: 25px;
 		h4 {
 	    padding-bottom: 10px;
 	    width: 100%;				
@@ -146,6 +245,13 @@
 		.your-message {
 			resize: none;
 			height: 180px;
+		}
+		input[type=submit] {
+			width: 100%;
+			background: #689cd5;
+			height: 2.4375rem;		
+			border: none;
+			color: #fff;
 		}
 	}
 }

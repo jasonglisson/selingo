@@ -1,5 +1,61 @@
 <?php
 
+// Feature area that is switchable 
+function homepage_feature() {
+	wp_reset_postdata();	
+	if (get_field('homepage_feature') == 'book') { ?>
+		<div class="overlay" style="background:#666666;"></div>	
+		<div class="large-8 medium-12 small-12 columns">
+			test
+		</div>
+		<div class="large-4 columns">
+			test
+		</div>		
+<?php } else if (get_field('homepage_feature') == 'event') { ?>
+		<div class="overlay" style="background:#666;"></div>
+		<?php if( have_rows('event') ): ?>
+			<?php while( have_rows('event') ): the_row(); 
+				$eventHeading = get_sub_field('event_title'); 
+				$eventTitleTop = get_sub_field('event_title_top');
+				$eventTitleBottom = get_sub_field('event_title_bottom');
+				$eventBG = get_sub_field('event_background_image');				
+			?>
+			<div class="event-bg-image" style="background-image:url(<?php echo $eventBG; ?>);">test</div>
+			<div class="row">
+				<div class="large-7 medium-12 small-12 columns event-info">
+			<?php if(!empty($eventHeading)) : ?>
+				<h4><span><?php echo $eventHeading; ?></span></h4>
+			<?php endif; ?>	
+			<?php if(!empty($eventTitleTop)) : ?>			
+				<h2><?php echo $eventTitleTop; ?></h2>
+			<?php endif; ?>
+			<?php if(!empty($eventTitleBottom)) : ?>				
+				<h2><?php echo $eventTitleBottom; ?></h2>
+			<?php endif; ?>	
+			<div class="event-location">
+				<div class="event-date event-location-info">August 16 2015</div>
+				<div class="event-place event-location-info">Soandso University</div>
+				<div class="event-time event-location-info">7pm</div>
+			</div>
+			<a href="#" class="button">Read More</a>
+		</div>
+				<div class="large-5 columns show-for-large">
+					test
+				</div>		
+		</div>	
+			<?php endwhile; ?>	
+		<?php endif; ?>
+<?php	} else if (get_field('homepage_feature') == 'booking') { ?>
+		<div class="overlay" style="background:#666666;"></div>
+		<div class="large-8 medium-12 small-12 columns">
+			test
+		</div>
+		<div class="large-4 columns">
+			test
+		</div>	
+<?php	}
+}
+
 // Subscription form for signing up for newsletters	
 function selingo_subscribe_form() { ?>
 	<h4>Subscribe!</h4>

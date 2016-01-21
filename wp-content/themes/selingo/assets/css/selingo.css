@@ -1,5 +1,78 @@
+@import url(https://fonts.googleapis.com/css?family=Slabo+27px);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800,900,200,500);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300);
 .button {
   background: #689cd5; }
+
+.homepage-features {
+  position: relative; }
+  .homepage-features .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.75;
+    z-index: 1; }
+  .homepage-features .event-info {
+    z-index: 1;
+    position: relative;
+    padding: 50px 0; }
+    .homepage-features .event-info h2 {
+      font-family: 'Roboto Slab', serif;
+      line-height: 35px;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff; }
+    .homepage-features .event-info h4 {
+      margin-bottom: 20px;
+      font-family: 'Raleway', sans-serif;
+      text-align: center;
+      text-transform: uppercase; }
+      .homepage-features .event-info h4 span {
+        display: inline-block;
+        position: relative; }
+    .homepage-features .event-info h4 span:before, .homepage-features .event-info h4 span:after {
+      content: "";
+      position: absolute;
+      height: 5px;
+      border-bottom: 2px solid #fff;
+      top: 13px;
+      width: 100px; }
+    .homepage-features .event-info h4 span:before {
+      right: 100%;
+      margin-right: 15px; }
+    .homepage-features .event-info h4 span:after {
+      left: 100%;
+      margin-left: 15px; }
+    .homepage-features .event-info .event-location {
+      display: table;
+      font-size: 0.85rem;
+      margin: 0 auto;
+      padding-top: 10px;
+      line-height: 13px; }
+      .homepage-features .event-info .event-location .event-location-info {
+        float: left;
+        font-family: 'Raleway', sans-serif;
+        text-transform: uppercase;
+        padding: 0 20px;
+        color: #fff;
+        margin-bottom: 35px; }
+      .homepage-features .event-info .event-location .event-date {
+        border-right: 1px solid #fff; }
+      .homepage-features .event-info .event-location .event-place {
+        border-right: 1px solid #fff; }
+    .homepage-features .event-info .button {
+      display: table;
+      margin: 0 auto;
+      font-weight: bold;
+      text-transform: uppercase; }
+  .homepage-features .event-bg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: 0; }
 
 .signup-form-section {
   background: #73b1c0;
@@ -16,7 +89,11 @@
     text-align: center;
     color: #fff; }
   .signup-form-section input[type=submit] {
-    width: 100%; }
+    width: 100%;
+    background: #689cd5;
+    height: 2.4375rem;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    color: #fff; }
 
 .book-carousel {
   padding: 45px 0; }
@@ -49,7 +126,7 @@
       top: 0;
       width: 100%;
       height: 78%;
-      background: rgba(63, 75, 88, 0.95);
+      background: rgba(68, 83, 98, 0.95);
       color: #fff;
       z-index: 2;
       padding: 8% 10%;
@@ -61,22 +138,24 @@
 
 .about-jeff-section {
   padding: 35px 0; }
-  .about-jeff-section .about-jeff-text h4 {
-    padding-bottom: 10px;
-    width: 100%; }
-  .about-jeff-section .about-jeff-text .about-jeff-photo {
-    width: 180px;
-    float: left;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid #fff;
-    box-shadow: 0px 0px 1px #000;
-    margin-top: 10px; }
-  .about-jeff-section .about-jeff-text .about-text {
-    padding-left: 20px;
-    display: table;
-    border-top: 1px solid #666;
-    padding-top: 20px; }
+  .about-jeff-section .about-jeff-text {
+    padding-bottom: 25px; }
+    .about-jeff-section .about-jeff-text h4 {
+      padding-bottom: 10px;
+      width: 100%; }
+    .about-jeff-section .about-jeff-text .about-jeff-photo {
+      width: 180px;
+      float: left;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid #fff;
+      box-shadow: 0px 0px 1px #000;
+      margin-top: 10px; }
+    .about-jeff-section .about-jeff-text .about-text {
+      padding-left: 20px;
+      display: table;
+      border-top: 1px solid #666;
+      padding-top: 20px; }
   .about-jeff-section .about-video .flex-video {
     height: 300px;
     padding: 0; }
@@ -114,6 +193,12 @@
   .pre-footer .footer-contact .your-message {
     resize: none;
     height: 180px; }
+  .pre-footer .footer-contact input[type=submit] {
+    width: 100%;
+    background: #689cd5;
+    height: 2.4375rem;
+    border: none;
+    color: #fff; }
 
 .tweet {
   float: left;
