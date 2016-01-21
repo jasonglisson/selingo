@@ -42,10 +42,14 @@ jQuery(document).ready(function($) {
 	  ]
 	});
 	
-	$('.book-item').find('.book-toggle').click(function(event){
+	$('.book-item').mouseenter(function(event){
 		$(this).find('.book-info').fadeIn(150);
 	});
 	
+	$('.book-info').on('mouseleave', function(event){
+		$(this).delay(150).fadeOut(150);
+	});	
+		
 /*
 	$('.book-item').bind('.close-info').click(function(event){
 		$('.book-info').fadeOut(150);

@@ -1,6 +1,28 @@
+// Base Styles
+
+.button {
+	background: #689cd5;
+}
+
 .signup-form-section {
 	background: #73b1c0;
 	padding: 25px 0;
+	h4 {
+		text-align: center;
+		border-bottom: 1px solid #666;
+		padding-bottom: 15px;
+		width: 75%;
+		margin: 0 auto 25px auto;
+		color: #fff;
+	}
+	h5 {
+		padding-bottom: 25px;
+		text-align: center;
+		color: #fff;
+	}
+	input[type=submit] {
+		width: 100%;
+	}
 }
 
 .book-carousel {
@@ -11,15 +33,10 @@
 			margin: 0 auto;
 			display: table;
 			position:relative;
+			margin-top: 23px;
 			img {
 				height: 250px;
 				width: auto;
-			}
-			.book-toggle {
-		    right: -35px;
-		    position: absolute;
-		    font-size: 2rem;		
-		    cursor: pointer;		
 			}
 		}
 		.button {
@@ -42,23 +59,23 @@
 	    position: absolute;
 	    top: 0;
 	    width: 100%;
-	    height: 100%;
-			background: rgba(33, 29, 29, 0.75);
-	    color: #fff;
+	    height: 78%;
+			background: rgba(63, 75, 88, 0.95);
+			color: #fff;
 	    z-index: 2;			
-	    padding: 10%;
+	    padding: 8% 10%;
 	    display: none;
-	    i {
-		    position: absolute;
-		    top:13px;
-		    right:25px;
+	    a {
+				text-decoration: underline;
+				font-weight: bold;
+				color: #e2a06e;
 	    }
 		}
 	}
 }
 
 .about-jeff-section {
-	padding: 20px 0;
+	padding: 35px 0;
 	.about-jeff-text {
 		h4 {
 	    padding-bottom: 10px;

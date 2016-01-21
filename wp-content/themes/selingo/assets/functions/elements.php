@@ -3,7 +3,8 @@
 // Subscription form for signing up for newsletters	
 function selingo_subscribe_form() { ?>
 	<h4>Subscribe!</h4>
-	<?php echo do_shortcode('');
+	<h5>Sign up for my newsletter to receive updates and insights on the college of the future.</h5>
+	<?php echo do_shortcode('[contact-form-7 id="64" title="Subscription"]');
 } 
 
 // Book reivew list
@@ -25,12 +26,11 @@ function book_carousel() { ?>
 			}	else {
 				echo '';
 			}
-    	echo '<div class="book-img"><i class="fa fa-info-circle book-toggle"></i><a href="' . get_permalink() .'"><img src="' . $bookImg['url'] .'"></a><a href="' . get_permalink() . '" class="button">Learn More</a></div>';
+    	echo '<div class="book-img"><a href="' . get_permalink() .'"><img src="' . $bookImg['url'] .'"></a><a href="' . get_permalink() . '" class="button">Learn More</a></div>';
     	//echo '<div class="book-title"><a href="' . get_permalink() .'">' . get_field('full_book_title') . '</a></div>';    
     	//echo '<a href="' . get_permalink() . '" class="button">Learn More</a>';
     ?>
     <div class="book-info">
-    	<i class="fa fa-times close-info"></i>
     	<?php the_excerpt(); ?>
     </div><?php
     echo '</div>';
