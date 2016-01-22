@@ -19,8 +19,11 @@ function homepage_feature() {
 				$eventTitleTop = get_sub_field('event_title_top');
 				$eventTitleBottom = get_sub_field('event_title_bottom');
 				$eventBG = get_sub_field('event_background_image');				
+				$eventforegroundImg = get_sub_field('event_foreground_image');	
+				$eventbuttonURL = get_sub_field('event_button_link');
+				$eventURLtarget = get_sub_field('event_link_target');
 			?>
-			<div class="event-bg-image" style="background-image:url(<?php echo $eventBG; ?>);">test</div>
+			<div class="event-bg-image" style="background-image:url(<?php echo $eventBG; ?>);"></div>
 			<div class="row">
 				<div class="large-7 medium-12 small-12 columns event-info">
 			<?php if(!empty($eventHeading)) : ?>
@@ -37,12 +40,20 @@ function homepage_feature() {
 				<div class="event-place event-location-info">Soandso University</div>
 				<div class="event-time event-location-info">7pm</div>
 			</div>
-			<a href="#" class="button">Read More</a>
+			<?php if(!empty($eventbuttonURL)) :
+				if( in_array( 'yes', get_sub_field('event_link_target') ) ) {?>
+					<a href="<?php echo $eventbuttonURL; ?>" class="button" target="_blank">Read More</a>
+				<?php } else { ?>
+					<a href="<?php echo $eventbuttonURL; ?>" class="button">Read More</a>					
+				<?php } ?>
+			<?php endif; ?>	
 		</div>
 				<div class="large-5 columns show-for-large">
-					test
+					<?php if(!empty($eventforegroundImg)) :?>
+						<img src="<?php echo $eventforegroundImg; ?>" class="foreground-img">
+					<?php endif; ?>	
 				</div>		
-		</div>	
+			</div>	
 			<?php endwhile; ?>	
 		<?php endif; ?>
 <?php	} else if (get_field('homepage_feature') == 'booking') { ?>
