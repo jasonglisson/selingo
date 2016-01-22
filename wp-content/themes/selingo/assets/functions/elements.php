@@ -41,7 +41,7 @@ function homepage_feature() {
 				<div class="event-time event-location-info">7pm</div>
 			</div>
 			<?php if(!empty($eventbuttonURL)) :
-				if( in_array( 'yes', get_sub_field('event_link_target') ) ) {?>
+				if( is_array($eventURLtarget) && in_array('yes', $eventURLtarget ) ) {?>
 					<a href="<?php echo $eventbuttonURL; ?>" class="button" target="_blank">Read More</a>
 				<?php } else { ?>
 					<a href="<?php echo $eventbuttonURL; ?>" class="button">Read More</a>					
