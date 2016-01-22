@@ -5,12 +5,25 @@ function homepage_feature() {
 	wp_reset_postdata();	
 	if (get_field('homepage_feature') == 'book') { ?>
 		<div class="overlay" style="background:#666666;"></div>	
-		<div class="large-8 medium-12 small-12 columns">
-			test
-		</div>
-		<div class="large-4 columns">
-			test
-		</div>		
+		<div class="row">
+			<div class="large-1 columns">.</div>
+			<div class="large-3 columns book-promo-img">
+				<img src="http://selingo.loc/wp-content/uploads/2016/01/book.png"/>
+			</div>
+			<div class="large-7 columns book-promo-info">
+				<h2>There is life after college</h2>
+				<h2>Second Line of book title</h2>
+				<h5>What Parents and Students Should Know About Navigating School to Prepare for the Jobs of Tomorrow</h5>
+				<p>Full of tips, advice, and insight, this wise, practical guide will help every student, no matter their major or degree, find real employment—and give their parents some peace of mind.</p>	
+				<button class="secondary hollow button" href="#">About This Book</button>
+				<button class="button feature-purchase-book" type="button" data-toggle="purchase-dropdown-1">Purchase This Book<i class="fa fa-caret-down"></i></button>
+				<div class="dropdown-pane purchase-options" id="purchase-dropdown-1" data-dropdown data-hover="false">
+					<a href="" class="book-purchase" target="_blank">Amazon</a>
+					<a herf="" class="book-purchase" target="_blank">Barnes & Noble</a>
+				</div>
+			</div>	
+			<div class="large-1 columns">.</div>
+		</div>				
 <?php } else if (get_field('homepage_feature') == 'event') { ?>
 		<div class="overlay" style="background:#666;"></div>
 		<?php if( have_rows('event') ): ?>

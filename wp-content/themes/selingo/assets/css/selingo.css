@@ -20,6 +20,52 @@ input[type=submit] {
     left: 0;
     opacity: 0.85;
     z-index: 1; }
+  .homepage-features .book-promo-img {
+    position: relative;
+    z-index: 1;
+    padding-top: 70px;
+    padding-bottom: 70px; }
+    .homepage-features .book-promo-img img {
+      height: 90%;
+      width: 90%;
+      float: right;
+      box-shadow: 0px 9px 55px -7px; }
+  .homepage-features .book-promo-info {
+    position: relative;
+    z-index: 1;
+    padding-top: 70px;
+    padding-bottom: 70px; }
+    .homepage-features .book-promo-info h2 {
+      font-family: 'Roboto Slab', serif;
+      line-height: 35px;
+      text-transform: uppercase;
+      text-align: left;
+      color: #fff; }
+    .homepage-features .book-promo-info h5 {
+      font-family: 'Raleway', sans-serif;
+      color: #ddd;
+      margin-bottom: 25px;
+      font-weight: 500; }
+    .homepage-features .book-promo-info .secondary {
+      border: 1px solid #fff;
+      color: #fff; }
+      .homepage-features .book-promo-info .secondary:hover {
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        color: rgba(255, 255, 255, 0.7); }
+    .homepage-features .book-promo-info p {
+      color: #fff; }
+    .homepage-features .book-promo-info .feature-purchase-book i {
+      margin-left: 15px; }
+    .homepage-features .book-promo-info .purchase-options {
+      padding: 0;
+      width: 200px; }
+      .homepage-features .book-promo-info .purchase-options .book-purchase {
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        display: block;
+        padding: 10px; }
+        .homepage-features .book-promo-info .purchase-options .book-purchase:last-of-type {
+          border-bottom: 0px solid #ddd; }
   .homepage-features .event-info {
     z-index: 1;
     position: relative;
