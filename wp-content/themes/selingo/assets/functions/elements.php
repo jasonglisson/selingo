@@ -3,29 +3,60 @@
 // Feature area that is switchable 
 function homepage_feature() {
 	wp_reset_postdata();	
-	if (get_field('homepage_feature') == 'book') { ?>
-		<div class="overlay" style="background:#666666;"></div>	
+	if (get_field('homepage_feature') == 'book') { ?>	
+<?php	if( have_rows('book') ): 
+			while( have_rows('book') ): the_row(); 	 
+				$bookTitleTop = get_sub_field('featured_book_title');
+				$bookTitleBottom = get_sub_field('featured_book_title_second_line');
+				$bookSubtitle = get_sub_field('featured_book_subtitle');
+				$bookDesctext = get_sub_field('featured_book_text');
+				$bookBG = get_sub_field('book_background_image');				
+				$bookImg = get_sub_field('featured_book_image');	
+				$bookbuttontext = get_sub_field('order_button_text');
+				$booklink = get_sub_field('about_book_url'); 
+				$bookURL = get_sub_field('event_link_target');			
+				$bookOverlayColor = get_sub_field('book_background_overlay');
+				$bookOrderlinks = get_field('order_links');
+			?>
+		<div class="book-bg-image" style="background-image:url(<?php echo $bookBG ?>);"></div>
+		<?php if(!empty($bookOverlayColor)) : ?>
+			<div class="overlay" style="background:<?php echo $bookOverlayColor; ?>;"></div>			
+		<?php else : ?>
+			<div class="overlay" style="background:#666666;"></div>
+		<?php endif; ?>					
 		<div class="row">
-			<div class="large-1 columns">.</div>
-			<div class="large-3 columns book-promo-img">
-				<img src="http://selingo.loc/wp-content/uploads/2016/01/book.png"/>
+			<div class="large-1 show-for-large columns">&nbsp;</div>
+			<div class="large-3 medium-3 small-12 columns book-promo-img">
+				<img src="<?php echo $bookImg; ?>"/>
 			</div>
-			<div class="large-7 columns book-promo-info">
-				<h2>There is life after college</h2>
-				<h2>Second Line of book title</h2>
-				<h5>What Parents and Students Should Know About Navigating School to Prepare for the Jobs of Tomorrow</h5>
-				<p>Full of tips, advice, and insight, this wise, practical guide will help every student, no matter their major or degree, find real employment—and give their parents some peace of mind.</p>	
-				<button class="secondary hollow button" href="#">About This Book</button>
-				<button class="button feature-purchase-book" type="button" data-toggle="purchase-dropdown-1">Purchase This Book<i class="fa fa-caret-down"></i></button>
+			<div class="large-7 medium-7 small-12 columns book-promo-info">
+				<h2><?php echo $bookTitleTop; ?></h2>
+				<?php if(!empty($bookTitleBottom)) : ?>
+					<h2><?php echo $bookTitleBottom; ?></h2>
+				<?php endif; ?>	
+				<?php if(!empty($bookSubtitle)) : ?>
+					<h5><?php echo $bookSubtitle; ?></h5>
+				<?php endif; ?>
+				<?php if(!empty($bookDesctext)) : ?>				
+					<p><?php echo $bookDesctext; ?></p>	
+				<?php endif; ?>	
+				<?php if(!empty($booklink)) :?>
+					<button class="secondary hollow button" href="<?php echo $booklink; ?>">About This Book</button>
+				<?php endif; ?> 	
+				<button class="button feature-purchase-book" type="button" data-toggle="purchase-dropdown-1"><?php echo $bookbuttontext; ?><i class="fa fa-caret-down"></i></button>
 				<div class="dropdown-pane purchase-options" id="purchase-dropdown-1" data-dropdown data-hover="false">
-					<a href="" class="book-purchase" target="_blank">Amazon</a>
-					<a herf="" class="book-purchase" target="_blank">Barnes & Noble</a>
+					<?php if( have_rows('order_links')) : ?>
+							<?php	while( have_rows('order_links') ): the_row(); ?>
+										<a href="<?php the_sub_field('book_purchase_url');?>" class="book-purchase" target="_blank"><?php the_sub_field('book_purchase_name');?></a>
+						<?php endwhile; ?>
+					<?php	endif; ?>										
 				</div>
 			</div>	
-			<div class="large-1 columns">.</div>
+			<div class="large-1 show-for-large columns">&nbsp;</div>
 		</div>				
+	<?php endwhile; ?>
+<?php endif; ?>		
 <?php } else if (get_field('homepage_feature') == 'event') { ?>
-		<div class="overlay" style="background:#666;"></div>
 		<?php if( have_rows('event') ): ?>
 			<?php while( have_rows('event') ): the_row(); 
 				$eventHeading = get_sub_field('event_title'); 
@@ -35,7 +66,9 @@ function homepage_feature() {
 				$eventforegroundImg = get_sub_field('event_foreground_image');	
 				$eventbuttonURL = get_sub_field('event_button_link');
 				$eventURLtarget = get_sub_field('event_link_target');
+				$eventBGcolor = get_sub_field('');
 			?>
+			<div class="overlay" style="background:#666;"></div>
 			<div class="event-bg-image" style="background-image:url(<?php echo $eventBG; ?>);"></div>
 			<div class="row">
 				<div class="large-7 medium-12 small-12 columns event-info">
@@ -70,13 +103,51 @@ function homepage_feature() {
 			<?php endwhile; ?>	
 		<?php endif; ?>
 <?php	} else if (get_field('homepage_feature') == 'booking') { ?>
-		<div class="overlay" style="background:#666666;"></div>
-		<div class="large-8 medium-12 small-12 columns">
-			test
+		<?php if( have_rows('event') ): ?>
+			<?php while( have_rows('event') ): the_row(); 
+				$eventHeading = get_sub_field('event_title'); 
+				$eventTitleTop = get_sub_field('event_title_top');
+				$eventTitleBottom = get_sub_field('event_title_bottom');
+				$eventBG = get_sub_field('event_background_image');				
+				$eventforegroundImg = get_sub_field('event_foreground_image');	
+				$eventbuttonURL = get_sub_field('event_button_link');
+				$eventURLtarget = get_sub_field('event_link_target');
+				$eventBGcolor = get_sub_field('');
+			?>
+			<div class="overlay" style="background:#666;"></div>
+			<div class="event-bg-image" style="background-image:url(<?php echo $eventBG; ?>);"></div>
+			<div class="row">
+				<div class="large-7 medium-12 small-12 columns event-info">
+			<?php if(!empty($eventHeading)) : ?>
+				<h4><span><?php echo $eventHeading; ?></span></h4>
+			<?php endif; ?>	
+			<?php if(!empty($eventTitleTop)) : ?>			
+				<h2><?php echo $eventTitleTop; ?></h2>
+			<?php endif; ?>
+			<?php if(!empty($eventTitleBottom)) : ?>				
+				<h2><?php echo $eventTitleBottom; ?></h2>
+			<?php endif; ?>	
+			<div class="event-location">
+				<div class="event-date event-location-info">August 16 2015</div>
+				<div class="event-place event-location-info">Soandso University</div>
+				<div class="event-time event-location-info">7pm</div>
+			</div>
+			<?php if(!empty($eventbuttonURL)) :
+				if( is_array($eventURLtarget) && in_array('yes', $eventURLtarget ) ) {?>
+					<a href="<?php echo $eventbuttonURL; ?>" class="button" target="_blank">Read More</a>
+				<?php } else { ?>
+					<a href="<?php echo $eventbuttonURL; ?>" class="button">Read More</a>					
+				<?php } ?>
+			<?php endif; ?>	
 		</div>
-		<div class="large-4 columns">
-			test
-		</div>	
+				<div class="large-5 columns show-for-large">
+					<?php if(!empty($eventforegroundImg)) :?>
+						<img src="<?php echo $eventforegroundImg; ?>" class="foreground-img">
+					<?php endif; ?>	
+				</div>		
+			</div>	
+			<?php endwhile; ?>	
+		<?php endif; ?>
 <?php	}
 }
 
