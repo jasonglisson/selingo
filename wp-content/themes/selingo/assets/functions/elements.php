@@ -41,7 +41,7 @@ function homepage_feature() {
 					<p><?php echo $bookDesctext; ?></p>	
 				<?php endif; ?>	
 				<?php if(!empty($booklink)) :?>
-					<button class="secondary hollow button" href="<?php echo $booklink; ?>">About This Book</button>
+					<a href="<?php echo $booklink; ?>"><button class="secondary hollow button">About This Book</button></a>
 				<?php endif; ?> 	
 				<button class="button feature-purchase-book" type="button" data-toggle="purchase-dropdown-1"><?php echo $bookbuttontext; ?><i class="fa fa-caret-down"></i></button>
 				<div class="dropdown-pane purchase-options" id="purchase-dropdown-1" data-dropdown data-hover="false">
@@ -72,28 +72,28 @@ function homepage_feature() {
 			<div class="event-bg-image" style="background-image:url(<?php echo $eventBG; ?>);"></div>
 			<div class="row">
 				<div class="large-7 medium-12 small-12 columns event-info">
-			<?php if(!empty($eventHeading)) : ?>
-				<h4><span><?php echo $eventHeading; ?></span></h4>
-			<?php endif; ?>	
-			<?php if(!empty($eventTitleTop)) : ?>			
-				<h2><?php echo $eventTitleTop; ?></h2>
-			<?php endif; ?>
-			<?php if(!empty($eventTitleBottom)) : ?>				
-				<h2><?php echo $eventTitleBottom; ?></h2>
-			<?php endif; ?>	
-			<div class="event-location">
-				<div class="event-date event-location-info">August 16 2015</div>
-				<div class="event-place event-location-info">Soandso University</div>
-				<div class="event-time event-location-info">7pm</div>
+				<?php if(!empty($eventHeading)) : ?>
+					<h4><span><?php echo $eventHeading; ?></span></h4>
+				<?php endif; ?>	
+				<?php if(!empty($eventTitleTop)) : ?>			
+					<h2><?php echo $eventTitleTop; ?></h2>
+				<?php endif; ?>
+				<?php if(!empty($eventTitleBottom)) : ?>				
+					<h2><?php echo $eventTitleBottom; ?></h2>
+				<?php endif; ?>	
+				<div class="event-location">
+					<div class="event-date event-location-info">August 16 2015</div>
+					<div class="event-place event-location-info">Soandso University</div>
+					<div class="event-time event-location-info">7pm</div>
+				</div>
+				<?php if(!empty($eventbuttonURL)) :
+					if( is_array($eventURLtarget) && in_array('yes', $eventURLtarget ) ) {?>
+						<a href="<?php echo $eventbuttonURL; ?>" class="button" target="_blank">Read More</a>
+					<?php } else { ?>
+						<a href="<?php echo $eventbuttonURL; ?>" class="button">Read More</a>					
+					<?php } ?>
+				<?php endif; ?>	
 			</div>
-			<?php if(!empty($eventbuttonURL)) :
-				if( is_array($eventURLtarget) && in_array('yes', $eventURLtarget ) ) {?>
-					<a href="<?php echo $eventbuttonURL; ?>" class="button" target="_blank">Read More</a>
-				<?php } else { ?>
-					<a href="<?php echo $eventbuttonURL; ?>" class="button">Read More</a>					
-				<?php } ?>
-			<?php endif; ?>	
-		</div>
 				<div class="large-5 columns show-for-large">
 					<?php if(!empty($eventforegroundImg)) :?>
 						<img src="<?php echo $eventforegroundImg; ?>" class="foreground-img">
@@ -117,30 +117,19 @@ function homepage_feature() {
 			<div class="overlay" style="background:#666;"></div>
 			<div class="event-bg-image" style="background-image:url(<?php echo $eventBG; ?>);"></div>
 			<div class="row">
-				<div class="large-7 medium-12 small-12 columns event-info">
-			<?php if(!empty($eventHeading)) : ?>
-				<h4><span><?php echo $eventHeading; ?></span></h4>
-			<?php endif; ?>	
+				<div class="large-1 show-for-large columns">&nbsp;</div>					
+				<div class="large-7 medium-12 small-12 columns booking-info">
 			<?php if(!empty($eventTitleTop)) : ?>			
-				<h2><?php echo $eventTitleTop; ?></h2>
+				<h2>The New School of Thought</h2>
 			<?php endif; ?>
 			<?php if(!empty($eventTitleBottom)) : ?>				
-				<h2><?php echo $eventTitleBottom; ?></h2>
+				<h2>for Higher Education</h2>
 			<?php endif; ?>	
-			<div class="event-location">
-				<div class="event-date event-location-info">August 16 2015</div>
-				<div class="event-place event-location-info">Soandso University</div>
-				<div class="event-time event-location-info">7pm</div>
-			</div>
-			<?php if(!empty($eventbuttonURL)) :
-				if( is_array($eventURLtarget) && in_array('yes', $eventURLtarget ) ) {?>
-					<a href="<?php echo $eventbuttonURL; ?>" class="button" target="_blank">Read More</a>
-				<?php } else { ?>
-					<a href="<?php echo $eventbuttonURL; ?>" class="button">Read More</a>					
-				<?php } ?>
-			<?php endif; ?>	
+			<p>Jeff Selingo is a best-selling author and award-winning columnist who helps parents and higher-education leaders imagine the college and university of the future and how to succeed in a fast-changing economy.</p>
+			<a href="/about"><button class="secondary hollow button">About Jeff</button></a>	
+			<a href="/contact" class="button">Check Availabilty</a>					
 		</div>
-				<div class="large-5 columns show-for-large">
+				<div class="large-4 columns show-for-large">
 					<?php if(!empty($eventforegroundImg)) :?>
 						<img src="<?php echo $eventforegroundImg; ?>" class="foreground-img">
 					<?php endif; ?>	

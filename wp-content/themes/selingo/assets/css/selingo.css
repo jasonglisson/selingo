@@ -142,6 +142,30 @@ input[type=submit] {
   .homepage-features .foreground-img {
     position: relative;
     z-index: 1; }
+  .homepage-features .booking-info {
+    z-index: 1;
+    position: relative;
+    padding: 50px 0 50px 0px; }
+    .homepage-features .booking-info h2 {
+      font-family: 'Roboto Slab', serif;
+      line-height: 35px;
+      text-transform: uppercase;
+      text-align: right;
+      color: #fff; }
+    .homepage-features .booking-info p {
+      color: #fff;
+      margin-bottom: 25px;
+      font-family: 'Raleway', sans-serif;
+      text-align: right; }
+    .homepage-features .booking-info .secondary {
+      border: 1px solid #fff;
+      color: #fff;
+      margin-right: 0; }
+      .homepage-features .booking-info .secondary:hover {
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        color: rgba(255, 255, 255, 0.7); }
+    .homepage-features .booking-info .button {
+      float: right; }
 
 .signup-form-section {
   background: #73b1c0;
