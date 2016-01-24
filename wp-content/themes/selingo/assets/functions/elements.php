@@ -166,8 +166,8 @@ function book_carousel() { ?>
 			}	else {
 				echo '';
 			}
-			if (isset($bookImg['url'])) {		
-    		echo '<div class="book-img"><a href="' . get_permalink() .'"><img src="' . $bookImg['url'] .'"></a><a href="' . get_permalink() . '" class="button">Learn More</a></div>';				
+			if (isset($bookImg)) {		
+    		echo '<div class="book-img"><a href="' . get_permalink() .'"><img src="' . $bookImg .'"></a><a href="' . get_permalink() . '" class="button">Learn More</a></div>';				
 			}		
     	//echo '<div class="book-title"><a href="' . get_permalink() .'">' . get_field('full_book_title') . '</a></div>';    
     	//echo '<a href="' . get_permalink() . '" class="button">Learn More</a>';
