@@ -332,6 +332,67 @@ input[type=submit] {
 	}
 }
 
+// Single Book
+.single-book {
+	#inner-content {
+		padding:40px 0 !important;
+		.book-title {
+			font-family: 'Roboto Slab', serif;
+			line-height: 35px;
+			text-transform: uppercase;		
+		}
+		.book-subtitle {
+			margin-bottom: 25px;
+			font-family: 'Raleway', sans-serif;	
+			color: #666;			
+		}
+		.book-summary {
+			margin-bottom: 25px;			
+		}
+		.book-image {
+			img {
+				width: 250px;
+			}
+		}
+		.purchase-book {
+			i {
+				margin-left: 15px;
+			}
+		}
+		.share-book {
+			i {
+				margin-left: 15px;
+			}			
+		}
+		.purchase-options {
+			padding: 0;
+			width: 200px;
+			.book-purchase {
+				width: 100%;
+				border-bottom: 1px solid #ddd;
+				display: block;
+				padding: 10px;
+				&:last-of-type {
+					border-bottom: 0px solid #ddd;
+				}
+			}
+		}		
+		.share-options {
+			padding: 0;
+			width: 180px;
+			a {
+				width: 100%;
+				border-bottom: 1px solid #ddd;
+				display: block;
+				padding: 10px;
+				&:last-of-type {
+					border-bottom: 0px solid #ddd;
+				}
+			}
+		}
+	}
+}
+
 .pre-footer {
 	background: #d7d7d7;
 	padding-bottom: 25px;
