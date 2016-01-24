@@ -125,7 +125,7 @@ function homepage_feature() {
 			<?php if(!empty($eventTitleBottom)) : ?>				
 				<h2>for Higher Education</h2>
 			<?php endif; ?>	
-			<p>Jeff Selingo is a best-selling author and award-winning columnist who helps parents and higher-education leaders imagine the college and university of the future and how to succeed in a fast-changing economy.</p>
+			<p>Jeff Selingo is a best-selling author and award-winning columnist who helps parents and higher-education leaders imagine the college and university of the future and how to succeed in a fast-changing economy. </p>
 			<a href="/about"><button class="secondary hollow button">About Jeff</button></a>	
 			<a href="/contact" class="button">Check Availabilty</a>					
 		</div>
@@ -166,7 +166,9 @@ function book_carousel() { ?>
 			}	else {
 				echo '';
 			}
-    	echo '<div class="book-img"><a href="' . get_permalink() .'"><img src="' . $bookImg['url'] .'"></a><a href="' . get_permalink() . '" class="button">Learn More</a></div>';
+			if (isset($newBook['url'])) {		
+    		echo '<div class="book-img"><a href="' . get_permalink() .'"><img src="' . $bookImg['url'] .'"></a><a href="' . get_permalink() . '" class="button">Learn More</a></div>';				
+			}		
     	//echo '<div class="book-title"><a href="' . get_permalink() .'">' . get_field('full_book_title') . '</a></div>';    
     	//echo '<a href="' . get_permalink() . '" class="button">Learn More</a>';
     ?>
