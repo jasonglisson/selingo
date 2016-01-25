@@ -1,4 +1,4 @@
-					<div class="pre-footer">
+					<div class="pre-footer" id="prefooter">
 						<div class="row">
 							<div class="large-4 columns footer-contact">
 								<h4>Contact Jeff</h4>
