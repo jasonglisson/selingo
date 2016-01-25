@@ -147,6 +147,49 @@ function selingo_subscribe_form() { ?>
 	<?php echo do_shortcode('[contact-form-7 id="64" title="Subscription"]');
 } 
 
+// Jeff Resources Section
+function jeff_resources() { ?>
+	<div class="row">
+		<div class="large-4 columns resource-col">
+			<h4>Recent Columns</h4>
+			<div class="inner-column">
+				<?php $args = array( 'post_type' => 'post', 'posts_per_page' => 1 );
+				$the_query = new WP_Query( $args );?>
+				<?php if ( $the_query->have_posts() ) : ?>
+				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+					<h5><span><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></span></h5>
+					<div class="blog-post-date"><?php echo get_the_date('l, F jS, Y'); ?></div>
+					<div class="blog-text"><?php echo get_blog_excerpt(); ?></div>
+					<a href="<?php echo get_permalink(); ?>" class="button hide-for-large">See All Columns</a>
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
+				<?php endif; ?>
+			</div>	
+		</div>
+		<div class="large-4 columns resource-col">
+			<h4>Book Jeff to Speak</h4>	
+			<div class="inner-column">
+				<img src="<?php echo get_field('book_jeff_image'); ?>"/>
+				<p>Jeff engages audiences around the world. He’s as comfortable speaking at executive leadership retreats as he is delivering keynote speeches at national meetings, tailoring his insight and ideas as needed.</p>
+				<a href="#" class="button hide-for-large">Book Jeff</a>
+			</div>		
+		</div>
+		<div class="large-4 columns resource-col">
+			<h4>Upcoming Speaking Events</h4>			
+			<div class="inner-column">
+				<a href="#" class="button hide-for-large">See All Events</a>
+			</div>
+		</div>	
+	</div>	
+	<div class="row show-for-large">	
+		<div class="large-4 columns">
+			<a href="/columns" class="button">See All Columns</a>
+		</div>			
+		<div class="large-4 columns"><a href="/contact" class="button">Book Jeff</a></div>			
+		<div class="large-4 columns"><a href="/appearances" class="button">See All Events</a></div>					
+	</div>
+<?php }
+
 // Book reivew list
 function selingo_book_reviews_block() {
 	
@@ -173,7 +216,16 @@ function book_carousel() { ?>
     	//echo '<a href="' . get_permalink() . '" class="button">Learn More</a>';
     ?>
     <div class="book-info">
-    	<?php the_excerpt(); ?>
+	    <a href="<?php echo get_permalink(); ?>"></a>
+		  	<?php $row = get_field('book_review', get_the_id()); ?>
+		  	<?php if (!empty($row)) :?>
+		  		<?php $rand_row = $row[ array_rand( $row ) ]; ?>
+			  	<?php $source = $rand_row['book_review_source']; ?>
+						<span class="review"><?php echo $rand_row['book_review_text'];?></span>
+						<span class="source">- <?php echo $source;?></span>
+						<?php else: ?>
+							<?php the_excerpt(); ?>
+						<?php endif; ?>		
     </div><?php
     echo '</div>';
 	endwhile; 

@@ -22,6 +22,10 @@ Template Name: Homepage
 			<?php book_carousel(); ?>
 		</div>	
 
+		<div class="resources-section">
+			<?php jeff_resources(); ?>			
+		</div>	
+
 		<div class="about-jeff-section">
 			<div class="row">
 				<?php about_jeff(); ?>

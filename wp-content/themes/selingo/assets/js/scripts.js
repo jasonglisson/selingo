@@ -49,12 +49,9 @@ jQuery(document).ready(function($) {
 	$('.book-info').on('mouseleave', function(event){
 		$(this).delay(150).fadeOut(150);
 	});	
-		
-/*
-	$('.book-item').bind('.close-info').click(function(event){
-		$('.book-info').fadeOut(150);
+
+	$('.book-info').click(function(){
+		$(this).find('a')[0].click();
 	});
-*/
-	
 
 });

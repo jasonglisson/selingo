@@ -222,11 +222,58 @@ input[type=submit] {
       color: #fff;
       z-index: 2;
       padding: 8% 10%;
-      display: none; }
+      display: none;
+      cursor: pointer; }
       .book-carousel .book-item .book-info a {
         text-decoration: underline;
         font-weight: bold;
         color: #e2a06e; }
+      .book-carousel .book-item .book-info .review {
+        font-style: italic;
+        float: left; }
+      .book-carousel .book-item .book-info .source {
+        font-weight: bold;
+        float: left;
+        margin-top: 5px; }
+
+.resources-section {
+  background: rgba(104, 156, 213, 0.51); }
+  .resources-section .resource-col {
+    padding-top: 35px; }
+    .resources-section .resource-col h4 {
+      color: #167ac6;
+      font-family: 'Roboto Slab', serif;
+      text-align: center;
+      border-bottom: 1px solid rgba(22, 122, 198, 0.28);
+      padding-bottom: 5px; }
+    .resources-section .resource-col .inner-column {
+      padding: 15px 20px; }
+      .resources-section .resource-col .inner-column h5 {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 500;
+        font-size: 1.4rem; }
+        .resources-section .resource-col .inner-column h5 span {
+          border-bottom: 1px dotted #fff;
+          padding-bottom: 1px; }
+          .resources-section .resource-col .inner-column h5 span a {
+            color: #167ac6; }
+      .resources-section .resource-col .inner-column .blog-post-date {
+        padding-bottom: 10px; }
+      .resources-section .resource-col .inner-column .blog-text a {
+        color: #167ac6; }
+      .resources-section .resource-col .inner-column img {
+        display: block;
+        margin: 0 auto; }
+      .resources-section .resource-col .inner-column p {
+        margin-top: 15px; }
+      .resources-section .resource-col .inner-column .button {
+        width: 100%;
+        bottom: 0; }
+  .resources-section .show-for-large {
+    padding-bottom: 55px; }
+    .resources-section .show-for-large .button {
+      width: 100%;
+      margin: 0 15px; }
 
 .about-jeff-section {
   padding: 35px 0; }
@@ -315,7 +362,9 @@ input[type=submit] {
     border-right: none; }
     .single-book #inner-content .tabs a {
       border-top: 1px solid #ddd;
-      border-right: 1px solid #ddd; }
+      border-right: 1px solid #ddd;
+      color: #666;
+      font-size: 0.8rem; }
   .single-book #inner-content .book-review {
     display: inline-block;
     width: 100%;
