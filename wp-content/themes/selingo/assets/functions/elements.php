@@ -229,14 +229,24 @@ function jeff_resources() { ?>
 			}
 			
 		}    
+
+	$group = array();
+	
+	foreach ( $array as $event ) {
+	    $group[$event['EventDate']] = $event;
+	}
 		
+	print_r($group);	
+		
+/*
 		print_r($event);
 		
-		foreach($date as $d) {
+		foreach($event as $d) {
 			$temp_date = DateTime::createFromFormat('Ymd', $d);
 			$new_date[] = $temp_date->format('F, Y');
 		}
 		
+*/
 		
     
 /*
