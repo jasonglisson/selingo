@@ -227,8 +227,10 @@ input[type=submit] {
 		text-align: center;
 		border-bottom: 1px solid #666;
 		padding-bottom: 15px;
+		font-family: 'Roboto Slab', serif;				
 		width: 75%;
 		margin: 0 auto 25px auto;
+		text-transform: uppercase;
 		color: #fff;
 	}
 	h5 {
@@ -304,7 +306,14 @@ input[type=submit] {
 }
 
 .resources-section {
-	background: rgba(104, 156, 213, 0.51);
+	background: rgba(213,227,243,1);
+	background: -moz-linear-gradient(-45deg, rgba(213,227,243,1) 0%, rgba(118,155,181,1) 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(213,227,243,1)), color-stop(100%, rgba(118,155,181,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(213,227,243,1) 0%, rgba(118,155,181,1) 100%);
+	background: -o-linear-gradient(-45deg, rgba(213,227,243,1) 0%, rgba(118,155,181,1) 100%);
+	background: -ms-linear-gradient(-45deg, rgba(213,227,243,1) 0%, rgba(118,155,181,1) 100%);
+	background: linear-gradient(135deg, rgba(213,227,243,1) 0%, rgba(118,155,181,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5e3f3', endColorstr='#769bb5', GradientType=1 );
 	.resource-col {
 		padding-top:35px;
 		h4 {
@@ -315,25 +324,19 @@ input[type=submit] {
 			padding-bottom: 5px;
 		}	
 		.inner-column {
-			padding: 15px 20px;
+		/* 	padding: 15px 20px; */
 			h5 {
 				font-family: 'Raleway', sans-serif;		
 				font-weight: 500;				
 				font-size: 1.4rem;
+				float: left;
+				margin-bottom: 15px;
 				span {
-					border-bottom:1px dotted #fff;
+					border-bottom:1px dotted #999;
 					padding-bottom: 1px;
 					a {
 						color: #167ac6;						
 					}
-				}
-			}
-			.blog-post-date {
-				padding-bottom: 10px;
-			}
-			.blog-text {
-				a {
-					color: #167ac6;					
 				}
 			}
 			img {
@@ -341,7 +344,8 @@ input[type=submit] {
 				margin: 0 auto;
 			}
 			p {
-				margin-top: 15px; 
+				background: rgba(255, 255, 255, 0.49);	
+				padding: 20px;			
 			}
 			.button {
 				width: 100%;
@@ -353,9 +357,33 @@ input[type=submit] {
 		padding-bottom: 55px;
 		.button {
 			width:100%;
-			margin: 0 15px;
 		}
 	}
+	.recent-cols {
+		.inner-column {
+			background: rgba(255, 255, 255, 0.49);
+			padding: 15px 20px 30px 20px;
+			.blog-post-date {
+				padding-bottom: 10px;
+				font-family: 'Roboto Slab', serif;				
+			}
+			hr {
+		    width: 20%;
+		    margin: 0 0 15px 0;
+		    border: 1px solid #167ac6;
+		    float: left;
+			}
+			.blog-text {
+				a {
+					color: #167ac6;					
+				}
+			}		
+			.share {
+				float: right;
+				margin-top:15px;
+			}	
+		}
+	}	
 }
 
 .about-jeff-section {

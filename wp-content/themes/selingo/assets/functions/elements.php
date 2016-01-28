@@ -150,16 +150,18 @@ function selingo_subscribe_form() { ?>
 // Jeff Resources Section
 function jeff_resources() { ?>
 	<div class="row">
-		<div class="large-4 columns resource-col">
-			<h4>Recent Columns</h4>
+		<div class="large-4 columns resource-col recent-cols">
+			<h4>Recent Column</h4>
 			<div class="inner-column">
 				<?php $args = array( 'post_type' => 'post', 'posts_per_page' => 1 );
 				$the_query = new WP_Query( $args );?>
 				<?php if ( $the_query->have_posts() ) : ?>
 				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-					<h5><span><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></span></h5>
 					<div class="blog-post-date"><?php echo get_the_date('l, F jS, Y'); ?></div>
+					<hr>				
+					<h5><span><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></span></h5>
 					<div class="blog-text"><?php echo get_blog_excerpt(); ?></div>
+<!-- 					<div class="share"><a href="" class="button hollow">Share</a></div> -->
 					<a href="<?php echo get_permalink(); ?>" class="button hide-for-large">See All Columns</a>
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); ?>
@@ -170,13 +172,101 @@ function jeff_resources() { ?>
 			<h4>Book Jeff to Speak</h4>	
 			<div class="inner-column">
 				<img src="<?php echo get_field('book_jeff_image'); ?>"/>
-				<p>Jeff engages audiences around the world. He’s as comfortable speaking at executive leadership retreats as he is delivering keynote speeches at national meetings, tailoring his insight and ideas as needed.</p>
+				<p><?php echo get_field('book_jeff_text'); ?></p>
 				<a href="#" class="button hide-for-large">Book Jeff</a>
 			</div>		
 		</div>
 		<div class="large-4 columns resource-col">
 			<h4>Upcoming Speaking Events</h4>			
 			<div class="inner-column">
+				<?php
+/*
+				$time = current_time( 'timestamp' ); // Get current unix timestamp
+				// Set up custom query with meta_query to compare event start date with today's date
+				$args = array (
+				'post_type'              => 'event', // your event post type slug
+				'post_status'            => 'publish', // only show published events
+				'orderby'                => 'meta_value', // order by date
+				'meta_key'               => 'event_date', // your ACF Date & Time Picker field
+				'meta_value'             => $time, // Use the current time from above
+				'meta_compare'           => '>=', // Compare today's datetime with our event datetime
+				'order'                  => 'ASC', // Show earlier events first
+				'posts_per_page'         => 5,
+				);
+				$current_header = '';
+				$query = new WP_Query( $args );
+*/
+
+    $args = array(
+      'post_type' => 'event',
+      'post_status' => 'publish',
+      'posts_per_page' => 5,
+    );
+
+    $query = new WP_Query( $args );
+
+		$id = [];
+		$event = [];
+
+		foreach($query as $info) {
+			
+			foreach($info as $i) {
+				//print_r($i->ID);
+
+				if(isset($i->ID)) {
+					
+					//$event_date = get_field('event_date', $i->ID);
+					$temp_date = DateTime::createFromFormat('Ymd', get_field('event_date', $i->ID));
+					$new_date = $temp_date->format('F, Y');
+					
+					$event[] = array(
+						'ID' => $i->ID,
+						'EventDate' => $new_date,
+					);
+					
+				}
+			
+			}
+			
+		}    
+		
+		print_r($event);
+		
+		foreach($date as $d) {
+			$temp_date = DateTime::createFromFormat('Ymd', $d);
+			$new_date[] = $temp_date->format('F, Y');
+		}
+		
+		
+    
+/*
+				if ( $query->have_posts() ) :
+					while ( $query->have_posts() ) : $query->the_post(); // Start loop
+				
+						$temp_date = DateTime::createFromFormat('Ymd', get_field('event_date', get_the_id()));
+						$temp_date = $temp_date->format('F, Y');
+						//echo $temp_date;
+						print_r($query->posts[0]);
+				
+					endwhile;
+				endif;
+*/
+				
+/*
+				if ( $query->have_posts() ) :
+					while ( $query->have_posts() ) : $query->the_post(); // Start loop
+						$temp_date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+						
+						$temp_date = $temp_date->format('F, Y');
+							if ( $temp_date != $current_header ) {
+								$current_header = $temp_date;
+								echo '<h2>' . $current_header . '</h2>';
+    					}
+						wp_reset_postdata();
+					endwhile;
+				endif;
+*/
+				?>				
 				<a href="#" class="button hide-for-large">See All Events</a>
 			</div>
 		</div>	
