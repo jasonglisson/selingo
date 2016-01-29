@@ -209,6 +209,7 @@ function jeff_resources() { ?>
 		$event = [];
 		$eventLoc = [];
 
+/*
 		foreach($query as $info) {
 			
 			foreach($info as $i) {
@@ -232,17 +233,20 @@ function jeff_resources() { ?>
 			
 			}
 			
-		}    
+		} 
+*/   
 		
 		//print_r($event);
 		
+/*
 	foreach ($event as $key => $value) {
 	 $return[$value['EventDate']][] = $value[0];
 	}
 	
 	foreach ($return as $key => $value) {
 	  echo implode(',', $value)." ".$key;
-	}		
+	}	
+*/	
 		
 /*		
 		foreach($event as $d) {
