@@ -177,7 +177,7 @@ function jeff_resources() { ?>
 			</div>		
 		</div>
 		<div class="large-4 columns resource-col">
-			<h4>Upcoming Speaking Events</h4>			
+			<h4>Upcoming Appearances</h4>			
 			<div class="inner-column">
 				<?php
 /*
@@ -207,6 +207,7 @@ function jeff_resources() { ?>
 
 		$id = [];
 		$event = [];
+		$eventLoc = [];
 
 		foreach($query as $info) {
 			
@@ -218,10 +219,13 @@ function jeff_resources() { ?>
 					//$event_date = get_field('event_date', $i->ID);
 					$temp_date = DateTime::createFromFormat('Ymd', get_field('event_date', $i->ID));
 					$new_date = $temp_date->format('F, Y');
+					$loc = get_field('event_location', $i->ID);
+					
 					
 					$event[] = array(
 						'ID' => $i->ID,
 						'EventDate' => $new_date,
+						'Location' => $loc,
 					);
 					
 				}
@@ -229,18 +233,18 @@ function jeff_resources() { ?>
 			}
 			
 		}    
-
-	$group = array();
-	
-	foreach ( $array as $event ) {
-	    $group[$event['EventDate']] = $event;
+		
+		//print_r($event);
+		
+	foreach ($event as $key => $value) {
+	 $return[$value['EventDate']][] = $value[0];
 	}
+	
+	foreach ($return as $key => $value) {
+	  echo implode(',', $value)." ".$key;
+	}		
 		
-	print_r($group);	
-		
-/*
-		print_r($event);
-		
+/*		
 		foreach($event as $d) {
 			$temp_date = DateTime::createFromFormat('Ymd', $d);
 			$new_date[] = $temp_date->format('F, Y');
@@ -277,7 +281,7 @@ function jeff_resources() { ?>
 				endif;
 */
 				?>				
-				<a href="#" class="button hide-for-large">See All Events</a>
+				<a href="/appearances" class="button hide-for-large">See Appearances</a>
 			</div>
 		</div>	
 	</div>	
@@ -286,7 +290,7 @@ function jeff_resources() { ?>
 			<a href="/columns" class="button">See All Columns</a>
 		</div>			
 		<div class="large-4 columns"><a href="/contact" class="button">Book Jeff</a></div>			
-		<div class="large-4 columns"><a href="/appearances" class="button">See All Events</a></div>					
+		<div class="large-4 columns"><a href="/appearances" class="button">See All Appearances</a></div>					
 	</div>
 <?php }
 

@@ -17,6 +17,19 @@ input[type=submit] {
 	z-index:2;
 }
 
+// Header
+#logo {
+  background: url(../images/logo1.png);
+  display: block;
+  width: 275px;
+  height: 75px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  background-position: center center;
+}
+
+
 // Homepage Features
 .homepage-features {
 	position:relative;
@@ -537,6 +550,7 @@ input[type=submit] {
 	padding-bottom: 25px;
 	h4 {
 		border-bottom: 1px solid #666;
+		font-family: 'Roboto Slab', serif;	
 		padding-bottom: 10px;
 		padding-top: 25px;		
     float: left;
