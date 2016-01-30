@@ -1,6 +1,6 @@
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Slabo+27px);
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,800,900,200,500);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800,900,200,500,600);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300);
 
 
@@ -27,6 +27,41 @@ input[type=submit] {
   background-repeat: no-repeat;
   text-indent: -9999px;
   background-position: center center;
+}
+
+header {
+	.top-bar {
+		background: rgba(255,255,255,1);
+		background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(187,212,230,1) 100%);
+		background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(187,212,230,1)));
+		background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(187,212,230,1) 100%);
+		background: -o-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(187,212,230,1) 100%);
+		background: -ms-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(187,212,230,1) 100%);
+		background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(187,212,230,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#bbd4e6', GradientType=1 );
+		ul {
+			background-color: rgba(255, 255, 255, 0);
+		}
+		.menu-item {
+			a {
+		    text-transform: uppercase;
+		    font-family: 'Raleway', sans-serif;
+		    color: #167ac6;
+		    padding: 2.1rem 0.7rem;
+		    font-size: 1.1rem;
+		    font-weight: 600;
+		    transition: .2s all;
+		    &:hover {
+			    color: #3A4E5D;
+		    }
+			}
+		}
+		.menu-item.current-menu-item {
+			a {
+		  	color: #3A4E5D;
+		  }	
+		}		
+	}
 }
 
 
@@ -318,6 +353,29 @@ input[type=submit] {
 	}
 }
 
+.logo-row {
+	background: #f3f3f3;
+	padding: 35px 0;
+	h4 {
+		text-align: center;
+		border-bottom: 1px solid #666;
+		padding-bottom: 15px;
+		font-family: 'Roboto Slab', serif;				
+		width: 75%;
+		margin: 0 auto 25px auto;
+		text-transform: uppercase;
+		color: #167ac6;
+	}	
+	.as-seen-logo {
+		float:left;
+	}
+	img {
+		 margin:0 auto;
+		 display: block;
+		 padding: 5px;
+	}		
+}
+
 .resources-section {
 	background: rgba(213,227,243,1);
 	background: -moz-linear-gradient(-45deg, rgba(213,227,243,1) 0%, rgba(118,155,181,1) 100%);
@@ -405,7 +463,8 @@ input[type=submit] {
 		padding-bottom: 25px;
 		h4 {
 	    padding-bottom: 10px;
-	    width: 100%;				
+	    width: 100%;			
+			font-family: 'Roboto Slab', serif;				    	
 		}
 		.about-jeff-photo {
 			width: 180px;

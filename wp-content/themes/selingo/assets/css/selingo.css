@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Slabo+27px);
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,800,900,200,500);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800,900,200,500,600);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300);
 input[type=submit] {
   background: #d26b48;
@@ -19,6 +19,30 @@ input[type=submit] {
   background-repeat: no-repeat;
   text-indent: -9999px;
   background-position: center center; }
+
+header .top-bar {
+  background: white;
+  background: -moz-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, #ffffff), color-stop(100%, #bbd4e6));
+  background: -webkit-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
+  background: -o-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
+  background: -ms-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #bbd4e6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#bbd4e6', GradientType=1 ); }
+  header .top-bar ul {
+    background-color: rgba(255, 255, 255, 0); }
+  header .top-bar .menu-item a {
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    color: #167ac6;
+    padding: 2.1rem 0.7rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 0.2s all; }
+    header .top-bar .menu-item a:hover {
+      color: #3A4E5D; }
+  header .top-bar .menu-item.current-menu-item a {
+    color: #3A4E5D; }
 
 .homepage-features {
   position: relative; }
@@ -248,6 +272,25 @@ input[type=submit] {
         float: left;
         margin-top: 5px; }
 
+.logo-row {
+  background: #f3f3f3;
+  padding: 35px 0; }
+  .logo-row h4 {
+    text-align: center;
+    border-bottom: 1px solid #666;
+    padding-bottom: 15px;
+    font-family: 'Roboto Slab', serif;
+    width: 75%;
+    margin: 0 auto 25px auto;
+    text-transform: uppercase;
+    color: #167ac6; }
+  .logo-row .as-seen-logo {
+    float: left; }
+  .logo-row img {
+    margin: 0 auto;
+    display: block;
+    padding: 5px; }
+
 .resources-section {
   background: #d5e3f3;
   background: -moz-linear-gradient(-45deg, #d5e3f3 0%, #769bb5 100%);
@@ -314,7 +357,8 @@ input[type=submit] {
     padding-bottom: 25px; }
     .about-jeff-section .about-jeff-text h4 {
       padding-bottom: 10px;
-      width: 100%; }
+      width: 100%;
+      font-family: 'Roboto Slab', serif; }
     .about-jeff-section .about-jeff-text .about-jeff-photo {
       width: 180px;
       float: left;

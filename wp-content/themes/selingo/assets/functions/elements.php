@@ -341,6 +341,32 @@ function book_carousel() { ?>
 ?></div>	
 <? }
 
+function logo_carousel() {
+	wp_reset_postdata(); ?>
+	
+		<div class="row data-equalizer">
+			<h4>As seen in</h4>
+			<div class="large-up-5">
+				<div class="column">
+					<img src="http://selingo.com/wp-content/themes/jeffselingo/images/nyt_logo.png" alt="Nyt Logo" data-pin-nopin="true" data-equalizer-watch>
+				</div>	
+				<div class="column">				
+					<img src="http://selingo.com/wp-content/themes/jeffselingo/images/wsj_logo.png" alt="Wsj Logo" data-pin-nopin="true" data-equalizer-watch>
+				</div>						
+				<div class="column">					
+					<img src="http://selingo.com/wp-content/themes/jeffselingo/images/wp_logo.png" alt="Wp Logo" data-pin-nopin="true" data-equalizer-watch>
+				</div>						
+				<div class="column">					
+					<img src="http://selingo.com/wp-content/themes/jeffselingo/images/npr_logo.png" alt="Npr Logo" data-pin-nopin="true" data-equalizer-watch>
+				</div>						
+				<div class="column">					
+					<img src="http://selingo.com/wp-content/themes/jeffselingo/images/y_logo.png" alt="Y Logo" data-pin-nopin="true" data-equalizer-watch>	
+				</div>							
+			</div>
+		</div>
+		
+<?php }
+
 function about_jeff() { 
 	wp_reset_postdata();
 	$aboutVid = get_field('about_jeff_video', get_the_id()); ?>
