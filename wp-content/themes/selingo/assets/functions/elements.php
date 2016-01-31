@@ -17,6 +17,9 @@ function homepage_feature() {
 				$bookURL = get_sub_field('event_link_target');			
 				$bookOverlayColor = get_sub_field('book_background_overlay');
 				$bookOrderlinks = get_field('order_links');
+				$bookblurbs = get_field('book_blurbs');
+				$bookblurbtxt = get_sub_field('book_blurb_text'); 
+				$bookblurbauth = get_sub_field('book_blurb_author');				
 			?>
 		<div class="book-bg-image" style="background-image:url(<?php echo $bookBG ?>);"></div>
 		<?php if(!empty($bookOverlayColor)) : ?>
@@ -51,6 +54,21 @@ function homepage_feature() {
 						<?php endwhile; ?>
 					<?php	endif; ?>										
 				</div>
+				<div class="book-blurb-section">
+					Blurbs go here
+					<?php if( have_rows('book_blurbs')) : ?>
+							<ul class="book-blurb-carousel">
+							<?php	while( have_rows('book_blurbs') ): the_row(); ?>
+								<li>
+									<div class="book-blurb">
+										<span class="blurb-text"><?php the_sub_field('book_blurb_text');?></span>
+										<span class="blurb-author"><?php the_sub_field('book_blurb_author');?></span>
+									</div>	
+								</li>		
+						<?php endwhile; ?>
+							</ul>
+					<?php	endif; ?>						
+				</div>	
 			</div>	
 			<div class="large-1 show-for-large columns">&nbsp;</div>
 		</div>				
@@ -348,19 +366,19 @@ function logo_carousel() {
 			<h4>As seen in</h4>
 			<div class="large-up-5">
 				<div class="column">
-					<img src="http://selingo.com/wp-content/themes/jeffselingo/images/nyt_logo.png" alt="Nyt Logo" data-pin-nopin="true" data-equalizer-watch>
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/nyt_logo.png" alt="Nyt Logo" data-pin-nopin="true" data-equalizer-watch>
 				</div>	
 				<div class="column">				
-					<img src="http://selingo.com/wp-content/themes/jeffselingo/images/wsj_logo.png" alt="Wsj Logo" data-pin-nopin="true" data-equalizer-watch>
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/wsj_logo.png" alt="Wsj Logo" data-pin-nopin="true" data-equalizer-watch>
 				</div>						
 				<div class="column">					
-					<img src="http://selingo.com/wp-content/themes/jeffselingo/images/wp_logo.png" alt="Wp Logo" data-pin-nopin="true" data-equalizer-watch>
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/wp_logo.png" alt="Wp Logo" data-pin-nopin="true" data-equalizer-watch>
 				</div>						
 				<div class="column">					
-					<img src="http://selingo.com/wp-content/themes/jeffselingo/images/npr_logo.png" alt="Npr Logo" data-pin-nopin="true" data-equalizer-watch>
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/npr_logo.png" alt="Npr Logo" data-pin-nopin="true" data-equalizer-watch>
 				</div>						
 				<div class="column">					
-					<img src="http://selingo.com/wp-content/themes/jeffselingo/images/y_logo.png" alt="Y Logo" data-pin-nopin="true" data-equalizer-watch>	
+					<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/y_logo.png" alt="Y Logo" data-pin-nopin="true" data-equalizer-watch>	
 				</div>							
 			</div>
 		</div>

@@ -54,4 +54,16 @@ jQuery(document).ready(function($) {
 		$(this).find('a')[0].click();
 	});
 
+	$('.book-blurb-carousel').slick({
+	  dots: false,
+	  infinite: true,
+	  speed: 500,
+	  autoplay: true,
+	  autoplaySpeed: 5000,
+	  slidesToShow: 1,
+	  fade: true,
+	  adaptiveHeight: true
+	});
+	
+
 });

@@ -38,7 +38,17 @@
 							<div class="large-4 columns">
 								<h4>Resources</h4>
 		    						<?php joints_footer_links(); ?>
-								<h4>Social</h4>								
+								<h4>Social</h4>					
+								<?php if( have_rows('social_media_links' ,'option') ): ?>
+									<?php while( have_rows('social_media_links' ,'option') ): the_row(); 
+										$social_link = get_sub_field('social_link' ,'option');
+										$social_icon = get_sub_field('social_icon' ,'option');
+										?>
+										<?php// if($social_link && $social_icon): ?>
+											<a href="<?php echo $social_link; ?>" target="_blank" class="footer-social"><?php echo $social_icon; ?></a>
+										<?php //endif; ?>
+									<?php endwhile; ?>
+								<?php endif; ?>
 							</div>		
 						</div>	
 					</div>	

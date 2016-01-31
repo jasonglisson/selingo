@@ -413,6 +413,7 @@ header {
 			img {
 				display: block;
 				margin: 0 auto;
+				width: 100%;
 			}
 			p {
 				background: rgba(255, 255, 255, 0.49);	
@@ -646,6 +647,10 @@ header {
 			border: none;
 			color: #fff;
 		}
+	}
+	.footer-social {
+		font-size: 2rem;
+		margin-right:5px;
 	}
 }
 

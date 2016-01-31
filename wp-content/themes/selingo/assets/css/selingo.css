@@ -323,7 +323,8 @@ header .top-bar {
             color: #167ac6; }
       .resources-section .resource-col .inner-column img {
         display: block;
-        margin: 0 auto; }
+        margin: 0 auto;
+        width: 100%; }
       .resources-section .resource-col .inner-column p {
         background: rgba(255, 255, 255, 0.49);
         padding: 20px; }
@@ -489,6 +490,9 @@ header .top-bar {
     height: 2.4375rem;
     border: none;
     color: #fff; }
+  .pre-footer .footer-social {
+    font-size: 2rem;
+    margin-right: 5px; }
 
 .tweet {
   float: left;
