@@ -13,7 +13,8 @@ input[type=submit] {
 .page-title {
   font-family: 'Roboto Slab', serif;
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: #167ac6; }
 
 #logo {
   background: url(../images/logo1.png);
