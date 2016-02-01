@@ -54,16 +54,25 @@ jQuery(document).ready(function($) {
 		$(this).find('a')[0].click();
 	});
 
+	$('.book-blurb-carousel').fadeIn();
+
 	$('.book-blurb-carousel').slick({
 	  dots: false,
 	  infinite: true,
 	  speed: 500,
 	  autoplay: true,
-	  autoplaySpeed: 5000,
+	  autoplaySpeed: 7500,
 	  slidesToShow: 1,
 	  fade: true,
 	  adaptiveHeight: true
 	});
 	
+	$('.blurb-left').click(function(){
+		$('.book-blurb-carousel .slick-prev')[0].click();
+	});
+
+	$('.blurb-right').click(function(){
+		$('.book-blurb-carousel .slick-next')[0].click();
+	});
 
 });

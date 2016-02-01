@@ -55,18 +55,18 @@ function homepage_feature() {
 					<?php	endif; ?>										
 				</div>
 				<div class="book-blurb-section">
-					Blurbs go here
 					<?php if( have_rows('book_blurbs')) : ?>
 							<ul class="book-blurb-carousel">
 							<?php	while( have_rows('book_blurbs') ): the_row(); ?>
 								<li>
 									<div class="book-blurb">
-										<span class="blurb-text"><?php the_sub_field('book_blurb_text');?></span>
-										<span class="blurb-author"><?php the_sub_field('book_blurb_author');?></span>
+										<div class="blurb-text"><?php the_sub_field('book_blurb_text');?></div>
+										<div class="blurb-author">-- <?php the_sub_field('book_blurb_author');?></div>
 									</div>	
 								</li>		
 						<?php endwhile; ?>
 							</ul>
+							<div class="blurb-controls"><i class="fa fa-caret-left blurb-left"></i><i class="fa fa-caret-right blurb-right"></i></div>
 					<?php	endif; ?>						
 				</div>	
 			</div>	
