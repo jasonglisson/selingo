@@ -19,6 +19,8 @@ jQuery(document).ready(function($) {
 	  centerMode: true,
 	  centerPadding: '60px',
 	  slidesToShow: 3,
+		arrows: true,
+	  dots: true,		
 	  infinite: true,  
 	  responsive: [
 	    {
