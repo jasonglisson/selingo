@@ -322,9 +322,10 @@ function selingo_book_reviews_block() {
 }
 
 function book_carousel() { ?>
+	<div class="books-opaque-right"><i class="fa fa-chevron-circle-right books-right"></i></div>	
 	<div class="book-carousel row"> <?php
 	wp_reset_postdata();
-  $args = array( 'post_type' => 'book', 'posts_per_page' => 3 );
+  $args = array( 'post_type' => 'book', 'posts_per_page' => -1 );
   $loop = new WP_Query( $args );
 	while ( $loop->have_posts() ) : $loop->the_post();
     echo '<div class="book-item large-4 medium-4 small-12 columns">';
@@ -341,7 +342,7 @@ function book_carousel() { ?>
     	//echo '<div class="book-title"><a href="' . get_permalink() .'">' . get_field('full_book_title') . '</a></div>';    
     	//echo '<a href="' . get_permalink() . '" class="button">Learn More</a>';
     ?>
-    <div class="book-info">
+    <div class="book-info show-for-large">
 	    <a href="<?php echo get_permalink(); ?>"></a>
 		  	<?php $row = get_field('book_review', get_the_id()); ?>
 		  	<?php if (!empty($row)) :?>
@@ -356,7 +357,8 @@ function book_carousel() { ?>
     echo '</div>';
 	endwhile; 
 
-?></div>	
+?></div>
+	<div class="books-opaque-left"><i class="fa fa-chevron-circle-left books-left"></i></div>	
 <? }
 
 function logo_carousel() {

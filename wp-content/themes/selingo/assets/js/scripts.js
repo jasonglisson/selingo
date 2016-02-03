@@ -15,12 +15,18 @@ jQuery(document).ready(function($) {
 	// Adds Flex Video to YouTube and Vimeo Embeds
 	jQuery( 'iframe[src*="youtube.com"], iframe[src*="vimeo.com"]' ).wrap("<div class='flex-video'/>");
 	
+	$('.book-carousel-section').show();
+	
+	if($('.book-item').length <= 3) {
+	  $('.books-left, .books-right').hide();
+	}	
+	
 	$('.book-carousel').slick({
 	  centerMode: true,
 	  centerPadding: '60px',
 	  slidesToShow: 3,
 		arrows: true,
-	  dots: true,		
+	  dots: false,		
 	  infinite: true,  
 	  responsive: [
 	    {
@@ -42,6 +48,14 @@ jQuery(document).ready(function($) {
 	      }
 	    }
 	  ]
+	});
+
+	$('.books-left').click(function(){
+		$('.book-carousel .slick-prev')[0].click();
+	});
+
+	$('.books-right').click(function(){
+		$('.book-carousel .slick-next')[0].click();
 	});
 	
 	$('.book-item').mouseenter(function(event){
