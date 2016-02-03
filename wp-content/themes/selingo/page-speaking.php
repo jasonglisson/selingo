@@ -12,11 +12,7 @@ Template Name: Speaking
 	
 		    <main id="main" class="large-12 medium-12 columns" role="main">
 				
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-			    	<?php get_template_part( 'parts/loop', 'page' ); ?>
-			    
-			    <?php endwhile; endif; ?>							
+					<h1 class="page-title"><span><?php echo the_title(); ?></span></h1>						
 			    					
 			</main> <!-- end #main -->
 

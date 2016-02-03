@@ -21,8 +21,29 @@ input[type=submit] {
 	font-family: 'Roboto Slab', serif;
 	text-align: center;
 	text-transform: uppercase;
-	color: #167ac6;
+	color: #167ac6;		
+	span {
+	 display: inline-block;
+	 position: relative;
+	}
+}		
+.page-title span:before, .page-title span:after {
+	content: "";
+	position: absolute;
+	height: 5px;
+  border-bottom: 1px dotted #666;
+  border-top: 1px dotted #666;
+	top: 33px;
+	width: 100px;
 }
+.page-title span:before {
+	right: 100%;
+	margin-right: 15px;
+}
+.page-title span:after {
+	left: 100%;
+	margin-left: 15px;
+}	
 
 // Header
 #logo {
