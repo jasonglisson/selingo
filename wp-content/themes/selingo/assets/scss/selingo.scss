@@ -22,6 +22,7 @@ input[type=submit] {
 	text-align: center;
 	text-transform: uppercase;
 	color: #167ac6;		
+	padding-bottom: 10px;
 	span {
 	 display: inline-block;
 	 position: relative;
@@ -45,6 +46,12 @@ input[type=submit] {
 	margin-left: 15px;
 }	
 
+body {
+	#content {
+		padding-top:110px;		
+	}
+}
+
 // Header
 #logo {
   background: url(../images/logo1.png);
@@ -58,6 +65,9 @@ input[type=submit] {
 }
 
 header {
+	position: fixed;
+	width: 100%;
+	z-index: 3;	
 	.top-bar {
 		background: rgba(255,255,255,1);
 		background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(187,212,230,1) 100%);
@@ -735,6 +745,14 @@ header {
 			}
 		}
 	}
+}
+
+// About page
+.about-jeff-photo {
+	
+}
+.about-jeff-file {
+	
 }
 
 .pre-footer {

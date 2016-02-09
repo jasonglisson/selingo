@@ -14,7 +14,8 @@ input[type=submit] {
   font-family: 'Roboto Slab', serif;
   text-align: center;
   text-transform: uppercase;
-  color: #167ac6; }
+  color: #167ac6;
+  padding-bottom: 10px; }
   .page-title span {
     display: inline-block;
     position: relative; }
@@ -36,6 +37,9 @@ input[type=submit] {
   left: 100%;
   margin-left: 15px; }
 
+body #content {
+  padding-top: 110px; }
+
 #logo {
   background: url(../images/logo1.png);
   display: block;
@@ -46,29 +50,33 @@ input[type=submit] {
   text-indent: -9999px;
   background-position: center center; }
 
-header .top-bar {
-  background: white;
-  background: -moz-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, #ffffff), color-stop(100%, #bbd4e6));
-  background: -webkit-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
-  background: -o-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
-  background: -ms-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
-  background: linear-gradient(135deg, #ffffff 0%, #bbd4e6 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#bbd4e6', GradientType=1 ); }
-  header .top-bar ul {
-    background-color: rgba(255, 255, 255, 0); }
-  header .top-bar .menu-item a {
-    text-transform: uppercase;
-    font-family: 'Raleway', sans-serif;
-    color: #167ac6;
-    padding: 2.1rem 0.7rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: 0.2s all; }
-    header .top-bar .menu-item a:hover {
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 3; }
+  header .top-bar {
+    background: white;
+    background: -moz-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, #ffffff), color-stop(100%, #bbd4e6));
+    background: -webkit-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
+    background: -o-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
+    background: -ms-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #bbd4e6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#bbd4e6', GradientType=1 ); }
+    header .top-bar ul {
+      background-color: rgba(255, 255, 255, 0); }
+    header .top-bar .menu-item a {
+      text-transform: uppercase;
+      font-family: 'Raleway', sans-serif;
+      color: #167ac6;
+      padding: 2.1rem 0.7rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: 0.2s all; }
+      header .top-bar .menu-item a:hover {
+        color: #3A4E5D; }
+    header .top-bar .menu-item.current-menu-item a {
       color: #3A4E5D; }
-  header .top-bar .menu-item.current-menu-item a {
-    color: #3A4E5D; }
 
 .homepage-features {
   position: relative; }
