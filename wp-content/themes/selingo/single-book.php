@@ -42,10 +42,10 @@ Template: Single Book
 			</div>
 			<button class="button share-book hollow" type="button" data-toggle="share-dropdown-1">Share<i class="fa fa-caret-down"></i></button>
 			<div class="dropdown-pane share-options" id="share-dropdown-1" data-dropdown data-hover="false">
-				<a href="#" class="book-share" target="_blank">Facebook<i class="fa fa-facebook-square"></i></a>	
-				<a href="#" class="book-share" target="_blank">Twitter<i class="fa fa-twitter-square"></i></a>		
-				<a href="#" class="book-share" target="_blank">LinkedIn<i class="fa fa-linkedin-square"></i></a>	
-				<a href="#" class="book-share" target="_blank">Google+<i class="fa fa-google-plus-square"></i></a>																			
+				<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink(); ?>" class="book-share" target="_blank">Facebook<i class="fa fa-facebook-square"></i></a>	
+				<a href="https://twitter.com/intent/tweet?url=<?php echo get_permalink(); ?>text=<?php echo the_title() ?>&hashtags=AfterCollege" class="book-share" target="_blank">Twitter<i class="fa fa-twitter-square"></i></a>
+				<a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>&title=<?php echo the_title() ?>" class="book-share" target="_blank">LinkedIn<i class="fa fa-linkedin-square"></i></a>	
+				<a href="https://plus.google.com/share?url=<?php echo get_permalink(); ?>" class="book-share" target="_blank">Google+<i class="fa fa-google-plus-square"></i></a>																			
 			</div>
 			<ul class="tabs" data-tabs id="example-tabs">
 			  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Description</a></li>

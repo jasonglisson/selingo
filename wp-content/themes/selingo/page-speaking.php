@@ -25,7 +25,7 @@ Template Name: Speaking
 			    					
 			</div> <!-- end #main -->	
 			<hr>
-			<div class="large-7 medium-7 columns past-events">
+			<div class="large-6 medium-6 columns past-events">
 				<h3>Selection of Past Events</h3>
 				<ul class="tabs" data-tabs id="example-tabs">
 					<li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Keynotes</a></li>
@@ -45,7 +45,7 @@ Template Name: Speaking
 				</div>
 			</div>
 				
-			<div class="large-5 medium-5 columns upcoming-events">Upcoming Events</div>
+			<div class="large-6 medium-6 columns upcoming-events">Upcoming Events</div>
 		  
 		    
 		</div> <!-- end #inner-content -->

@@ -303,7 +303,7 @@ function jeff_resources() { ?>
 				endif;
 */
 				?>				
-				<a href="/appearances" class="button hide-for-large">See Appearances</a>
+				<a href="/media-appearances" class="button hide-for-large">See Appearances</a>
 			</div>
 		</div>	
 	</div>	
@@ -312,7 +312,7 @@ function jeff_resources() { ?>
 			<a href="/columns" class="button">See All Columns</a>
 		</div>			
 		<div class="large-4 columns"><a href="/contact" class="button">Book Jeff</a></div>			
-		<div class="large-4 columns"><a href="/appearances" class="button">See All Appearances</a></div>					
+		<div class="large-4 columns"><a href="/media-appearances" class="button">See All Appearances</a></div>					
 	</div>
 <?php }
 

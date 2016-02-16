@@ -3,7 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300);
 input[type=submit] {
   background: #d26b48;
-  transition: 0.2s all; }
+  transition: .2s all; }
   input[type=submit]:hover {
     background-color: #e2a06e; }
 
@@ -56,12 +56,12 @@ header {
   z-index: 3; }
   header .top-bar {
     background: white;
-    background: -moz-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, #ffffff), color-stop(100%, #bbd4e6));
-    background: -webkit-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
-    background: -o-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
-    background: -ms-linear-gradient(-45deg, #ffffff 0%, #bbd4e6 100%);
-    background: linear-gradient(135deg, #ffffff 0%, #bbd4e6 100%);
+    background: -moz-linear-gradient(-45deg, white 0%, #bbd4e6 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, white), color-stop(100%, #bbd4e6));
+    background: -webkit-linear-gradient(-45deg, white 0%, #bbd4e6 100%);
+    background: -o-linear-gradient(-45deg, white 0%, #bbd4e6 100%);
+    background: -ms-linear-gradient(-45deg, white 0%, #bbd4e6 100%);
+    background: linear-gradient(135deg, white 0%, #bbd4e6 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#bbd4e6', GradientType=1 ); }
     header .top-bar ul {
       background-color: rgba(255, 255, 255, 0); }
@@ -72,7 +72,7 @@ header {
       padding: 2.1rem 0.7rem;
       font-size: 1.1rem;
       font-weight: 600;
-      transition: 0.2s all; }
+      transition: .2s all; }
       header .top-bar .menu-item a:hover {
         color: #3A4E5D; }
     header .top-bar .menu-item.current-menu-item a {
@@ -86,7 +86,7 @@ header {
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.85;
+    opacity: .85;
     z-index: 1; }
   .homepage-features .book-promo-img {
     position: relative;
@@ -146,7 +146,7 @@ header {
       margin-left: 0;
       margin-top: 10px;
       background-color: rgba(0, 0, 0, 0.1);
-      font-size: 0.9rem;
+      font-size: .9rem;
       padding: 10px;
       font-style: italic; }
       .homepage-features .book-promo-info .book-blurb-section .book-blurb-carousel .book-blurb {
@@ -475,7 +475,7 @@ header {
       margin-top: 15px; }
 
 .about-jeff-section {
-  padding: 35px 0; }
+  padding: 50px 0; }
   .about-jeff-section .about-jeff-text {
     padding-bottom: 25px; }
     .about-jeff-section .about-jeff-text h4 {
@@ -496,7 +496,7 @@ header {
       border-top: 1px solid #666;
       padding-top: 20px; }
   .about-jeff-section .about-video .flex-video {
-    height: 300px;
+    height: auto;
     padding: 0; }
     .about-jeff-section .about-video .flex-video iframe {
       height: 225px;
@@ -564,7 +564,7 @@ header {
       border-top: 1px solid #ddd;
       border-right: 1px solid #ddd;
       color: #666;
-      font-size: 0.8rem; }
+      font-size: .8rem; }
   .single-book #inner-content .book-review {
     display: inline-block;
     width: 100%;
@@ -596,7 +596,7 @@ header {
       float: left;
       width: 100%;
       border-bottom: 1px solid rgba(153, 153, 153, 0.59);
-      transition: 0.3s all; }
+      transition: .3s all; }
       .pre-footer .menu .menu-item i {
         float: right;
         color: #666; }
@@ -639,15 +639,15 @@ header {
     .tweet .intents a {
       color: #969696; }
     .tweet .intents .reply a {
-      transition: 0.2s all; }
+      transition: .2s all; }
       .tweet .intents .reply a:hover {
         color: #009999; }
     .tweet .intents .retweet a {
-      transition: 0.2s all; }
+      transition: .2s all; }
       .tweet .intents .retweet a:hover {
         color: #5C913B; }
     .tweet .intents .favorite a {
-      transition: 0.2s all; }
+      transition: .2s all; }
       .tweet .intents .favorite a:hover {
         color: #E2264D; }
 
