@@ -859,6 +859,134 @@ header {
 	}
 }
 
+// Book page
+.page-template-page-books {
+	.book-promo-img {
+		position: relative;
+		z-index:1;
+	  padding-top: 20px;	
+	  padding-bottom: 70px;		  	
+		img {
+	    height: 90%;				
+	    width: 90%;
+	    float: right;
+	    box-shadow: 0px 9px 55px -7px;
+		}
+	}
+	.book-bg-image {
+		position:absolute;
+		width: 100%;
+		height:100%;
+		background-size: cover;
+		z-index: 0;		
+	}
+	.book-promo-info {
+		position: relative;
+		z-index: 1;
+	  padding-top: 20px;	
+	  padding-bottom: 20px;			
+		h2 {
+			font-family: 'Roboto Slab', serif;
+			line-height: 35px;
+			text-transform: uppercase;
+			text-align: left;
+			color: #435766;
+		}	
+		h5, h4 {
+			font-family: 'Raleway', sans-serif;
+			color: #666;			
+			margin-bottom: 25px;			
+			font-weight: 500;
+		}
+		h4 {
+			text-transform: uppercase;
+			color: #1583CC;
+		}
+		.secondary {
+			border: 1px solid #666;
+			color: #666;
+			&:hover {
+				border: 1px solid rgba(102, 102, 102, 0.6);
+				color: rgba(102, 102, 102, 0.6);			
+			}
+		}	
+		p {
+			color: #a4a4a4;
+			margin-bottom: 25px;
+		}
+		.feature-purchase-book {
+			i {
+				margin-left: 15px;
+			}
+		}
+		.purchase-options {
+			padding: 0;
+			width: 200px;
+			.book-purchase {
+				width: 100%;
+				border-bottom: 1px solid #ddd;
+				display: block;
+				padding: 10px;
+				&:last-of-type {
+					border-bottom: 0px solid #ddd;
+				}
+			}
+		}
+		.book-blurb-section {
+			.book-blurb-carousel {
+				display:none;
+				margin-left: 0;
+				margin-top: 10px;
+				background-color: rgba(0, 0, 0, 0.1);
+				font-size: .9rem;
+				padding: 10px;
+				font-style: italic;				
+				.book-blurb {
+					margin-left: 0;
+					.blurb-text {
+						float: left;
+						width: 100%;
+						color: #ddd;
+					}
+					.blurb-author {
+						float: left;
+						width: 100%;
+						color: #EAF5F9;
+						font-style: italic;
+						font-weight: 600;
+					}
+				}
+				.slick-arrow {
+					display: none !important;
+				}
+			}
+			.blurb-controls {
+				float: right;
+				margin-top: -20px;
+				margin-right: -5px;				
+				.blurb-left, .blurb-right {
+					padding: 5px;
+					color: #2199e8;
+					cursor: pointer;
+					font-size: 2rem;
+				}
+			}	
+		}
+	}
+	.all-books-section {
+		background: rgba(238, 238, 238, 0.58);
+		padding: 30px 0;
+		h4 {
+			span:before, span:after {
+				top:15px;
+			}
+		}
+		.book-carousel {
+			padding: 20px;
+		}
+	}
+}
+
 .tweet:last-of-type {
 	border-bottom: 0px solid #c0c0c0;	
 }
