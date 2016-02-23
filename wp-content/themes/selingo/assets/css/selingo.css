@@ -15,7 +15,8 @@ input[type=submit] {
   text-align: center;
   text-transform: uppercase;
   color: #167ac6;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  padding-top: 15px; }
   .page-title span {
     display: inline-block;
     position: relative; }
@@ -424,6 +425,8 @@ header {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5e3f3', endColorstr='#769bb5', GradientType=1 ); }
   .resources-section .resource-col {
     padding-top: 35px; }
+    .resources-section .resource-col p {
+      margin: 0; }
     .resources-section .resource-col h4 {
       color: #167ac6;
       font-family: 'Roboto Slab', serif;
@@ -431,7 +434,7 @@ header {
       border-bottom: 1px solid rgba(22, 122, 198, 0.28);
       padding-bottom: 5px; }
     .resources-section .resource-col .inner-column {
-      /* 	padding: 15px 20px; */ }
+      background: rgba(255, 255, 255, 0.49); }
       .resources-section .resource-col .inner-column h5 {
         font-family: 'Raleway', sans-serif;
         font-weight: 500;
@@ -447,9 +450,6 @@ header {
         display: block;
         margin: 0 auto;
         width: 100%; }
-      .resources-section .resource-col .inner-column p {
-        background: rgba(255, 255, 255, 0.49);
-        padding: 20px; }
       .resources-section .resource-col .inner-column .button {
         width: 100%;
         bottom: 0; }
@@ -473,6 +473,15 @@ header {
     .resources-section .recent-cols .inner-column .share {
       float: right;
       margin-top: 15px; }
+  .resources-section .book-speak p {
+    padding: 20px; }
+  .resources-section .upcoming-events .inner-column {
+    padding: 20px; }
+    .resources-section .upcoming-events .inner-column a {
+      color: #167ac6; }
+  .resources-section .upcoming-events p {
+    margin-bottom: 0;
+    padding: 10px 20px; }
 
 .about-jeff-section {
   padding: 50px 0; }
@@ -578,6 +587,31 @@ header {
       float: left; }
     .single-book #inner-content .book-review:last-of-type {
       border-bottom: 0px solid #ddd; }
+
+.page-template-page-speaking h3 {
+  font-family: 'Roboto Slab', serif;
+  text-transform: uppercase;
+  color: #167ac6; }
+
+.page-template-page-speaking .speak-top-wrap {
+  padding: 120px;
+  font-family: 'Raleway', sans-serif;
+  background: url(../images/jeff-speaking.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd; }
+
+.page-template-page-speaking .upcoming-events {
+  padding-bottom: 25px; }
+  .page-template-page-speaking .upcoming-events .upcoming-title {
+    border-bottom: 1px solid #ddd; }
+
+.page-template-page-speaking .bottom-body {
+  padding-top: 50px;
+  padding-bottom: 40px; }
 
 .pre-footer {
   background: #d7d7d7;

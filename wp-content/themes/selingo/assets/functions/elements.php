@@ -186,7 +186,7 @@ function jeff_resources() { ?>
 				<?php endif; ?>
 			</div>	
 		</div>
-		<div class="large-4 columns resource-col">
+		<div class="large-4 columns resource-col book-speak">
 			<h4>Book Jeff to Speak</h4>	
 			<div class="inner-column">
 				<img src="<?php echo get_field('book_jeff_image'); ?>"/>
@@ -194,115 +194,42 @@ function jeff_resources() { ?>
 				<a href="#" class="button hide-for-large">Book Jeff</a>
 			</div>		
 		</div>
-		<div class="large-4 columns resource-col">
+		<div class="large-4 columns resource-col upcoming-events">
 			<h4>Upcoming Appearances</h4>			
 			<div class="inner-column">
-				<?php
-/*
-				$time = current_time( 'timestamp' ); // Get current unix timestamp
-				// Set up custom query with meta_query to compare event start date with today's date
-				$args = array (
-				'post_type'              => 'event', // your event post type slug
-				'post_status'            => 'publish', // only show published events
-				'orderby'                => 'meta_value', // order by date
-				'meta_key'               => 'event_date', // your ACF Date & Time Picker field
-				'meta_value'             => $time, // Use the current time from above
-				'meta_compare'           => '>=', // Compare today's datetime with our event datetime
-				'order'                  => 'ASC', // Show earlier events first
-				'posts_per_page'         => 5,
-				);
-				$current_header = '';
-				$query = new WP_Query( $args );
-*/
 
-    $args = array(
-      'post_type' => 'event',
-      'post_status' => 'publish',
-      'posts_per_page' => 5,
-    );
-
-    $query = new WP_Query( $args );
-
-		$id = [];
-		$event = [];
-		$eventLoc = [];
-
-/*
-		foreach($query as $info) {
-			
-			foreach($info as $i) {
-				//print_r($i->ID);
-
-				if(isset($i->ID)) {
+					<?php if( have_rows('upcoming_events', 9) ): ?>
 					
-					//$event_date = get_field('event_date', $i->ID);
-					$temp_date = DateTime::createFromFormat('Ymd', get_field('event_date', $i->ID));
-					$new_date = $temp_date->format('F, Y');
-					$loc = get_field('event_location', $i->ID);
+						<?php while( have_rows('upcoming_events', 9) ): the_row(); 
 					
+							// vars
+							$event_month = get_sub_field('event_month');
+							$event_info = get_sub_field('event_info');
 					
-					$event[] = array(
-						'ID' => $i->ID,
-						'EventDate' => $new_date,
-						'Location' => $loc,
-					);
+							?>
 					
-				}
-			
-			}
-			
-		} 
-*/   
-		
-		//print_r($event);
-		
-/*
-	foreach ($event as $key => $value) {
-	 $return[$value['EventDate']][] = $value[0];
-	}
-	
-	foreach ($return as $key => $value) {
-	  echo implode(',', $value)." ".$key;
-	}	
-*/	
-		
-/*		
-		foreach($event as $d) {
-			$temp_date = DateTime::createFromFormat('Ymd', $d);
-			$new_date[] = $temp_date->format('F, Y');
-		}
-		
-*/
-		
-    
-/*
-				if ( $query->have_posts() ) :
-					while ( $query->have_posts() ) : $query->the_post(); // Start loop
+								<?php if( $event_month ): ?>
+									<strong><?php echo $event_month; ?></strong>
+								<?php endif; ?>
+										
+									<?php if( have_rows('event_info') ): ?>
+									
+										<ul class="events">
+									
+											<?php while( have_rows('event_info') ): the_row(); ?>
+											
+												<?php echo get_sub_field('event'); ?>
+												
+											<?php endwhile; ?>
+									
+										</ul>
+									
+									<?php endif; ?>																
+					
+						<?php endwhile; ?>
+					
+					<?php endif; ?>					
 				
-						$temp_date = DateTime::createFromFormat('Ymd', get_field('event_date', get_the_id()));
-						$temp_date = $temp_date->format('F, Y');
-						//echo $temp_date;
-						print_r($query->posts[0]);
-				
-					endwhile;
-				endif;
-*/
-				
-/*
-				if ( $query->have_posts() ) :
-					while ( $query->have_posts() ) : $query->the_post(); // Start loop
-						$temp_date = DateTime::createFromFormat('Ymd', get_field('event_date'));
-						
-						$temp_date = $temp_date->format('F, Y');
-							if ( $temp_date != $current_header ) {
-								$current_header = $temp_date;
-								echo '<h2>' . $current_header . '</h2>';
-    					}
-						wp_reset_postdata();
-					endwhile;
-				endif;
-*/
-				?>				
 				<a href="/media-appearances" class="button hide-for-large">See Appearances</a>
 			</div>
 		</div>	

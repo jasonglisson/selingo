@@ -12,7 +12,7 @@ Template Name: Contact
 	
 				<h1 class="page-title"><span><?php echo the_title(); ?></span></h1>	
 									    					
-		    <main id="main" class="large-12 medium-12 columns" role="main">
+		    <main id="main" class="large-6 columns" role="main">
 										
 			    <?php
 						if (have_posts()) :
@@ -21,12 +21,21 @@ Template Name: Contact
 						         the_content();
 						   endwhile;
 						endif;		    
+						echo do_shortcode( '[contact-form-7 id="46" title="Contact Jeff"]' );  
 				  ?>  					
-			    					
+			  					
 			</main> <!-- end #main -->
+			<div class="large-6 columns">
+				test
+			</div>	
 <!-- 		    <?php get_sidebar(); ?> -->
 		    
 		</div> <!-- end #inner-content -->
+		<div class="signup-form-section">
+			<div class="row">
+		  	<?php selingo_subscribe_form(); ?>
+			</div>
+		</div> 		
 
 	</div> <!-- end #content -->
 

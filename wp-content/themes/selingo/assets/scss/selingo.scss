@@ -23,6 +23,7 @@ input[type=submit] {
 	text-transform: uppercase;
 	color: #167ac6;		
 	padding-bottom: 10px;
+  padding-top: 15px;	
 	span {
 	 display: inline-block;
 	 position: relative;
@@ -529,6 +530,9 @@ header {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5e3f3', endColorstr='#769bb5', GradientType=1 );
 	.resource-col {
 		padding-top:35px;
+		p {
+			margin: 0;
+		}
 		h4 {
 			color: #167ac6;
 			font-family: 'Roboto Slab', serif;		
@@ -537,7 +541,7 @@ header {
 			padding-bottom: 5px;
 		}	
 		.inner-column {
-		/* 	padding: 15px 20px; */
+			background: rgba(255, 255, 255, 0.49);
 			h5 {
 				font-family: 'Raleway', sans-serif;		
 				font-weight: 500;				
@@ -556,10 +560,6 @@ header {
 				display: block;
 				margin: 0 auto;
 				width: 100%;
-			}
-			p {
-				background: rgba(255, 255, 255, 0.49);	
-				padding: 20px;			
 			}
 			.button {
 				width: 100%;
@@ -598,6 +598,23 @@ header {
 			}	
 		}
 	}	
+	.book-speak {
+		p {
+			padding: 20px;
+		}
+	}
+	.upcoming-events {
+		.inner-column {
+			padding:20px;
+			a {
+				color: #167ac6;
+			}
+		}
+		p {
+			margin-bottom: 0;
+			padding: 10px 20px;
+		}
+	}
 }
 
 .about-jeff-section {
@@ -753,6 +770,36 @@ header {
 }
 .about-jeff-file {
 	
+}
+
+// Speaking 
+.page-template-page-speaking {
+	h3 {
+		font-family: 'Roboto Slab', serif;		
+		text-transform: uppercase;
+		color: #167ac6;		
+	}
+	.speak-top-wrap {
+		padding: 120px;
+		font-family: 'Raleway', sans-serif;
+		background: url(../images/jeff-speaking.png);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center top;
+		font-size: 1.4rem;
+		border-bottom: 1px solid #ddd;
+		border-top: 1px solid #ddd;
+	}
+	.upcoming-events {
+		padding-bottom: 25px;
+		.upcoming-title {
+			border-bottom: 1px solid #ddd;
+		}
+	}
+	.bottom-body {
+		padding-top: 50px;
+		padding-bottom: 40px;
+	}
 }
 
 .pre-footer {
