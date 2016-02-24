@@ -486,10 +486,34 @@ header {
     margin-bottom: 0;
     padding: 10px 20px; }
 
-.page-template-page-appearances .top-text {
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  font-size: 1.4rem; }
+.page-template-page-appearances #main {
+  margin-bottom: 75px; }
+  .page-template-page-appearances #main .top-text {
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 1.4rem; }
+
+.page-template-page-appearances .appearance {
+  min-height: 175px;
+  position: relative;
+  float: left;
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 45px; }
+  .page-template-page-appearances .appearance h3 {
+    font-family: 'Roboto Slab', serif;
+    color: #167ac6;
+    line-height: 1.4rem; }
+  .page-template-page-appearances .appearance .media-date {
+    padding-bottom: 10px;
+    font-family: 'Roboto Slab', serif;
+    color: #cacaca;
+    font-weight: bold; }
+  .page-template-page-appearances .appearance .media-img {
+    float: left; }
+  .page-template-page-appearances .appearance .media-text {
+    padding-left: 170px; }
 
 .about-jeff-section {
   padding: 50px 0; }

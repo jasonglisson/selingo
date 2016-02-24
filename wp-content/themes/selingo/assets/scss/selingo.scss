@@ -622,10 +622,39 @@ header {
 }
 
 .page-template-page-appearances {
-	.top-text {
-		font-family: 'Raleway', sans-serif;	
-		text-align: center;
-		font-size:1.4rem;
+	#main {
+		margin-bottom:75px;
+		.top-text {
+			font-family: 'Raleway', sans-serif;	
+			text-align: center;
+			font-size:1.4rem;
+		}
+	}
+	.appearance {
+		min-height: 175px;
+		position: relative;
+		float: left;
+		width: 100%;
+		padding-bottom: 15px; 
+		border-bottom: 1px solid #ddd;
+		margin-bottom: 45px;
+		h3 {
+			font-family: 'Roboto Slab', serif;		
+			color: #167ac6;	
+			line-height: 1.4rem;
+		}
+		.media-date {
+			padding-bottom: 10px; 		
+			font-family: 'Roboto Slab', serif;	
+			color: #cacaca;
+			font-weight: bold;
+		}
+		.media-img {
+			float:left; 
+		}
+		.media-text {
+			padding-left: 170px;
+		}
 	}
 }
 

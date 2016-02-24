@@ -26,19 +26,19 @@ Template Name: Appearances
 	    );
 	
 	    $post = new WP_Query( $args );
-	    
-	    print_r($post->posts[1]);
-	    
+	    //print_r($post->posts);
 	    $appearance = $post->posts;
 	    
 	    foreach($appearance as $a): ?>
 		   
 		  <div class="appearance">
-			  <div class="">
-			  	<img src="">
+			  <div class="media-img">
+			  	<?php $img = get_field('media_icon', $a->ID); ?>
+			  	<a href="<?php echo get_field('media_link', $a->ID);?>" target="_blank"><img src="<?php echo $img['sizes']['thumbnail']; ?>"></a>
 			  </div>	
-		  	<div class="media-img">
-			    <h3><?php echo $a->post_title; ?></h3>
+		  	<div class="media-text">
+			    <a href="<?php echo get_field('media_link', $a->ID);?>" target="_blank"><h3><?php echo $a->post_title; ?></h3></a>
+			    <div class="media-date"><?php echo mysql2date('F j, Y', $a->post_date); ?></div>
 			    <span><?php echo get_field('media_description', $a->ID); ?></span>
 		  	</div>
 		  </div> 
