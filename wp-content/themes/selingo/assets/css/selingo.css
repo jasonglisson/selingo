@@ -479,9 +479,17 @@ header {
     padding: 20px; }
     .resources-section .upcoming-events .inner-column a {
       color: #167ac6; }
+    .resources-section .upcoming-events .inner-column strong {
+      color: #167ac6;
+      font-family: 'Roboto Slab', serif; }
   .resources-section .upcoming-events p {
     margin-bottom: 0;
     padding: 10px 20px; }
+
+.page-template-page-appearances .top-text {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 1.4rem; }
 
 .about-jeff-section {
   padding: 50px 0; }
