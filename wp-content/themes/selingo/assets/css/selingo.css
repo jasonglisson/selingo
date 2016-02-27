@@ -10,6 +10,25 @@ input[type=submit] {
 .dropdown.menu .submenu {
   z-index: 2; }
 
+.single-post .below-date {
+  width: 20%;
+  margin: 0 0 15px 0;
+  border: 1px solid #167ac6;
+  float: left; }
+
+.single-post .blog-post-date {
+  padding-bottom: 10px;
+  font-family: 'Roboto Slab', serif;
+  padding-top: 22px; }
+
+.single-post .page-title {
+  text-align: left; }
+
+.single-post .dotted-line {
+  border-bottom: 1px dashed #666;
+  margin-bottom: 22px;
+  padding-bottom: 10px; }
+
 .page-title {
   font-family: 'Roboto Slab', serif;
   text-align: center;
@@ -493,7 +512,7 @@ header {
     text-align: center;
     font-size: 1.4rem; }
 
-.page-template-page-appearances .appearance {
+.appearance, .column {
   min-height: 175px;
   position: relative;
   float: left;
@@ -501,19 +520,20 @@ header {
   padding-bottom: 15px;
   border-bottom: 1px solid #ddd;
   margin-bottom: 45px; }
-  .page-template-page-appearances .appearance h3 {
+  .appearance h3, .column h3 {
     font-family: 'Roboto Slab', serif;
     color: #167ac6;
     line-height: 1.4rem; }
-  .page-template-page-appearances .appearance .media-date {
+  .appearance .media-date, .appearance .column-date, .column .media-date, .column .column-date {
     padding-bottom: 10px;
     font-family: 'Roboto Slab', serif;
     color: #cacaca;
     font-weight: bold; }
-  .page-template-page-appearances .appearance .media-img {
-    float: left; }
-  .page-template-page-appearances .appearance .media-text {
-    padding-left: 170px; }
+  .appearance .media-img, .appearance .column-img, .column .media-img, .column .column-img {
+    float: left;
+    padding-right: 20px; }
+  .appearance .media-text, .appearance .column-text, .column .media-text, .column .column-text {
+    /* 		padding-left: 170px; */ }
 
 .about-jeff-section {
   padding: 50px 0; }

@@ -46,9 +46,18 @@ function get_blog_excerpt(){
 	$excerpt = substr($excerpt, 0, 350);
 	$excerpt = substr($excerpt, 0, strripos($excerpt, " "));
 	$excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
-	$excerpt = $excerpt.'... <a href="'. get_permalink() .'">Read More >></a>';
+	$excerpt = $excerpt.'...';	
+// 	$excerpt = $excerpt.'... <a href="'. get_permalink() .'">Read More >></a>';
 	return $excerpt;
 }
+
+function isl_admin_bar_render() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('comments');
+}
+add_action( 'wp_before_admin_bar_render', 'isl_admin_bar_render' );
+
+
 // Adds site styles to the WordPress editor
 //require_once(get_template_directory().'/assets/functions/editor-styles.php'); 
 
