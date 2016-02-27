@@ -512,7 +512,7 @@ header {
     text-align: center;
     font-size: 1.4rem; }
 
-.appearance, .column {
+.appearance, .column-post {
   min-height: 175px;
   position: relative;
   float: left;
@@ -520,19 +520,19 @@ header {
   padding-bottom: 15px;
   border-bottom: 1px solid #ddd;
   margin-bottom: 45px; }
-  .appearance h3, .column h3 {
+  .appearance h3, .appearance h4, .appearance h5, .column-post h3, .column-post h4, .column-post h5 {
     font-family: 'Roboto Slab', serif;
     color: #167ac6;
     line-height: 1.4rem; }
-  .appearance .media-date, .appearance .column-date, .column .media-date, .column .column-date {
+  .appearance .media-date, .appearance .column-post-date, .column-post .media-date, .column-post .column-post-date {
     padding-bottom: 10px;
     font-family: 'Roboto Slab', serif;
     color: #cacaca;
     font-weight: bold; }
-  .appearance .media-img, .appearance .column-img, .column .media-img, .column .column-img {
+  .appearance .media-img, .appearance .column-img, .column-post .media-img, .column-post .column-img {
     float: left;
     padding-right: 20px; }
-  .appearance .media-text, .appearance .column-text, .column .media-text, .column .column-text {
+  .appearance .media-text, .appearance .column-text, .column-post .media-text, .column-post .column-text {
     /* 		padding-left: 170px; */ }
 
 .about-jeff-section {

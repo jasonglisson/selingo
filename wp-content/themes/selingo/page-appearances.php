@@ -37,7 +37,7 @@ Template Name: Appearances
 			  	<a href="<?php echo get_field('media_link', $a->ID);?>" target="_blank"><img src="<?php echo $img['sizes']['thumbnail']; ?>"></a>
 			  </div>	
 		  	<div class="media-text">
-			    <a href="<?php echo get_field('media_link', $a->ID);?>" target="_blank"><h3><?php echo $a->post_title; ?></h3></a>
+			    <a href="<?php echo get_field('media_link', $a->ID);?>" target="_blank"><h4><?php echo $a->post_title; ?></h4></a>
 			    <div class="media-date"><?php echo mysql2date('F j, Y', $a->post_date); ?></div>
 			    <span><?php echo get_field('media_description', $a->ID); ?></span>
 		  	</div>

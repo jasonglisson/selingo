@@ -21,7 +21,7 @@ Template Name: Columns
 					<?php if ( $the_query->have_posts() ) : ?>
 						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>		
 							<?php $the_id = get_the_id(); ?>		
-						  <div class="column">
+						  <div class="column-post">
 							  <div class="column-img">
 							  	<?php $img = get_field('column_icon'); 
 								  	if(!empty($img)): ?>
@@ -31,9 +31,9 @@ Template Name: Columns
 										<?php endif; ?>	
 							  </div>	
 						  	<div class="column-text">
-									<h5><a href="<?php echo get_field('column_link');?>"><?php echo the_title(); ?></a></h5>
+									<h4><a href="<?php echo get_field('column_link');?>" target="_blank"><?php echo the_title(); ?></a></h4>
 									<div class="column-post-date"><?php echo get_the_date('l, F jS, Y'); ?></div>
-									<div class="column-text"><?php echo get_blog_excerpt(); ?><a href="<?php echo get_field('column_link');?>">Read More</a></div>
+									<div class="column-text"><?php echo get_blog_excerpt(); ?><a href="<?php echo get_field('column_link');?>" target="_blank">Read More</a></div>
 						  	</div>
 						  </div>							
 							

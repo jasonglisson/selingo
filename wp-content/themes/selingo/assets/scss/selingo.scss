@@ -654,7 +654,7 @@ header {
 		}
 	}
 }
-.appearance, .column {
+.appearance, .column-post {
 	min-height: 175px;
 	position: relative;
 	float: left;
@@ -662,12 +662,12 @@ header {
 	padding-bottom: 15px; 
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 45px;
-	h3 {
+	h3,h4,h5 {
 		font-family: 'Roboto Slab', serif;		
 		color: #167ac6;	
 		line-height: 1.4rem;
 	}
-	.media-date, .column-date {
+	.media-date, .column-post-date {
 		padding-bottom: 10px; 		
 		font-family: 'Roboto Slab', serif;	
 		color: #cacaca;
