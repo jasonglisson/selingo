@@ -46,5 +46,9 @@
 	</div> <!-- end #inner-content -->
 
 </div> <!-- end #content -->
-
+<div class="signup-form-section">
+	<div class="row">
+  	<?php selingo_subscribe_form(); ?>
+	</div>
+</div>    
 <?php get_footer(); ?>

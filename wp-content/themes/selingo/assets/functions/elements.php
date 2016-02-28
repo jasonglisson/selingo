@@ -162,7 +162,7 @@ function homepage_feature() {
 function selingo_subscribe_form() { ?>
 	<h4>Subscribe!</h4>
 	<h5>Sign up for my newsletter to receive updates and insights on the college of the future.</h5>
-	<?php echo do_shortcode('[contact-form-7 id="64" title="Subscription"]');
+	<?php echo do_shortcode('[mc4wp_form id="895"]');
 } 
 
 // Jeff Resources Section
@@ -315,18 +315,17 @@ function logo_carousel() {
 <?php }
 
 function about_jeff() { 
-	wp_reset_postdata();
-	$aboutVid = get_field('about_jeff_video', get_the_id()); ?>
-	<div class="large-6 small-12 columns about-jeff-text">
-		<?php $aboutJeff = get_field('about_jeff_photo', get_the_id()); ?>
-		<div class="about-jeff-photo"><img src="<?php echo $aboutJeff['url']; ?>"></div>
+	wp_reset_postdata();?>
+	<div class="large-7 small-12 columns about-video"><?php echo do_shortcode('[videojs height="355" width="631" mp4="../wp-content/themes/selingo/assets/video/selingo.mp4" poster="../wp-content/themes/selingo/assets/video/cover.jpg"]');?></div>	
+	<div class="large-5 small-12 columns about-jeff-text">
+<!-- 		<?php $aboutJeff = get_field('about_jeff_photo', get_the_id()); ?> -->
+<!-- 		<div class="about-jeff-photo"><img src="<?php echo $aboutJeff['url']; ?>"></div> -->
 		<h4>About Jeff</h4>
 		<div class="about-text">
-			<?php echo get_field('about_jeff', get_the_id()); ?>
-			<a href="/about">Read More <i class="fa fa-angle-double-right"></i></a>
+			<?php echo get_field('about_jeff', 44); ?>
+<!-- 			<a href="/about">Read More <i class="fa fa-angle-double-right"></i></a> -->
 		</div>
 	</div>
-	<div class="large-6 small-12 columns about-video"><?php print_r($aboutVid); ?></div>
  <?php } 
 
 // Footer contact form for contacting Jeff	

@@ -17,6 +17,17 @@ input[type=submit] {
 	z-index:2;
 }
 
+//Video
+.vjs-big-play-button {
+	display:none !important;
+}
+.vjs-poster {
+	background-size: cover !important;
+}
+.vjs-tech {
+	cursor: pointer;
+}
+
 //Columns 
 .single-post {
 	.below-date {
@@ -45,7 +56,7 @@ input[type=submit] {
 	text-align: center;
 	text-transform: uppercase;
 	color: #167ac6;		
-	padding-bottom: 10px;
+	padding-bottom: 20px;
   padding-top: 15px;	
 	span {
 	 display: inline-block;
@@ -394,6 +405,14 @@ header {
 		border: 1px solid rgba(255, 255, 255, 0.32);
 		color: #fff;
 	}
+	.mc4wp-response {
+    float: left;
+    text-align: center;
+    width: 100%;
+    padding: 0 15px;
+    color: #fff;
+		font-family: 'Roboto Slab', serif;	    
+	}
 }
 
 .book-carousel {
@@ -560,7 +579,6 @@ header {
 			color: #167ac6;
 			font-family: 'Roboto Slab', serif;		
 			text-align: center;
-			border-bottom: 1px solid rgba(22, 122, 198, 0.28);
 			padding-bottom: 5px;
 		}	
 		.inner-column {
@@ -703,9 +721,8 @@ header {
 	    margin-top: 10px;	
     }
 		.about-text {
-	    padding-left: 20px;
 	    display: table;
-	    border-top: 1px solid #666;
+	    border-top: 1px solid rgba(22, 122, 198, 0.28);
 	    padding-top: 20px;
 		}
 	}
@@ -1106,7 +1123,7 @@ header {
 }
 
 .footer {
-	background: #5c73b6;
+	background: #769bb5;
 	margin-top: 0;
 	padding: 15px 0;
 	p {

@@ -80,5 +80,14 @@ Template: Single Book
 	</div> <!-- end #inner-content -->
 		<?php// get_sidebar(); ?>
 </div> <!-- end #content -->
-
+<div class="signup-form-section">
+	<div class="row">
+  	<?php selingo_subscribe_form(); ?>
+	</div>
+</div> 
+<div class="about-jeff-section">
+	<div class="row">
+		<?php about_jeff(); ?>
+	</div>	
+</div>	   
 <?php get_footer(); ?>
