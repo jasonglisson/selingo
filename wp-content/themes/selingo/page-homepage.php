@@ -12,6 +12,12 @@ Template Name: Homepage
 				<?php homepage_feature(); ?>
 		</div>	
 		
+		<div class="about-jeff-section">
+			<div class="row">
+				<?php about_jeff(); ?>
+			</div>	
+		</div>	
+				
 		<div class="signup-form-section">
 			<div class="row">
 		  	<?php selingo_subscribe_form(); ?>
@@ -24,12 +30,6 @@ Template Name: Homepage
 
 		<div class="logo-row">
 			<?php logo_carousel(); ?>
-		</div>	
-
-		<div class="about-jeff-section">
-			<div class="row">
-				<?php about_jeff(); ?>
-			</div>	
 		</div>	
 
 		<div class="resources-section">
