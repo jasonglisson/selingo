@@ -15,7 +15,7 @@ Template Name: Speaking
 		<div class="speak-top-wrap">
 			<div class="row">
 					<div class="large-6 columns">.</div>					    					
-			    <div class="large-6 medium-12 columns">
+			    <div class="large-6 medium-12 columns speaking-body-text">
 											
 				    <?php
 							if (have_posts()) :
@@ -28,6 +28,16 @@ Template Name: Speaking
 				    					
 				</div> <!-- end #main -->	
 			</div>
+		</div>
+		<div class="mobile-speaking-body show-for-small-only">
+	    <?php
+				if (have_posts()) :
+				   while (have_posts()) :
+				      the_post();
+				         the_content();
+				   endwhile;
+				endif;		    
+		  ?>  			
 		</div>
 		<div class="row">			    					
 		    <div class="large-12 medium-12 columns bottom-body">
