@@ -1130,3 +1130,126 @@ header {
 		margin: 0;
 	}
 }
+
+// Mobile Style
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-width: 480px) {
+	header{
+		.top-bar-left {
+			.menu-text {
+				padding:0;
+				#logo {
+					background: url(../images/logo1.png);
+					display: block;
+					width: 175px;
+					height: 35px;
+					background-size: cover;
+					background-repeat: no-repeat;
+					text-indent: -9999px;
+					background-position: center center;
+					padding: 0;
+				}
+			}
+		}	
+	}
+	
+	body #content {
+	    padding-top: 30px;
+	}	
+
+	.homepage-features {
+		.book-promo-img {
+	    position: relative;
+	    z-index: 1;
+	    padding-top: 50px;
+	    padding-bottom: 25px;
+			img {
+			    height: auto;
+			    width: 66%;
+			    float: none;
+			    box-shadow: 0px 9px 55px -7px;
+			    margin: 0 auto;
+			    display: block;
+			}	 	  
+	  }
+		.book-promo-info {
+		    position: relative;
+		    z-index: 1;
+		    padding-top: 0;
+		    padding-bottom: 70px;
+		}		 
+	}
+	
+	.video-js {
+    width: 100% !important;
+    height: 196px !important;		
+	}
+	
+	.about-jeff-section {
+		padding: 30px 0;
+		.about-jeff-text {
+			padding-top: 20px;
+			padding-bottom: 10px;
+		}
+	}
+	
+	.signup-form-section {
+		h5 {
+	    padding-bottom: 25px;
+	    text-align: center;
+	    color: #fff;
+	    padding-left: 15px;
+	    padding-right: 15px;
+		}
+	}	
+	
+	.books-right, .books-left {
+		display: block !important;
+	}
+	
+	.book-carousel-section .books-opaque-right i {
+    float: right;
+    margin-left: 32px;
+	}	
+	
+	.logo-row {
+		.large-up-5 {
+			div {
+				padding: 20px 0;
+			}
+		}
+	}
+	
+	.recent-cols {
+		.blog-text {
+			padding-bottom:15px;
+		}
+	}
+	
+	
+	.resources-section .resource-col {
+		h4 {
+		  font-size: 1.5rem;
+		}		
+		.inner-column {
+			padding-bottom: 5px;
+		}	
+	}	
+
+	.book-speak {
+		.button {
+			width: 90% !important;
+			margin: 0 auto 10px auto;
+			display: block;
+		}
+	}
+	
+	.upcoming-events {
+		margin-bottom: 25px;
+		a.button {
+			color: #fff !important;
+		}
+	}
+	
+}
