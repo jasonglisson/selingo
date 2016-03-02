@@ -44,7 +44,10 @@ jQuery(document).ready(function($) {
 	        arrows: true,
 	        centerMode: true,
 	        centerPadding: '40px',
-	        slidesToShow: 1
+	        slidesToShow: 1,
+				  slidesToScroll: 1,
+				  autoplay: true,
+				  autoplaySpeed: 4000,	        
 	      }
 	    }
 	  ]
