@@ -155,7 +155,10 @@ header {
 		position: relative;
 		z-index:1;
 	  padding-top: 70px;	
-	  padding-bottom: 70px;		  	
+	  padding-bottom: 70px;		
+    a {
+	    color: #000;
+    }	    	
 		img {
 	    height: 90%;				
 	    width: 90%;
@@ -879,9 +882,44 @@ header {
 			border-bottom: 1px solid #ddd;
 		}
 	}
+	.past-events {
+		padding-top: 25px;
+	}
 	.bottom-body {
 		padding-top: 50px;
 		padding-bottom: 40px;
+	}
+	.tabs {
+		margin-top:25px;
+		border-bottom: 1px solid #e6e6e6;
+		border-top: none;
+		border-right: none;
+		a {
+			border-top: 1px solid #ddd;
+			border-right: 1px solid #ddd;			
+			color: #666;
+			font-size: .8rem;	
+		}
+	}	
+	.tabs-content {
+		margin-bottom: 25px;
+	}
+	.speaking-videos {
+		background: #ddd;
+		padding-top: 45px;
+		padding-bottom: 45px;
+		margin: 25px 0;
+		h2 {
+			font-family: 'Roboto Slab', serif;		
+			text-transform: uppercase;
+			color: #167ac6;					
+		}
+		.flex-video {
+			padding-bottom: 49%;
+			iframe {
+				height: 300px;
+			}			
+		}
 	}
 }
 
@@ -995,7 +1033,10 @@ header {
 		position: relative;
 		z-index:1;
 	  padding-top: 20px;	
-	  padding-bottom: 70px;		  	
+	  padding-bottom: 70px;	
+	  a {
+		  color: #000;
+	  }	  	
 		img {
 	    height: 90%;				
 	    width: 90%;
@@ -1282,6 +1323,9 @@ header {
 	.page-template-page-books {
 		.book-promo-img {
 			padding-bottom: 30px;
+	    a {
+		    color: #000;
+	    }			
 			img {
 		    height: auto;
 		    width: 70%;

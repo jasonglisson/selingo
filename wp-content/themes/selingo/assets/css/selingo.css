@@ -122,6 +122,8 @@ header {
     z-index: 1;
     padding-top: 70px;
     padding-bottom: 70px; }
+    .homepage-features .book-promo-img a {
+      color: #000; }
     .homepage-features .book-promo-img img {
       height: 90%;
       width: 90%;
@@ -678,9 +680,40 @@ header {
   .page-template-page-speaking .upcoming-events .upcoming-title {
     border-bottom: 1px solid #ddd; }
 
+.page-template-page-speaking .past-events {
+  padding-top: 25px; }
+
 .page-template-page-speaking .bottom-body {
   padding-top: 50px;
   padding-bottom: 40px; }
+
+.page-template-page-speaking .tabs {
+  margin-top: 25px;
+  border-bottom: 1px solid #e6e6e6;
+  border-top: none;
+  border-right: none; }
+  .page-template-page-speaking .tabs a {
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    color: #666;
+    font-size: .8rem; }
+
+.page-template-page-speaking .tabs-content {
+  margin-bottom: 25px; }
+
+.page-template-page-speaking .speaking-videos {
+  background: #ddd;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  margin: 25px 0; }
+  .page-template-page-speaking .speaking-videos h2 {
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    color: #167ac6; }
+  .page-template-page-speaking .speaking-videos .flex-video {
+    padding-bottom: 49%; }
+    .page-template-page-speaking .speaking-videos .flex-video iframe {
+      height: 300px; }
 
 .pre-footer {
   background: #d7d7d7;
@@ -759,6 +792,8 @@ header {
   z-index: 1;
   padding-top: 20px;
   padding-bottom: 70px; }
+  .page-template-page-books .book-promo-img a {
+    color: #000; }
   .page-template-page-books .book-promo-img img {
     height: 90%;
     width: 90%;
@@ -948,6 +983,8 @@ header {
     padding-bottom: 25px; }
   .page-template-page-books .book-promo-img {
     padding-bottom: 30px; }
+    .page-template-page-books .book-promo-img a {
+      color: #000; }
     .page-template-page-books .book-promo-img img {
       height: auto;
       width: 70%;

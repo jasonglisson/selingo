@@ -88,6 +88,40 @@ Template Name: Speaking
 					<span class="not-open"><strong>*Company or organization event not open to the public.</strong></span>
 				</div>	
 			</div>			
+		</div>
+	</div>
+	<div class="speaking-videos">
+		<div class="row">
+							
+						<?php if( have_rows('speaking_videos') ): ?>
+						
+							<ul class="videos">
+						
+								<?php while( have_rows('speaking_videos') ): the_row(); ?>
+								
+								<li>
+								
+									<div class="large-6 columns video">
+										<?php echo get_sub_field('video_url'); ?>
+									</div>	
+								
+									<div class="large-6 columns video-text">
+										<h3><?php echo get_sub_field('video_title'); ?></h3>
+										<?php echo get_sub_field('video_text'); ?>
+									</div>	
+																	
+								</li>
+									
+								<?php endwhile; ?>
+						
+							</ul>
+						
+						<?php endif; ?>																
+		
+		</div>
+	</div>	
+	<div class="">	
+		<div class="row">
 			<div class="large-12 medium-12 columns past-events">
 				<h3>Selection of Past Events</h3>
 				<ul class="tabs" data-tabs id="example-tabs">

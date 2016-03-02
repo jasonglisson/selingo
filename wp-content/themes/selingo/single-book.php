@@ -49,7 +49,9 @@ Template: Single Book
 			</div>
 			<ul class="tabs" data-tabs id="example-tabs">
 			  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Description</a></li>
-			  <li class="tabs-title"><a href="#panel2">Reviews</a></li>
+			  <?php if( have_rows('book_review')) : ?>
+			  	<li class="tabs-title"><a href="#panel2">Reviews</a></li>
+				<?php	endif; ?>	
 			</ul>
 			<div class="tabs-content" data-tabs-content="example-tabs">
 			  <div class="tabs-panel is-active" id="panel1">
@@ -61,17 +63,17 @@ Template: Single Book
 						echo $content;  
 						?>			    
 			    </p>
-			  </div>
+			  </div>	
+			 <?php if( have_rows('book_review')) : ?>
 			  <div class="tabs-panel" id="panel2">
-					<?php if( have_rows('book_review')) : ?>
 							<?php	while( have_rows('book_review') ): the_row(); ?>
 										<div class="book-review">
 											<span class="review"><?php the_sub_field('book_review_text');?></span>
 											<span class="source">- <?php the_sub_field('book_review_source');?></span>
 										</div>
-						<?php endwhile; ?>
-					<?php	endif; ?>			
+						<?php endwhile; ?>		
 			  </div>
+			 <?php	endif; ?>				  
 			</div>			
 		</main> <!-- end #main -->
 
