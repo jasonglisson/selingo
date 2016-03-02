@@ -654,6 +654,9 @@ header {
     .single-book #inner-content .book-review:last-of-type {
       border-bottom: 0px solid #ddd; }
 
+.page-template-page-about-php main {
+  padding-bottom: 25px; }
+
 .page-template-page-speaking h3 {
   font-family: 'Roboto Slab', serif;
   text-transform: uppercase;
