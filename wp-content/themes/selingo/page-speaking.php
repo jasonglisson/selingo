@@ -91,6 +91,8 @@ Template Name: Speaking
 		</div>
 	</div>
 	<div class="speaking-videos">
+		<h3 class="video-heading">Suggested Topics</h3>
+		<div class="speaking-opaque-left"><i class="fa fa-chevron-circle-left speaking-left"></i></div>		
 		<div class="row">
 							
 						<?php if( have_rows('speaking_videos') ): ?>
@@ -99,19 +101,32 @@ Template Name: Speaking
 						
 								<?php while( have_rows('speaking_videos') ): the_row(); ?>
 								
-								<li>
+								<li class="">
 								
-									<div class="large-6 columns video">
-										<?php echo get_sub_field('video_url'); ?>
+									<div class="large-6 small-12 columns video">
+										<?php $vid = get_sub_field('video_url'); ?>
+										<?php 
+											$vida = str_replace("http://img.youtube.com/vi/", "", $vid['thumbnail']);
+											$vidb = str_replace("/hqdefault.jpg", "", $vida);
+										?>
+										<div class="vid-embed-<?php echo $vidb; ?>" style="">
+											<iframe id="player-<?php echo $vidb; ?>" src="http://www.youtube.com/embed/<?php echo $vidb; ?>?enablejsapi=1&version=3&playerapiid=ytplayer" frameborder="0" allowfullscreen></iframe>
+											</div>										
 									</div>	
 								
-									<div class="large-6 columns video-text">
-										<h3><?php echo get_sub_field('video_title'); ?></h3>
+									<div class="large-6 small-12 columns video-text">
+										<h3 class="video-title"><?php echo get_sub_field('video_title'); ?></h3>
 										<?php echo get_sub_field('video_text'); ?>
 									</div>	
+									<script type="text/javascript">
+										jQuery(document).ready(function($) {
+											$('.speaking-right, .speaking-left').on('click', function() {
+												$('#player-<?php echo $vidb; ?>')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');    
+											});			
+										});							
+									</script>																	
 																	
-								</li>
-									
+								</li>																		
 								<?php endwhile; ?>
 						
 							</ul>
@@ -119,6 +134,7 @@ Template Name: Speaking
 						<?php endif; ?>																
 		
 		</div>
+		<div class="speaking-opaque-right"><i class="fa fa-chevron-circle-right speaking-right"></i></div>		
 	</div>	
 	<div class="">	
 		<div class="row">

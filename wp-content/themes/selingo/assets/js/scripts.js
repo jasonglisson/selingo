@@ -94,4 +94,40 @@ jQuery(document).ready(function($) {
 		$('.book-blurb-carousel .slick-next')[0].click();
 	});
 
+	$('.speaking-left').click(function(){
+		$('.slick-prev')[0].click();
+	});
+
+	$('.speaking-right').click(function(){
+		$('.slick-next')[0].click();
+	});
+
+	$('.videos').slick({
+	  slidesToShow: 1,
+		arrows: true,
+	  dots: true,		
+	  infinite: true,  
+	  responsive: [
+	    {
+	      breakpoint: 768,
+	      settings: {
+	        arrows: true,
+					dots: false,		        
+	        slidesToShow: 1,
+	      }
+	    },
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        arrows: true,
+					dots: false,			        
+	        slidesToShow: 1,
+				  slidesToScroll: 1,
+				  autoplay: false,
+				  autoplaySpeed: 4000,	        
+	      }
+	    }
+	  ]
+	});
+
 });
