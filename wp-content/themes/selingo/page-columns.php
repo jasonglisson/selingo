@@ -32,7 +32,7 @@ Template Name: Columns
 							  </div>	
 						  	<div class="column-text">
 									<h4><a href="<?php echo get_field('column_link');?>" target="_blank"><?php echo the_title(); ?></a></h4>
-									<div class="column-post-date"><?php echo get_the_date('l, F jS, Y'); ?></div>
+									<div class="column-post-date"><?php echo get_the_date('F jS'); ?></div>
 									<div class="column-text"><?php echo get_blog_excerpt(); ?><a href="<?php echo get_field('column_link');?>" target="_blank">Read More</a></div>
 						  	</div>
 						  </div>							

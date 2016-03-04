@@ -383,6 +383,108 @@ header {
 	
 }
 
+.book-talks-section {
+	padding: 35px;
+	position:relative;
+	background: rgba(247,249,250,1);
+	background: -moz-linear-gradient(-45deg, rgba(247,249,250,1) 0%, rgba(167,193,212,1) 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(247,249,250,1)), color-stop(100%, rgba(167,193,212,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(247,249,250,1) 0%, rgba(167,193,212,1) 100%);
+	background: -o-linear-gradient(-45deg, rgba(247,249,250,1) 0%, rgba(167,193,212,1) 100%);
+	background: -ms-linear-gradient(-45deg, rgba(247,249,250,1) 0%, rgba(167,193,212,1) 100%);
+	background: linear-gradient(135deg, rgba(247,249,250,1) 0%, rgba(167,193,212,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f9fa', endColorstr='#a7c1d4', GradientType=1 );	
+	h3 {
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+    text-transform: uppercase;
+    color: #167ac6;
+    padding-bottom: 20px;
+    padding-top: 15px;
+	}
+	.page-title span:before, .page-title span:after {
+		content: "";
+		position: absolute;
+		height: 5px;
+		border-bottom: 1px dotted #666;
+		border-top: 1px dotted #666;
+		top: 21px;
+		width: 100px;
+	}	
+	.slick-list {
+		overflow: visible !important;
+	}
+	.book-talk-item {
+		float:left !important;
+		width:100%;
+		background: #fff;
+		margin: 7.5px;
+		padding: 25px;
+    box-shadow: 0px 9px 55px -7px rgba(0, 0, 0, 0.53);
+		min-height: 360px;
+		cursor: -webkit-grab; cursor: -moz-grab;
+		&:focus{
+			cursor: -webkit-grabbing; cursor: -moz-grabbing;			
+		}
+		.book-talk-date {
+	    padding-bottom: 10px;
+	    font-family: 'Roboto Slab', serif;			
+		}
+		hr {
+	    width: 20%;
+	    border: 1px solid #167ac6;
+	    float: left;			
+	    margin: 0;
+		}
+		.book-talk-location {
+			float: left;
+			width: 100%;
+			font-family: 'Raleway', sans-serif;	
+			color: #666;		
+			padding-left: 19px;
+		} 
+		.book-talk-description {
+			float: left;
+			font-family: 'Raleway', sans-serif;				
+			width: 100%;			
+	    padding-top: 15px;				
+		}
+		.book-talk-city {
+			font-family: 'Raleway', sans-serif;				
+	    float: left;
+	    width: 100%;
+	    color: #666;
+	    padding-top: 15px;		
+	    i {
+		    margin-right:10px;
+	    }	
+		}
+	}
+	.book-talks-left, .book-talks-right {
+		font-size: 2.5rem;
+		position: absolute;
+		display: block;
+	  z-index:3;		
+		i {
+    	color: rgba(102, 102, 102, 0.44);		
+		  top: 50%;  		   		
+		}
+	}		
+	.book-talks-left {
+		left: 20px;
+		top: 50%;
+		z-index:2;		
+	}
+	.book-talks-right {
+		right: 20px;
+		top: 50%;
+		z-index:2;		
+	}
+	.slick-arrow {
+		display: none !important;
+	}
+}
+
 
 .signup-form-section {
 	background: #73b1c0;

@@ -12,6 +12,8 @@ Template Name: Homepage
 				<?php homepage_feature(); ?>
 		</div>	
 		
+		<?php book_talks(); ?>					
+		
 		<div class="about-jeff-section">
 			<div class="row">
 				<?php about_jeff(); ?>

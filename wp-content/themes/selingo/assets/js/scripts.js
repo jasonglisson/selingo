@@ -105,7 +105,7 @@ jQuery(document).ready(function($) {
 	$('.videos').slick({
 	  slidesToShow: 1,
 		arrows: true,
-	  dots: true,		
+	  dots: false,		
 	  infinite: true,  
 	  responsive: [
 	    {
@@ -129,5 +129,40 @@ jQuery(document).ready(function($) {
 	    }
 	  ]
 	});
+	
+	$('.talk-left').click(function(){
+		$('.book-talks-section .slick-prev')[0].click();
+	});
 
+	$('.talk-right').click(function(){
+		$('.book-talks-section .slick-next')[0].click();
+	});	
+	
+	$('.book-talks-slider').slick({
+	  slidesToShow: 3,
+		arrows: true,
+	  dots: false,		
+	  infinite: false,  
+	  responsive: [
+	    {
+	      breakpoint: 768,
+	      settings: {
+	        arrows: true,
+					dots: false,		        
+	        slidesToShow: 1,
+	      }
+	    },
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        arrows: true,
+					dots: false,			        
+	        slidesToShow: 1,
+				  slidesToScroll: 1,
+				  autoplay: false,
+				  autoplaySpeed: 4000,	        
+	      }
+	    }
+	  ]
+	});
 });
