@@ -987,6 +987,26 @@ header {
 	}
 }
 
+.page-template-page-contact {
+	#main {
+		font-family: 'Raleway', sans-serif;	
+		color: #666;
+		font-size: 1.5rem;					
+	}
+	.your-message {
+		height: 150px;		
+	}
+	form {
+		padding-bottom: 45px;
+			input[type=submit] {
+			    width: 100%;
+			    height: 2.4375rem;
+			    border: 1px solid rgba(255, 255, 255, 0.32);
+			    color: #fff;
+			}		
+	}
+}
+
 .pre-footer {
 	background: #d7d7d7;
 	padding-bottom: 25px;
@@ -1030,10 +1050,11 @@ header {
 			color: #fff;
 		}
 	}
-	.footer-social {
-		font-size: 2rem;
-		margin-right:5px;
-	}
+}
+
+.footer-social {
+	font-size: 2rem;
+	margin-right:5px;
 }
 
 .tweet {

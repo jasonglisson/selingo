@@ -21,14 +21,23 @@ Template Name: Contact
 						         the_content();
 						   endwhile;
 						endif;		    
-						echo do_shortcode( '[contact-form-7 id="46" title="Contact Jeff"]' );  
-				  ?>  					
-			  					
+				  ?>  	
+				<div class="contact-social">	  				
+					<?php if( have_rows('social_media_links' ,'option') ): ?>
+						<?php while( have_rows('social_media_links' ,'option') ): the_row(); 
+							$social_link = get_sub_field('social_link' ,'option');
+							$social_icon = get_sub_field('social_icon' ,'option');
+							?>
+							<?php// if($social_link && $social_icon): ?>
+								<a href="<?php echo $social_link; ?>" target="_blank" class="footer-social"><?php echo $social_icon; ?></a>
+							<?php //endif; ?>
+						<?php endwhile; ?>
+					<?php endif; ?>		
+				</div>		  					
 			</main> <!-- end #main -->
 			<div class="large-6 columns">
-				test
+				<?php echo do_shortcode( '[contact-form-7 id="46" title="Contact Jeff"]' ); ?>
 			</div>	
-<!-- 		    <?php get_sidebar(); ?> -->
 		    
 		</div> <!-- end #inner-content -->
 		<div class="signup-form-section">
