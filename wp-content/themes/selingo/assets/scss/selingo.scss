@@ -466,8 +466,9 @@ header {
 		display: block;
 	  z-index:3;		
 		i {
-    	color: rgba(102, 102, 102, 0.44);		
-		  top: 50%;  		   		
+    	color: rgba(102, 102, 102, 0.75);		
+		  top: 50%; 
+		  cursor: pointer; 		   		
 		}
 	}		
 	.book-talks-left {
@@ -688,6 +689,7 @@ header {
 		}	
 		.inner-column {
 			background: rgba(255, 255, 255, 0.49);
+	    min-height: 440px;			
 			h5 {
 				font-family: 'Raleway', sans-serif;		
 				font-weight: 500;				
@@ -723,6 +725,7 @@ header {
 		.inner-column {
 			background: rgba(255, 255, 255, 0.49);
 			padding: 15px 20px 30px 20px;
+			min-height: 440px;			
 			.blog-post-date {
 				padding-bottom: 10px;
 				font-family: 'Roboto Slab', serif;				
@@ -752,8 +755,15 @@ header {
 	.upcoming-events {
 		.inner-column {
 			padding:20px;
+			overflow: hidden;
+			min-height: 440px;
 			a {
-				color: #167ac6;
+				border-bottom: 1px dotted blue;
+				color: #000;
+				transition: .2s all;
+				&:hover {
+					color: #666;
+				}
 			}
 			strong {
 				color: #167ac6;
@@ -1427,6 +1437,10 @@ header {
 			padding-top: 20px;
 			padding-bottom: 10px;
 		}
+	}
+	
+	.book-talk-item {
+		min-height: 425px !important;
 	}
 	
 	.signup-form-section {

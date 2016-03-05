@@ -76,12 +76,15 @@ Template: Single Book
 			 <?php	endif; ?>				  
 			</div>			
 		</main> <!-- end #main -->
-
-
-
 	</div> <!-- end #inner-content -->
 		<?php// get_sidebar(); ?>
 </div> <!-- end #content -->
+<?php
+	$bookTalks = get_field('show_book_talks');
+	if( is_array($bookTalks) && in_array('show', $bookTalks ) ) {
+		book_talks(); 
+	}
+?>	
 <div class="signup-form-section">
 	<div class="row">
   	<?php selingo_subscribe_form(); ?>
