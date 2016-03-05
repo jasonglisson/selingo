@@ -63,6 +63,6 @@
 			</div> <!-- end .off-canvas-wrapper-inner -->
 		</div> <!-- end .off-canvas-wrapper -->	
 		<?php wp_footer(); ?>
-		<div class="back-to-top"><i class="fa fa-chevron-circle-up"></i></div>				
+		<div class="back-to-top"><i class="fa fa-chevron-up"></i></div>				
 	</body>
 </html> <!-- end page -->
