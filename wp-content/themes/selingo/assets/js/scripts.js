@@ -165,4 +165,43 @@ jQuery(document).ready(function($) {
 	    }
 	  ]
 	});
+	
+	$('.back-to-top').click(function() {
+	    $('html, body').animate({
+	        scrollTop: $('html, body').offset().top
+	    }, 1000);
+	});	
+
+	//store the element
+	var $top = $('.back-to-top');
+	var $swipe = $('.swipe');
+		
+	//store the initial position of the element
+	$(window).scroll(function(){
+	    if($(document).scrollTop() > 200) {
+		  // if so, ad the fixed class
+		  $top.addClass('show');		  
+		  $top.fadeIn();
+		} else {
+		  // otherwise remove it
+		  $top.removeClass('show');		
+		  $top.fadeOut();	   	  
+		}		
+	});
+	
+	//store the initial position of the element
+	$(window).scroll(function(){
+	    if($(document).scrollTop() >= 1200) {
+		  // if so, ad the fixed class	  
+			$swipe.fadeIn(function() {
+			  window.setTimeout(function() {
+			    $swipe.fadeOut(800 ,function(){
+						$swipe.remove();
+					});		    
+			  }, 2000);
+			});		  
+		  
+		} 
+	});	
+	
 });

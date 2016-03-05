@@ -245,7 +245,7 @@ function jeff_resources() { ?>
 // Book reivew list
 function book_talks() { ?>
 	<?php 
-		$event0 = current_time('Ymd');
+		$event = current_time('Ymd');
 		$args = array(
 			'post_type' => 'book-talks',
 			'post_status' => 'publish',
@@ -254,7 +254,7 @@ function book_talks() { ?>
 				array(
 					'key' => 'date',
 					'compare' => '>=',
-					'value' => $event0,
+					'value' => $event,
 					),
 			),
 			'meta_key' => 'date',
@@ -265,6 +265,7 @@ function book_talks() { ?>
 	<?php $the_query = new WP_Query( $args );?>
 		<?php if ( $the_query->have_posts() ) : ?>
 			<div class="book-talks-section">
+				<div class="swipe"></div>
 				<div class="book-talks-right"><i class="fa fa-chevron-circle-right talk-right"></i></div>					
 				<div class="row">
 					<h3 class="page-title"><span>Upcoming Book Appearances</span></h3>			

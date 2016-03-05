@@ -61,7 +61,8 @@
 					</footer> <!-- end .footer -->
 				</div>  <!-- end .main-content -->
 			</div> <!-- end .off-canvas-wrapper-inner -->
-		</div> <!-- end .off-canvas-wrapper -->
+		</div> <!-- end .off-canvas-wrapper -->	
 		<?php wp_footer(); ?>
+		<div class="back-to-top"><i class="fa fa-chevron-circle-up"></i></div>				
 	</body>
 </html> <!-- end page -->

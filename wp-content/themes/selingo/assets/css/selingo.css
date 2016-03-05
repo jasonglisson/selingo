@@ -1068,6 +1068,42 @@ header {
   .footer p {
     margin: 0; }
 
+.back-to-top {
+  width: 65px;
+  height: 65px;
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  z-index: 9999;
+  background: url(../images/icon-3.png) no-repeat;
+  cursor: pointer;
+  background-size: contain;
+  right: 0px;
+  opacity: .75;
+  transition: .3s all; }
+  .back-to-top i {
+    font-size: 3rem;
+    opacity: .65; }
+
+.back-to-top:hover i {
+  opacity: .65; }
+
+.back-to-top.show {
+  transition: .3s all;
+  bottom: 50px;
+  display: block; }
+
+.swipe {
+  height: 120px;
+  width: 120px;
+  background: url(../images/swipe.png) no-repeat;
+  position: absolute;
+  top: 45%;
+  background-size: cover;
+  z-index: 2;
+  left: 36%;
+  display: none !important; }
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (max-width: 480px) {
   header .top-bar-left .menu-text {
@@ -1089,6 +1125,8 @@ header {
     padding-top: 35px; }
     .page-title span:before, .page-title span:after {
       border: none; }
+  .swipe {
+    display: block !important; }
   .homepage-features .book-promo-img {
     position: relative;
     z-index: 1;

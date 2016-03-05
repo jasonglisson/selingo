@@ -1368,6 +1368,50 @@ header {
 	}
 }
 
+.back-to-top {
+	width: 65px;
+	height: 65px;
+	display: none;
+	position: fixed;
+	bottom: 60px;
+	z-index: 9999;
+	background: url(../images/icon-3.png) no-repeat;
+	cursor: pointer;
+	background-size: contain;
+	right: 0px;
+	opacity: .75;
+	transition:.3s all;
+	i {
+    font-size: 3rem;
+		opacity: .65;    		
+	}
+}
+
+.back-to-top:hover {
+	i {
+		opacity: .65;		
+	}
+}
+
+.back-to-top.show {
+	transition:.3s all;	
+	bottom: 50px;	
+	display: block;
+}
+
+.swipe {
+  height: 120px;
+  width: 120px;
+  background: url(../images/swipe.png) no-repeat;
+  position: absolute;
+  top: 45%;
+  background-size: cover;
+  z-index: 2;
+  left: 36%;
+  display: none !important;
+}
+
+
 // Mobile Style
 
 /* Smartphones (portrait and landscape) ----------- */
@@ -1401,6 +1445,10 @@ header {
     span:before, span:after {
 	    border:none;
     }		
+	}
+
+	.swipe {
+	  display: block !important;
 	}
 
 	.homepage-features {
