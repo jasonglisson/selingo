@@ -191,14 +191,14 @@ jQuery(document).ready(function($) {
 	
 	//store the initial position of the element
 	$(window).scroll(function(){
-	    if($(document).scrollTop() >= 1200) {
+	    if($(document).scrollTop() >= -400) {
 		  // if so, ad the fixed class	  
 			$swipe.fadeIn(function() {
 			  window.setTimeout(function() {
 			    $swipe.fadeOut(800 ,function(){
 						$swipe.remove();
 					});		    
-			  }, 2000);
+			  }, 2500);
 			});		  
 		  
 		} 

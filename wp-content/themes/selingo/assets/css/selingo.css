@@ -332,7 +332,7 @@ header {
     margin: 7.5px;
     padding: 25px;
     box-shadow: 0px 9px 55px -7px rgba(0, 0, 0, 0.53);
-    min-height: 360px;
+    min-height: 300px;
     cursor: -webkit-grab;
     cursor: -moz-grab; }
     .book-talks-section .book-talk-item:focus {
@@ -384,6 +384,28 @@ header {
     z-index: 2; }
   .book-talks-section .slick-arrow {
     display: none !important; }
+  .book-talks-section a {
+    float: left;
+    padding-top: 20px;
+    width: 100%; }
+
+.single-book-talks .page-title.mobile {
+  display: none; }
+
+.single-book-talks #inner-content {
+  margin-bottom: 25px; }
+  .single-book-talks #inner-content .book-talk-city {
+    font-size: 1.2rem; }
+    .single-book-talks #inner-content .book-talk-city i {
+      padding-right: 15px; }
+  .single-book-talks #inner-content .book-talk-location {
+    padding: 25px;
+    background: rgba(221, 221, 221, 0.45);
+    color: #000;
+    float: left;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 15px; }
 
 .signup-form-section {
   background: #73b1c0;
@@ -1153,7 +1175,15 @@ header {
       padding-top: 20px;
       padding-bottom: 10px; }
   .book-talk-item {
-    min-height: 425px !important; }
+    min-height: 330px !important; }
+  .single-book-talks .page-title {
+    display: none; }
+  .single-book-talks .page-title.mobile {
+    display: block; }
+  .single-book-talks .page-title:nth-of-type(2) {
+    padding-bottom: 0; }
+  .single-book-talks .page-title:nth-of-type(3) {
+    padding-top: 0; }
   .signup-form-section h5 {
     padding-bottom: 25px;
     text-align: center;

@@ -22,7 +22,7 @@
 			<![endif]-->
 			<meta name="msapplication-TileColor" content="#f01d4f">
 			<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/images/win8-tile-icon.png">
-	    	<meta name="theme-color" content="#121212">
+	    <meta name="theme-color" content="linear-gradient(135deg, white 0%, #bbd4e6 100%)">
 	    <?php } ?>
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">

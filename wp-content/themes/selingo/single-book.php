@@ -32,7 +32,7 @@ Template: Single Book
 			<h2 class="book-title"><?php the_title() ?></h2>
 			<h4 class="book-subtitle"><?php the_field('book_subtitle');?></h4>
 			<p class="book-summary"><?php the_field('brief_book_summary'); ?></p>
-			<button class="button purchase-book" type="button" data-toggle="purchase-dropdown-1">Purchase This Book<?php ///echo $bookbuttontext; ?><i class="fa fa-caret-down"></i></button>
+			<button class="button purchase-book" type="button" data-toggle="purchase-dropdown-1"><?php echo get_field('book_buy_button'); ?><i class="fa fa-caret-down"></i></button>
 			<div class="dropdown-pane purchase-options" id="purchase-dropdown-1" data-dropdown data-hover="false">
 				<?php if( have_rows('buy_links')) : ?>
 						<?php	while( have_rows('buy_links') ): the_row(); ?>
