@@ -26,8 +26,9 @@ Template Name: About
 						         the_content();
 						   endwhile;
 						endif;		    
-				  ?>  					
-			    					
+				  ?>  	
+				<br>  				
+			  <h5 class="hi-res">Download hi-res photos and book cover image: </h5> 					
 				<?php if( have_rows('jeffs_photos') ): ?>
 				
 					<?php while( have_rows('jeffs_photos') ): the_row(); 

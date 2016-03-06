@@ -779,6 +779,10 @@ header {
 .page-template-page-about-php main {
   padding-bottom: 25px; }
 
+.page-template-page-about-php .hi-res {
+  font-family: 'Raleway', sans-serif;
+  color: #000; }
+
 .page-template-page-speaking h3 {
   font-family: 'Roboto Slab', serif;
   text-transform: uppercase;
