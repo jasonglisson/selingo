@@ -35,7 +35,7 @@ Template Name: Books
 											<p><?php echo get_field('brief_book_summary', $post_objects->ID); ?></p>	
 										<?php endif; ?>	
 										<a href="<?php echo get_permalink($post_objects->ID); ?>"><button class="secondary hollow button">About This Book</button></a>	
-										<button class="button feature-purchase-book" type="button" data-toggle="purchase-dropdown-1">Purchase This Book<i class="fa fa-caret-down"></i></button>
+										<button class="button feature-purchase-book" type="button" data-toggle="purchase-dropdown-1"><?php echo get_field('book_buy_button', $post_objects->ID);?><i class="fa fa-caret-down"></i></button>
 										<div class="dropdown-pane purchase-options" id="purchase-dropdown-1" data-dropdown data-hover="false">
 											<?php if( have_rows('buy_links', $post_objects->ID)) : ?>
 													<?php	while( have_rows('buy_links', $post_objects->ID) ): the_row(); ?>
