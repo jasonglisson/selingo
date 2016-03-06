@@ -421,7 +421,7 @@ header {
 		margin: 7.5px;
 		padding: 25px;
     box-shadow: 0px 9px 55px -7px rgba(0, 0, 0, 0.53);
-    min-height: 300px;
+    min-height: 380px;
 		cursor: -webkit-grab; cursor: -moz-grab;
 		&:focus{
 			cursor: -webkit-grabbing; cursor: -moz-grabbing;			
@@ -485,9 +485,12 @@ header {
 		display: none !important;
 	}
 	a {
-    float: left;
-    padding-top: 20px;
-    width: 100%;		
+		color: #000;
+		border-bottom: 1px dotted blue;
+		transition: .3s all;
+		&:hover {
+			color: #666;
+		}
 	}	
 }
 
@@ -1516,7 +1519,7 @@ header {
 	}
 	
 	.book-talk-item {
-		min-height: 330px !important;
+		min-height: 430px !important;
 	}
 
 	.single-book-talks {

@@ -261,7 +261,7 @@ function book_talks() { ?>
 			'orderby' => 'meta_value',
 			'order' => 'ASC',
 		);
-	?>	
+	?>							
 	<?php $the_query = new WP_Query( $args );?>
 		<?php if ( $the_query->have_posts() ) : ?>
 			<div class="book-talks-section">
@@ -275,14 +275,16 @@ function book_talks() { ?>
 					<?php $date = get_field('date');
 					$date2 = date("F j, Y", strtotime($date)); ?>					
 						<div class="book-talk-date"><?php echo $date2;?> / <?php echo get_field('city'); ?></div>
-						<hr>										
+						<hr>					
+						<?php if(get_field('description')):?>
+							<div class="book-talk-description"><?php echo get_field('description'); ?></div>	
+						<?php endif; ?>							
 						<?php if(get_field('city')): ?>
 							<div class="book-talk-city"><i class="fa fa-map-marker"></i><?php echo get_field('city'); ?></div>	
 						<?php endif; ?>	
 						<?php if(get_field('location')): ?>
 							<div class="book-talk-location"><?php echo get_field('location'); ?></div>	
-						<?php endif; ?>				
-							<a class="" href="<?php echo get_permalink(); ?>">More Info <i class="fa fa-angle-double-right"></i></a>																								
+						<?php endif; ?>																												
 					</li>	
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
