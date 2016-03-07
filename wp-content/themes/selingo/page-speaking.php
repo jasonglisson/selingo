@@ -150,10 +150,10 @@ Template Name: Speaking
 						<p><?php echo get_field('list_of_past_keynotes'); ?></p>
 					</div>
 					<div class="tabs-panel" id="panel2">
-						<p><?php echo get_field('list_of_past_high_schools'); ?></p>
+						<p><?php echo get_field('list_of_past_campus_retreats'); ?></p>						
 					</div>
 					<div class="tabs-panel" id="panel3">
-						<p><?php echo get_field('list_of_past_campus_retreats'); ?></p>
+						<p><?php echo get_field('list_of_past_high_schools'); ?></p>
 					</div>					
 				</div>
 			</div>
