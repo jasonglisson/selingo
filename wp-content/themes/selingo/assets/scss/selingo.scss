@@ -992,6 +992,19 @@ header {
 			}
 		}
 	}
+	.book-offer {
+		padding: 20px;
+		background: rgba(222, 222, 222, 0.4);
+		color: #4c4c4c;
+		a {
+		border-bottom: 1px dotted blue;
+		transition: .3s all;
+		color: #4c4c4c;		
+			&:hover {
+				color: #666;
+			}
+		}
+	}	
 }
 
 // About page

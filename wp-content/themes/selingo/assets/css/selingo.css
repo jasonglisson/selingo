@@ -776,6 +776,17 @@ header {
     .single-book #inner-content .book-review:last-of-type {
       border-bottom: 0px solid #ddd; }
 
+.single-book .book-offer {
+  padding: 20px;
+  background: rgba(222, 222, 222, 0.4);
+  color: #4c4c4c; }
+  .single-book .book-offer a {
+    border-bottom: 1px dotted blue;
+    transition: .3s all;
+    color: #4c4c4c; }
+    .single-book .book-offer a:hover {
+      color: #666; }
+
 .page-template-page-about-php main {
   padding-bottom: 25px; }
 
