@@ -47,7 +47,9 @@ Template: Single Book
 				<a href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_permalink(); ?>&title=<?php echo the_title() ?>" class="book-share" target="_blank">LinkedIn<i class="fa fa-linkedin-square"></i></a>	
 				<a href="https://plus.google.com/share?url=<?php echo get_permalink(); ?>" class="book-share" target="_blank">Google+<i class="fa fa-google-plus-square"></i></a>																			
 			</div>
-			<div class="book-offer"><?php echo get_field('special_offer');?></div>
+			<?php if(!empty(get_field('special_offer'))): ?>
+				<div class="book-offer"><?php echo get_field('special_offer');?></div>
+			<?php endif; ?>
 			<ul class="tabs" data-tabs id="example-tabs">
 			  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Description</a></li>
 			  <?php if( have_rows('book_review')) : ?>
