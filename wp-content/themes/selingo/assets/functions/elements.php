@@ -284,7 +284,8 @@ function book_talks() { ?>
 						<?php endif; ?>	
 						<?php if(get_field('location')): ?>
 							<div class="book-talk-location"><?php echo get_field('location'); ?></div>	
-						<?php endif; ?>																												
+						<?php endif; ?>																	
+						<?php echo edit_post_link(); ?>											
 					</li>	
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
