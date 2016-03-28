@@ -254,11 +254,11 @@ function book_talks() { ?>
 				array(
 					'key' => 'date',
 					'compare' => '>=',
-					'value' => $event,
-					),
+					'value' => $event,								
+				),
 			),
 			'meta_key' => 'date',
-			'orderby' => 'meta_value',
+			'orderby' => 'meta_value title',
 			'order' => 'ASC',
 		);
 	?>							
