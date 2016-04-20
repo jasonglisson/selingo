@@ -364,7 +364,7 @@ function logo_carousel() {
 
 function about_jeff() { 
 	wp_reset_postdata();?>
-	<div class="large-7 small-12 columns about-video"><?php echo do_shortcode('[videojs height="355" width="631" mp4="/wp-content/themes/selingo/assets/video/selingo.mp4" poster="/wp-content/themes/selingo/assets/video/cover.jpg"]');?></div>	
+	<div class="large-7 small-12 columns about-video"><?php echo do_shortcode('[videojs height="355" width="631" mp4="/wp-content/uploads/2016/04/jeffselingoauthorbooklifeaftercollegeeducationweekendessay-160415190029-lva1-app6891-video-SD.mp4" poster="/wp-content/uploads/2016/04/video.jpg"]');?></div>	
 	<div class="large-5 small-12 columns about-jeff-text">
 <!-- 		<?php $aboutJeff = get_field('about_jeff_photo', get_the_id()); ?> -->
 <!-- 		<div class="about-jeff-photo"><img src="<?php echo $aboutJeff['url']; ?>"></div> -->
