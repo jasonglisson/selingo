@@ -381,4 +381,15 @@ function footer_contact_jeff() {
 	echo do_shortcode('[contact-form-7 id="46" title="Contact Jeff"]');
 } 
 
+
+function special_video() { ?>
+	<div class="large-5 small-12 columns about-jeff-text">
+		<h4><?php echo get_field('special_video_title', 44); ?></h4>
+		<?php echo get_field('special_video_text', 44); ?>
+	</div>
+	<div class="large-7 small-12 columns about-video">
+		<?php echo get_field('special_video', 44); ?>		
+	</div>
+<?php }
+
  ?>

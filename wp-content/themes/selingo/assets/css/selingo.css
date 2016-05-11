@@ -702,6 +702,9 @@ header {
       display: table;
       position: relative; }
 
+.special-video {
+  background: #f6f6f6; }
+
 .single-book #inner-content {
   padding: 40px 0 !important; }
   .single-book #inner-content .book-title {
@@ -1191,6 +1194,8 @@ header {
     .about-jeff-section .about-jeff-text {
       padding-top: 20px;
       padding-bottom: 10px; }
+  .special-video {
+    background: #f6f6f6; }
   .book-talk-item {
     min-height: 430px !important; }
   .single-book-talks .page-title {

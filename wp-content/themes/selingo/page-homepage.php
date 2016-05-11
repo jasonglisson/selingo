@@ -14,6 +14,12 @@ Template Name: Homepage
 		
 		<?php book_talks(); ?>					
 		
+		<div class="about-jeff-section special-video">
+			<div class="row">
+				<?php special_video(); ?>
+			</div>	
+		</div>			
+		
 		<div class="about-jeff-section">
 			<div class="row">
 				<?php about_jeff(); ?>

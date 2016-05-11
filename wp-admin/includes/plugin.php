@@ -427,7 +427,12 @@ function _get_dropins() {
 }
 
 /**
- * Check whether the plugin is active by checking the active_plugins list.
+ * Check whether a plugin is active.
+ *
+ * Only plugins installed in the plugins/ folder can be active.
+ *
+ * Plugins in the mu-plugins/ folder can't be "activated," so this function will
+ * return false for those plugins.
  *
  * @since 2.5.0
  *
@@ -455,6 +460,11 @@ function is_plugin_inactive( $plugin ) {
 
 /**
  * Check whether the plugin is active for the entire network.
+ *
+ * Only plugins installed in the plugins/ folder can be active.
+ *
+ * Plugins in the mu-plugins/ folder can't be "activated," so this function will
+ * return false for those plugins.
  *
  * @since 3.0.0
  *
@@ -976,7 +986,7 @@ function uninstall_plugin($plugin) {
 	$uninstallable_plugins = (array) get_option('uninstall_plugins');
 
 	/**
-	 * Fires in uninstall_plugin() before the plugin is uninstalled.
+	 * Fires in uninstall_plugin() immediately before the plugin is uninstalled.
 	 *
 	 * @since 4.5.0
 	 *
