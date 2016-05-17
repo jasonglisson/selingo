@@ -6,6 +6,7 @@ function homepage_feature() {
 	if (get_field('homepage_feature') == 'book') { ?>	
 <?php	if( have_rows('book') ): 
 			while( have_rows('book') ): the_row(); 	 
+			  $bookheading = get_sub_field('book_heading');
 				$bookTitleTop = get_sub_field('featured_book_title');
 				$bookTitleBottom = get_sub_field('featured_book_title_second_line');
 				$bookSubtitle = get_sub_field('featured_book_subtitle');
@@ -33,6 +34,9 @@ function homepage_feature() {
 				<a href="<?php echo $booklink; ?>"><img src="<?php echo $bookImg; ?>"/></a>
 			</div>
 			<div class="large-7 medium-7 small-12 columns book-promo-info">
+				<?php if(!empty($bookheading)) : ?>
+					<h4><?php echo $bookheading; ?></h4>
+				<?php endif; ?>
 				<h2><?php echo $bookTitleTop; ?></h2>
 				<?php if(!empty($bookTitleBottom)) : ?>
 					<h2><?php echo $bookTitleBottom; ?></h2>
