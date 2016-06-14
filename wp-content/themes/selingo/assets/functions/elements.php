@@ -88,9 +88,9 @@ function homepage_feature() {
 				$eventforegroundImg = get_sub_field('event_foreground_image');	
 				$eventbuttonURL = get_sub_field('event_button_link');
 				$eventURLtarget = get_sub_field('event_link_target');
-				$eventBGcolor = get_sub_field('');
+				$eventBGcolor = get_sub_field('event_background_overlay');
 			?>
-			<div class="overlay" style="background:#666;"></div>
+			<div class="overlay" style="background:<?php echo $eventBGcolor; ?>"></div>
 			<div class="event-bg-image" style="background-image:url(<?php echo $eventBG; ?>);"></div>
 			<div class="row">
 				<div class="large-7 medium-12 small-12 columns event-info">
@@ -125,35 +125,40 @@ function homepage_feature() {
 			<?php endwhile; ?>	
 		<?php endif; ?>
 <?php	} else if (get_field('homepage_feature') == 'booking') { ?>
-		<?php if( have_rows('event') ): ?>
-			<?php while( have_rows('event') ): the_row(); 
-				$eventHeading = get_sub_field('event_title'); 
-				$eventTitleTop = get_sub_field('event_title_top');
-				$eventTitleBottom = get_sub_field('event_title_bottom');
-				$eventBG = get_sub_field('event_background_image');				
-				$eventforegroundImg = get_sub_field('event_foreground_image');	
-				$eventbuttonURL = get_sub_field('event_button_link');
-				$eventURLtarget = get_sub_field('event_link_target');
-				$eventBGcolor = get_sub_field('');
+		<?php if( have_rows('booking') ): ?>
+			<?php while( have_rows('booking') ): the_row(); 
+				$bookingHeading = get_sub_field('booking_heading'); 
+				$bookingTitleTop = get_sub_field('booking_title_top');
+				$bookingTitleBottom = get_sub_field('booking_title_bottom');
+				$bookingBG = get_sub_field('booking_background_image');				
+				$bookingforegroundImg = get_sub_field('booking_foreground_image');	
+				$bookingbuttonURL = get_sub_field('booking_url');
+				$bookingbuttonTxt = get_sub_field('booking_button_text');
+				$bookingURLtarget = get_sub_field('booking_link_target');
+				$bookingBGcolor = get_sub_field('booking_background_overlay');
 			?>
 			<div class="overlay" style="background:#666;"></div>
-			<div class="event-bg-image" style="background-image:url(<?php echo $eventBG; ?>);"></div>
+			<div class="event-bg-image" style="background-image:url(<?php echo $bookingBG; ?>);"></div>
 			<div class="row">
 				<div class="large-1 show-for-large columns">&nbsp;</div>					
 				<div class="large-7 medium-12 small-12 columns booking-info">
-			<?php if(!empty($eventTitleTop)) : ?>			
-				<h2>The New School of Thought</h2>
+			<?php if(!empty($bookingTitleTop)) : ?>			
+				<h2><?php echo $bookingTitleTop; ?></h2>
 			<?php endif; ?>
-			<?php if(!empty($eventTitleBottom)) : ?>				
-				<h2>for Higher Education</h2>
+			<?php if(!empty($bookingTitleBottom)) : ?>				
+				<h2><?php echo $bookingTitleBottom; ?></h2>
 			<?php endif; ?>	
-			<p>Jeff Selingo is a best-selling author and award-winning columnist who helps parents and higher-education leaders imagine the college and university of the future and how to succeed in a fast-changing economy. </p>
+			<p><?php echo $bookingHeading; ?></p>
 			<a href="/about"><button class="secondary hollow button">About Jeff</button></a>	
-			<a href="/contact" class="button">Check Availabilty</a>					
+				<?php if( is_array($bookingURLtarget) && in_array('yes', $bookingURLtarget ) ) {?>
+					<a href="<?php echo $bookingbuttonURL; ?>" class="button" target="_blank"><?php echo $bookingbuttonTxt; ?></a>
+				<?php } else { ?>
+					<a href="<?php echo $bookingbuttonURL; ?>" class="button"><?php echo $bookingbuttonTxt; ?></a>					
+				<?php } ?>			
 		</div>
 				<div class="large-4 columns show-for-large">
-					<?php if(!empty($eventforegroundImg)) :?>
-						<img src="<?php echo $eventforegroundImg; ?>" class="foreground-img">
+					<?php if(!empty($bookingforegroundImg)) :?>
+						<img src="<?php echo $bookingforegroundImg; ?>" class="foreground-img">
 					<?php endif; ?>	
 				</div>		
 			</div>	
@@ -318,8 +323,6 @@ function book_carousel() { ?>
 			if (isset($bookImg)) {		
     		echo '<div class="book-img"><a href="' . get_permalink() .'"><img src="' . $bookImg .'"></a><a href="' . get_permalink() . '" class="button">Learn More</a></div>';				
 			}		
-    	//echo '<div class="book-title"><a href="' . get_permalink() .'">' . get_field('full_book_title') . '</a></div>';    
-    	//echo '<a href="' . get_permalink() . '" class="button">Learn More</a>';
     ?>
     <div class="book-info show-for-large">
 	    <a href="<?php echo get_permalink(); ?>"></a>
@@ -368,14 +371,11 @@ function logo_carousel() {
 
 function about_jeff() { 
 	wp_reset_postdata();?>
-	<div class="large-7 small-12 columns about-video"><?php echo do_shortcode('[videojs height="355" width="631" mp4="/wp-content/uploads/2016/04/jeffselingoauthorbooklifeaftercollegeeducationweekendessay-160415190029-lva1-app6891-video-SD.mp4" poster="/wp-content/uploads/2016/05/video.jpg"]');?></div>	
+	<div class="large-7 small-12 columns about-video"><?php echo do_shortcode('[videojs height="355" width="631" mp4="' . get_field('about_jeff_video', 44) .  '" poster="' . get_field('about_jeff_video_cover', 44) . '"]');?></div>	
 	<div class="large-5 small-12 columns about-jeff-text">
-<!-- 		<?php $aboutJeff = get_field('about_jeff_photo', get_the_id()); ?> -->
-<!-- 		<div class="about-jeff-photo"><img src="<?php echo $aboutJeff['url']; ?>"></div> -->
 		<h4>About Jeff</h4>
 		<div class="about-text">
 			<?php echo get_field('about_jeff', 44); ?>
-<!-- 			<a href="/about">Read More <i class="fa fa-angle-double-right"></i></a> -->
 		</div>
 	</div>
  <?php } 
@@ -386,14 +386,22 @@ function footer_contact_jeff() {
 } 
 
 
-function special_video() { ?>
-	<div class="large-5 small-12 columns about-jeff-text">
-		<h4><?php echo get_field('special_video_title', 44); ?></h4>
-		<?php echo get_field('special_video_text', 44); ?>
-	</div>
-	<div class="large-7 small-12 columns about-video">
-		<?php echo get_field('special_video', 44); ?>		
-	</div>
+function special_video() { 
+	$specialVid = get_field('special_video');
+?>
+	<?php if(!empty($specialVid)) : ?>	
+		<div class="about-jeff-section special-video">
+			<div class="row">	
+				<div class="large-5 small-12 columns about-jeff-text">
+					<h4><?php echo get_field('special_video_title', 44); ?></h4>
+					<?php echo get_field('special_video_text', 44); ?>
+				</div>
+				<div class="large-7 small-12 columns about-video">
+					<?php echo get_field('special_video', 44); ?>		
+				</div>
+			</div>
+		</div>		
+	<?php endif; ?>	
 <?php }
 
  ?>
