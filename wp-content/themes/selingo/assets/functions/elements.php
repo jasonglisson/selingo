@@ -188,7 +188,7 @@ function jeff_resources() { ?>
 					<hr>				
 					<h5><span><a href="<?php echo get_field('column_link');?>" target="_blank"><?php the_title(); ?></a></span></h5>
 					<div class="blog-text"><?php echo get_blog_excerpt(); ?></div>
-					<a href="<?php echo get_permalink(); ?>" class="button hide-for-large">See All Columns</a>
+					<a href="/columns" class="button hide-for-large">See All Columns</a>
 					<?php endwhile; ?>
 					<?php wp_reset_postdata(); ?>
 				<?php endif; ?>
@@ -199,7 +199,7 @@ function jeff_resources() { ?>
 			<div class="inner-column">
 				<img src="<?php echo get_field('book_jeff_image'); ?>"/>
 				<p><?php echo get_field('book_jeff_text'); ?></p>
-				<a href="#" class="button hide-for-large">Book Jeff</a>
+				<a href="/contact" class="button hide-for-large">Book Jeff</a>
 			</div>		
 		</div>
 		<div class="large-4 columns resource-col upcoming-events">
@@ -238,7 +238,7 @@ function jeff_resources() { ?>
 					
 					<?php endif; ?>					
 				
-				<a href="/media-appearances" class="button hide-for-large">See Appearances</a>
+				<a href="/speaking" class="button hide-for-large">See Appearances</a>
 			</div>
 		</div>	
 	</div>	
@@ -247,7 +247,7 @@ function jeff_resources() { ?>
 			<a href="/columns" class="button">See All Columns</a>
 		</div>			
 		<div class="large-4 columns"><a href="/contact" class="button">Book Jeff</a></div>			
-		<div class="large-4 columns"><a href="/media-appearances" class="button">See All Appearances</a></div>					
+		<div class="large-4 columns"><a href="/speaking" class="button">See All Appearances</a></div>					
 	</div>
 <?php }
 
