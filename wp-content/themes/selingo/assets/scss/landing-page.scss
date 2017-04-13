@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,300');
+
+.navbar .brand {
+	padding: 10px 5px 10px;
+}	
+
+.top-bg {
+	background-repeat: no-repeat; 
+	background-position: center top; 
+	background-size: cover;
+	height: auto;
+	position: relative;
+	.bg-overlay {
+		height: 100%;
+		width: 100%;
+		opacity: .5;
+		position: absolute;
+	}
+	h1, h2 {
+		color: #fff;	
+    text-shadow: 0 0 18px #000;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+	}
+	h1 {
+		padding-top: 60px;
+		font-weight: 300;
+		font-size: 2.3rem;
+	}
+	h2 {
+		padding-bottom: 60px;		
+		text-transform: uppercase;
+		font-weight: 400;
+		font-size: 2rem;
+	}
+	.container {
+    position: relative;
+    z-index: 2;
+    padding-top: 113px;
+	}
+}
+
+.row.content {
+	margin: 45px auto;
+}
+
+input[type=submit].button {
+  width: 300px;
+  margin: 0 auto;
+  display: inherit;
+  height: 35px;
+  border-radius: 1px;	
+}
+
+.mc4wp-alert {
+	text-align: center;
+	background: rgba(0, 128, 0, 0.21);
+	padding: 24px 10px 15px 10px;
+	font-size: 14px;
+	width: 100%;	
+}
