@@ -12,7 +12,7 @@ Edit the permalink of custom post type.
 [![Build Status](https://travis-ci.org/torounit/custom-post-type-permalinks.svg)](https://travis-ci.org/torounit/custom-post-type-permalinks)
 [![Donation](https://img.shields.io/badge/bitcoin-donate-yellow.svg)](https://blockchain.info/ja/address/3HwkojX2pd9wc5kPFdXnDXMTNbgBmPRygX)
 [![Gratipay](https://img.shields.io/gratipay/team/custom-post-type-permalinks.svg)](https://gratipay.com/Custom-Post-Type-Permalinks/)
-[![](https://torounit.com/wp-content/uploads/2011/11/banner-772x250.png)](https://wordpress.org/plugins/custom-post-type-permalinks/)
+[![](https://ps.w.org/custom-post-type-permalinks/assets/banner-1544x500.png?rev=1044335)](https://wordpress.org/plugins/custom-post-type-permalinks/)
 
 ## Description
 
@@ -72,6 +72,20 @@ That's it. You can access the permalinks setting by going to *Settings -> Permal
 
 
 ## Changelog
+
+### 3.1.3
+
+* Test for WordPress 4.8.
+* Bug fix for attachment link.
+
+### 3.1.1
+
+* Bug fix in CPTP_Module_Setting::upgrader_process_complete.
+
+### 3.1.0
+
+* Add filter 'CPTP_date_front'.
+* Fix sort term by `wp_list_sort` .
 
 ### 3.0.0
 

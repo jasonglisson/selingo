@@ -110,3 +110,5 @@ function wt_parse_request_trick( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'wt_parse_request_trick' );
+
+add_theme_support( 'woocommerce' );
