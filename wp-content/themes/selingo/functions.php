@@ -127,6 +127,8 @@ function jk_dequeue_styles( $enqueue_styles ) {
 // Remove Woocommerce styles
 //add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 
+add_filter( 'woocommerce_cart_needs_shipping_address', '__return_true', 50 );
+
 // Remove Woocommerce breadcrumbs
 add_action( 'init', 'jk_remove_wc_breadcrumbs' );
 function jk_remove_wc_breadcrumbs() {
