@@ -112,3 +112,23 @@ function wt_parse_request_trick( $query ) {
 add_action( 'pre_get_posts', 'wt_parse_request_trick' );
 
 add_theme_support( 'woocommerce' );
+
+// Remove each style one by one
+/*
+add_filter( 'woocommerce_enqueue_styles', 'jk_dequeue_styles' );
+function jk_dequeue_styles( $enqueue_styles ) {
+	unset( $enqueue_styles['woocommerce-general'] );	// Remove the gloss
+	unset( $enqueue_styles['woocommerce-layout'] );		// Remove the layout
+	unset( $enqueue_styles['woocommerce-smallscreen'] );	// Remove the smallscreen optimisation
+	return $enqueue_styles;
+}
+*/
+
+// Remove Woocommerce styles
+//add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+// Remove Woocommerce breadcrumbs
+add_action( 'init', 'jk_remove_wc_breadcrumbs' );
+function jk_remove_wc_breadcrumbs() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}

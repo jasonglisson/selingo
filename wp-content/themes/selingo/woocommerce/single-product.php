@@ -23,6 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header( 'shop' ); ?>
 
 <div class="row">
+  <?php echo get_the_title(); ?>
 	<?php
 		/**
 		 * woocommerce_before_main_content hook.

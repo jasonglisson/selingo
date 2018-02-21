@@ -83,8 +83,14 @@ input[type=submit] {
 
 body {
 	#content {
-		padding-top:110px;		
+		padding-top: 110px;		
 	}
+}
+
+.woocommerce-page {
+  #main {
+		padding-top: 110px;    
+  }
 }
 
 // Header
@@ -1469,6 +1475,114 @@ header {
   display: none !important;
 }
 
+
+// Woocommerce pages
+
+.woocommerce {
+  div.product {
+    div.images.woocommerce-product-gallery {
+      width: 30%;
+    }
+    div.summary {
+      float: right;
+      width: 65%;
+      padding-bottom: 50px;       
+    }
+    form.cart {
+      .variations {
+        td.label {
+          padding-right: 0;
+        }
+        label {
+          padding: 0 15px;
+        }
+        td.value {
+          display: inline-block;
+        }
+      }
+      .button {
+        background-color: #167ac6;
+      }    
+    }
+  }
+}  
+
+.woocommerce-page {
+  
+  .woocommerce-message {
+    text-align: center;
+    padding: 20px;
+    background-color: #efefef;
+    margin-bottom: 20px;
+    .button {
+      margin-top: 10px;
+    }
+  }
+  
+  .product_title {
+    font-family: 'Roboto Slab', serif;
+    line-height: 55px;
+    text-transform: uppercase;
+    font-size: 2.5rem;  
+    color: #167ac6;
+  }
+  .price {
+    font-weight: bold;
+  }
+  .summary {
+    float: right;
+    width: 65%;
+    padding-bottom: 50px;
+  }
+  table.variations {
+    tbody {
+      border: none;
+      background: none;
+    }
+    .label {
+      padding: 0.43333rem 0.5rem;
+      label {
+        color: #fff;
+      }
+    }        
+    .value {
+      padding: 0;
+    }
+  }
+  .woocommerce-Price-amount {
+    font-size: 2rem;
+    padding-bottom: 25px;
+    display: inline-block;
+    color: #167ac6;
+  }
+  .quantity {
+    display: inline-block;
+  }
+  .single_add_to_cart_button {
+    margin-left: 20px;
+    margin-top: 13px;
+    width: 150px;
+    font-size: 1rem;   
+  }
+  p.price {
+    display: none;
+  }
+}    
+
+.woocommerce-cart, .woocommerce-checkout {
+  #main {
+    padding-top: 30px;
+  }
+  .woocommerce-Price-amount {
+    font-size: inherit;
+    padding-bottom: unset;
+    display: inline-block;
+    color: #167ac6;
+  } 
+  a.button.alt, button.button.alt {
+    background-color: #167ac6;
+  } 
+}
 
 // Mobile Style
 
